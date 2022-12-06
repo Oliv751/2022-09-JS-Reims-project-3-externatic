@@ -10,12 +10,9 @@ export default function OfferCard({ offer }) {
         <Card.Subtitle className="mb-2 text-muted">
           {offer.offerName}
         </Card.Subtitle>
-        <Card.Text>
-          {offer.location}
-          <br />
-          {offer.contract}
-        </Card.Text>
-        <Card.Link href="#">Card Link</Card.Link>
+        <Card.Text>{offer.location}</Card.Text>
+        <Card.Text>{offer.contract}</Card.Text>
+        <Card.Link href="#">Apply</Card.Link>
       </Card.Body>
     </Card>
   );
