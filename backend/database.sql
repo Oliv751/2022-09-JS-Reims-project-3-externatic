@@ -15,7 +15,7 @@ INSERT INTO offer (offer_name, location, contract, publication_date) VALUES
 CREATE TABLE company (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   company_name varchar(100) NOT NULL,
-  logo varchar(205) NOTT NULL
+  logo varchar(205) NOT NULL
 )
   engine=InnoDB DEFAULT charset=latin1;
 
