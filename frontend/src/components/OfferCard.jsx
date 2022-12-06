@@ -1,17 +1,23 @@
 import React from "react";
+import Card from "react-bootstrap/Card";
 import SampleCard from "./sampleCard";
 
 export default function OfferCard({ offer }) {
   return (
-    <div>
-      <h1>{offer.companyName}</h1>
-      <h2>{offer.offerName}</h2>
-      <p>{offer.location}</p>
-      <p>{offer.contract}</p>
-      <p>{offer.publicationDate}</p>
-
-      <div className="card" />
-    </div>
+    <Card style={{ width: "18rem" }}>
+      <Card.Body>
+        <Card.Title>{offer.companyName}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">
+          {offer.offerName}
+        </Card.Subtitle>
+        <Card.Text>
+          {offer.location}
+          <br />
+          {offer.contract}
+        </Card.Text>
+        <Card.Link href="#">Card Link</Card.Link>
+      </Card.Body>
+    </Card>
   );
 }
 
