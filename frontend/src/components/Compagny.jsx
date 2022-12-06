@@ -1,6 +1,6 @@
 export default function Compagny() {
   return (
-    <section>
+    <form>
       <p>Join Externatic as entreprise</p>
       <div>
         <label htmlFor="name">Nom</label>
@@ -18,6 +18,6 @@ export default function Compagny() {
       </div>
 
       <button type="button">Creer un compte</button>
-    </section>
+    </form>
   );
 }
