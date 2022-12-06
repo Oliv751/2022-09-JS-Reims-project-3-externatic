@@ -16,4 +16,10 @@ router.put("/companies/:id", itemControllers.edit);
 router.post("/companies", itemControllers.add);
 router.delete("/companies/:id", itemControllers.destroy);
 
+router.get("/candidates", itemControllers.browse);
+router.get("/candidates/:id", itemControllers.read);
+router.put("/candidates/:id", itemControllers.edit);
+router.post("/candidates", itemControllers.add);
+router.delete("/candidates/:id", itemControllers.destroy);
+
 module.exports = router;

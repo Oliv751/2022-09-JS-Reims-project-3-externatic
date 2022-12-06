@@ -23,3 +23,16 @@ CREATE TABLE company (
 INSERT INTO company (company_name, logo) VALUES
 ('lorem ipsum 1', 'lorem ipsum 1'),
 ('lorem ipsum 2', 'lorem ipsum 2');
+
+CREATE TABLE candidate (
+  id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  firstname varchar(100) NOT NULL,
+  lastname varchar(100) NOT NULL,
+  contract varchar(200) NOT NULL
+)
+  engine=InnoDB DEFAULT charset=latin1;
+
+
+INSERT INTO candidate (firstname, lastname, contract) VALUES
+('lorem ipsum 1', 'lorem ipsum 1', 'lorem ipsum 1'),
+('lorem ipsum 2', 'lorem ipsum 2', 'lorem ipsum 2');
