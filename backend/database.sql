@@ -11,3 +11,15 @@ CREATE TABLE offer (
 INSERT INTO offer (offer_name, location, contract, publication_date) VALUES
 ('lorem ipsum 1', 'lorem ipsum 1', 'lorem ipsum 1', '20221206'),
 ('lorem ipsum 2', 'lorem ipsum 2', 'lorem ipsum 2', '20221206');
+
+CREATE TABLE enterprise (
+  id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  company_name varchar(100) NOT NULL,
+  logo varchar(205) NOTT NULL
+)
+  engine=InnoDB DEFAULT charset=latin1;
+
+
+INSERT INTO enterprise (company_name, logo) VALUES
+('lorem ipsum 1', 'lorem ipsum 1'),
+('lorem ipsum 2', 'lorem ipsum 2');
