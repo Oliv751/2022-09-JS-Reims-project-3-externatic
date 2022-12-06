@@ -1,0 +1,32 @@
+form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 1rem;
+
+  p {
+    text-align: right;
+  }
+
+  label,
+  input {
+    display: inline-block;
+    margin: 1rem 0;
+  }
+
+  label {
+    width: 30vw;
+  }
+
+  input {
+    width: 50vw;
+  }
+
+  button {
+    margin: auto;
+    margin-top: 5rem;
+    width: 50vw;
+    border-radius: 10px;
+    padding: 0.5rem;
+  }
+}
