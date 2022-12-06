@@ -22,4 +22,16 @@ router.put("/candidates/:id", itemControllers.edit);
 router.post("/candidates", itemControllers.add);
 router.delete("/candidates/:id", itemControllers.destroy);
 
+router.get("/users", itemControllers.browse);
+router.get("/users/:id", itemControllers.read);
+router.put("/users/:id", itemControllers.edit);
+router.post("/users", itemControllers.add);
+router.delete("/users/:id", itemControllers.destroy);
+
+router.get("/documents", itemControllers.browse);
+router.get("/documents/:id", itemControllers.read);
+router.put("/documents/:id", itemControllers.edit);
+router.post("/documents", itemControllers.add);
+router.delete("/documents/:id", itemControllers.destroy);
+
 module.exports = router;
