@@ -7,7 +7,7 @@ function App() {
   const firstOffer = {
     id: 1,
     companyName: "Company 1",
-    offerName: "Offer 1",
+    offerName: "Développeur React",
     location: "Paris",
     contract: "CDI",
     publicationDate: "2021-01-01",
@@ -15,7 +15,7 @@ function App() {
   const secondOffer = {
     id: 2,
     companyName: "Company 2",
-    offerName: "Offer 2",
+    offerName: "Développeur Fullstack",
     location: "Paris",
     contract: "CDI",
     publicationDate: "2021-01-01",

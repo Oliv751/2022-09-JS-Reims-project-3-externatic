@@ -1,0 +1,29 @@
+.card {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .card-subtitle {
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+
+  .card-text {
+    font-size: 1.25rem;
+    font-weight: 400;
+  }
+
+}
+
+.card:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}

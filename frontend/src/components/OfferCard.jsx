@@ -7,11 +7,13 @@ export default function OfferCard({ offer }) {
   return (
     <CardGroup>
       <Card style={{ width: "18rem" }}>
-        <Card.Body>
+        <Card.Header>
           <Card.Title>{offer.companyName}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">
-            {offer.offerName}
+          <Card.Subtitle className="mb-1 text-muted">
+            {offer.offerName} / {offer.publicationDate}
           </Card.Subtitle>
+        </Card.Header>
+        <Card.Body>
           <Card.Text>{offer.contract}</Card.Text>
           <Card.Text>{offer.location}</Card.Text>
           <Button variant="secondary">Apply</Button>
