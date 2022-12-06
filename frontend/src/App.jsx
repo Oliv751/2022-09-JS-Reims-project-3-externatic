@@ -1,6 +1,7 @@
 import OfferList from "./components/OfferList";
 import Header from "./components/Header";
 import "./App.css";
+import CreateCompte from "./pages/CreateCompte";
 
 function App() {
   const firstOffer = {
@@ -24,6 +25,7 @@ function App() {
     <div className="App">
       <OfferList offerList={offerList} />
       <Header />
+      <CreateCompte />
     </div>
   );
 }
