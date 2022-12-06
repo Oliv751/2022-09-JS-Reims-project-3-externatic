@@ -5,13 +5,11 @@ import SampleCard from "./sampleCard";
 
 export default function OfferList({ offerList }) {
   return (
-    <div className="OfferList">
-      <ul>
-        {offerList.map((offer) => (
-          <OfferCard key={offer.id} offer={offer} />
-        ))}
-      </ul>
-    </div>
+    <ul className="OfferList">
+      {offerList.map((offer) => (
+        <OfferCard key={offer.id} offer={offer} />
+      ))}
+    </ul>
   );
 }
 
