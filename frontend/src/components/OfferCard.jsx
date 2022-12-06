@@ -4,8 +4,11 @@ import SampleCard from "./sampleCard";
 export default function OfferCard({ offer }) {
   return (
     <div>
-      <h2>{offer.name}</h2>
-      <p>{offer.description}</p>
+      <h1>{offer.companyName}</h1>
+      <h2>{offer.offerName}</h2>
+      <p>{offer.location}</p>
+      <p>{offer.contract}</p>
+      <p>{offer.publicationDate}</p>
 
       <div className="card" />
     </div>

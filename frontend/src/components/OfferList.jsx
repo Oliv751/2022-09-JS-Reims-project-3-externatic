@@ -1,23 +1,24 @@
 import React from "react";
+import PropTypes from "prop-types";
 import OfferCard from "./OfferCard";
 import SampleCard from "./sampleCard";
 
-export default function OfferList({ offer }) {
+export default function OfferList({ offerList }) {
   return (
     <div className="OfferList">
       <ul>
-        <li key={offer.id}>
-          <OfferCard offer={offer} />
-        </li>
+        {offerList.map((offer) => (
+          <OfferCard key={offer.id} offer={offer} />
+        ))}
       </ul>
     </div>
   );
 }
 
 OfferList.defaultProps = {
-  offer: [],
+  offerList: [],
 };
 
 OfferList.propTypes = {
-  offer: SampleCard,
+  offerList: PropTypes.arrayOf(SampleCard),
 };
