@@ -1,5 +1,5 @@
 import Compagny from "../components/Compagny";
-import "../styles/createCompte.scss";
+import "../styles/createAccount.scss";
 
 export default function CreateAccount() {
   return <Compagny />;
