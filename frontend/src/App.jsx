@@ -1,6 +1,5 @@
 import OfferList from "./components/OfferList";
 import Header from "./components/Header";
-
 import "./App.css";
 
 function App() {
