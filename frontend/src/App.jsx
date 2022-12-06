@@ -17,9 +17,10 @@ function App() {
   const offerList = [firstOffer, secondOffer];
   return (
     <div className="App">
-      {offerList.map((offer) => offer)}
+      {offerList.map((offer) => (
+        <OfferList offer={offer} />
+      ))}
       <Header />
-      <OfferList offers={offerList} />
     </div>
   );
 }

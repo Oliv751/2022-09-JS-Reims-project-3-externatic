@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import SampleCard from "./sampleCard";
 
 export default function OfferCard({ offer }) {
   return (
@@ -12,15 +12,10 @@ export default function OfferCard({ offer }) {
   );
 }
 
-OfferCard.propTypes = {
-  offer: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    logo: PropTypes.string,
-  }),
+OfferCard.defaultProps = {
+  offer: [],
 };
 
-OfferCard.defaultProps = {
-  offer: { logo: null },
+OfferCard.propTypes = {
+  offer: SampleCard,
 };
