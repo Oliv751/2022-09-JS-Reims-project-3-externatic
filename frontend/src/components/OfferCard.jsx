@@ -6,7 +6,7 @@ import "./offercard-style.scss";
 
 export default function OfferCard({ offer }) {
   return (
-    <Link to={`/offer/${offer.id}`}>
+    <Link to={`/offers/${offer.id}`}>
       <CardGroup>
         <Card style={{ width: "18rem" }}>
           <Card.Header>
