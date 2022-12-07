@@ -4,7 +4,7 @@ import supprimer from "../assets/bouton-supprimer.png";
 
 export default function CompagnySpace() {
   return (
-    <section className="space">
+    <form className="space">
       <section className="describeCompagny">
         <div>
           <label htmlFor="name">Nom</label>
@@ -19,12 +19,12 @@ export default function CompagnySpace() {
           <input id="mail" type="email" value="wild@wild.fr" />
         </div>
         <div>
-          <label htmlFor="adress">Adresse</label>
-          <input type="text" value="10 rue de reims , REIMS" />
+          <label htmlFor="address">Adresse</label>
+          <input id="address" type="text" value="10 rue de reims , REIMS" />
         </div>
       </section>
 
-      <section className="offersList">
+      <section className="offers">
         <div>
           <h2>Mes offres</h2>
           <button type="button">Ajouter une offre</button>
@@ -52,6 +52,6 @@ export default function CompagnySpace() {
       </section>
 
       <button type="button">Enregistrer</button>
-    </section>
+    </form>
   );
 }
