@@ -11,8 +11,8 @@ CREATE TABLE user (
 INSERT INTO user (id, address, phone, email, password, role) VALUES
 (1, 'lorem ipsum 1', '0606060606', 'lorem ipsum 1', 'lorem ipsum 1', 'lorem ipsum 1'),
 (2, 'lorem ipsum 2', '0606060606', 'lorem ipsum 2', 'lorem ipsum 2', 'lorem ipsum 2'),
-(3, 'lorem ipsum 1', '0606060606', 'lorem ipsum 1', 'lorem ipsum 1', 'lorem ipsum 1'),
-(4, 'lorem ipsum 2', '0606060606', 'lorem ipsum 2', 'lorem ipsum 2', 'lorem ipsum 2');
+(3, 'lorem ipsum 3', '0606060606', 'lorem ipsum 3', 'lorem ipsum 3', 'lorem ipsum 3'),
+(4, 'lorem ipsum 4', '0606060606', 'lorem ipsum 4', 'lorem ipsum 4', 'lorem ipsum 4');
 
 
 CREATE TABLE company (
