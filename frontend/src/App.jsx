@@ -22,8 +22,8 @@ function App() {
   const offerList = [firstOffer, secondOffer];
   return (
     <div className="App">
-      <OfferList offerList={offerList} />
       <Header />
+      <OfferList offerList={offerList} />
     </div>
   );
 }
