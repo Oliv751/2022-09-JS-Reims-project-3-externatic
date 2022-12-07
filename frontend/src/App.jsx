@@ -1,6 +1,8 @@
+import Container from "react-bootstrap/Container";
 import OfferList from "./components/OfferList";
 import Header from "./components/Header";
 import "./App.css";
+import ConnexionPage from "./pages/ConnexionPage";
 
 function App() {
   const firstOffer = {
@@ -22,8 +24,11 @@ function App() {
   const offerList = [firstOffer, secondOffer];
   return (
     <div className="App">
-      <Header />
-      <OfferList offerList={offerList} />
+      <Container>
+        <ConnexionPage />
+        <OfferList offerList={offerList} />
+        <Header />
+      </Container>
     </div>
   );
 }
