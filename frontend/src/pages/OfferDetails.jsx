@@ -15,7 +15,7 @@ function OfferDetails() {
       <section className="Job-Description">
         <h4>Job Description</h4>
         <h5 className="Job-Type">Job Type</h5>
-        <h6 className="Location">Location</h6>
+        <h6 className="Job-Location">Location</h6>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam
           lectus. Set sit amet ipsum mauris. Maecenas congue ligula as quam
