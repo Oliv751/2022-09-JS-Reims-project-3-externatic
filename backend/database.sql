@@ -19,7 +19,7 @@ CREATE TABLE company (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   company_name varchar(100) NOT NULL,
   logo varchar(250) NOT NULL,
-  user_id int(11) UNSIGNED,
+  user_id int(11) UNSIGNED NOT NULL,
   CONSTRAINT fk_company_user FOREIGN KEY (user_id) references user(id)
 )
   engine=InnoDB DEFAULT charset=latin1;
