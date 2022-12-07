@@ -1,38 +1,33 @@
 import React from "react";
 import "./connexionpage-style.scss";
 import Button from "react-bootstrap/Button";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
+import { ButtonGroup } from "reactstrap";
+import Container from "react-bootstrap/Container";
 
 export default function ConnexionPage() {
   return (
-    <div className="connexionpage">
+    <Container>
       <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+        <FloatingLabel
+          controlId="floatingInput"
+          label="Email address"
+          className="mb-3"
+        >
+          <Form.Control type="email" placeholder="name@example.com" />
+        </FloatingLabel>
+        <FloatingLabel controlId="floatingPassword" label="Password">
           <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-        <Button type="button" className="btn btn-primary">
-          Connexion
-        </Button>
-        <div classename="createbutton">
-          <Button type="button" className="btn btn-secondary">
-            Creer un compte Candidat
-          </Button>
-          <Button type="button" className="btn btn-secondary">
-            Creer un compte Entreprise
-          </Button>
-        </div>
-
+        </FloatingLabel>
+        <Button variant="primary">Log in</Button>
+        <ButtonGroup aria-label="Basic example">
+          <Button variant="secondary">Creer mon compte Candidat</Button>
+          <Button variant="secondary">Creer mon compte Entreprise</Button>
+        </ButtonGroup>
         <hr />
         <footer className="connexionfooter">
-          <p>connexion avec</p>
+          <p>Sign up with</p>
           <a
             className="btn btn-lg btn-google btn-block text-uppercase btn-outline"
             href="/auth/google"
@@ -55,6 +50,6 @@ export default function ConnexionPage() {
           </a>
         </footer>
       </Form>
-    </div>
+    </Container>
   );
 }
