@@ -5,6 +5,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import { ButtonGroup } from "reactstrap";
 import Container from "react-bootstrap/Container";
+import { Link } from "react-router-dom";
 
 export default function ConnexionPage() {
   return (
@@ -23,7 +24,9 @@ export default function ConnexionPage() {
         <Button variant="primary">Log in</Button>
         <ButtonGroup aria-label="Basic example">
           <Button variant="secondary">Creer mon compte Candidat</Button>
-          <Button variant="secondary">Creer mon compte Entreprise</Button>
+          <Link to="/createentreprise">
+            <Button variant="secondary">Creer mon compte Entreprise</Button>
+          </Link>
         </ButtonGroup>
         <hr />
         <footer className="connexionfooter">
