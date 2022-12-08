@@ -15,7 +15,7 @@ function OfferDetails() {
       <p className="Job-Type">Job Type</p>
       <p className="Job-Location">Location</p>
       <section className="Job-Description">
-        <h4>Description de l'offre</h4>
+        <h1>Description de l'offre</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam
           lectus. Set sit amet ipsum mauris. Maecenas congue ligula as quam
@@ -25,7 +25,7 @@ function OfferDetails() {
         </p>
       </section>
       <section className="Entreprise-Description">
-        <h4>L'entreprise</h4>
+        <h1>L'entreprise</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam
           lectus. Set sit amet ipsum mauris. Maecenas congue ligula as quam
