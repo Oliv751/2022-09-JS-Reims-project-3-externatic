@@ -28,5 +28,6 @@ router.delete("/candidates/:id", candidateControllers.destroy);
 router.get("/users", userControllers.browse);
 router.get("/users/:id", userControllers.read);
 router.put("/users/:id", userControllers.edit);
+router.post("/users", userControllers.add);
 
 module.exports = router;
