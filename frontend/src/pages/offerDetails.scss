@@ -5,11 +5,13 @@ $colors: (
   secondary: #404040,
   tertiary: #c91961,
   );
-  @mixin flex-center {
+
+//for test , to delete after//
+/*   @mixin flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */
 
 * {
   margin: 0;
@@ -23,18 +25,20 @@ $colors: (
 .Offer-Details {
   display: grid;
   grid-column-gap: 9px;
-  grid-template: 20px 60px 60px 60px 4fr 4fr 20px / 10px 2fr 3fr 2fr 10px;
+  grid-template: 20px 60px 60px 30px 30px 30px 4fr 4fr 20px / 20px 2fr 3fr 2fr 20px;
   font-family: $font-family;
   color: map-get($colors, primary);
 }
 
 .Job-Name {
+  margin: 0;
   grid-area: 2 / 2 / 3 / 5;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 600;
 }
 
 .Entreprise-Name {
+  margin: 0;
   grid-area: 3 / 2 / 4 / 4;
   color: map-get($colors, secondary);
   font-size: 1.2rem;
@@ -42,50 +46,65 @@ $colors: (
 }
 
 .Publication-Date {
+  margin: 0;
   grid-area: 3 / 4 / 4 / 5;
-  color: map-get($colors, secondary);
+  color: map-get($colors, tertiary);
   inset-block: 0;
   font-size: 1rem;
   font-weight: 600;
   text-align: right;
 }
 
+.Job-Type {
+  margin: 0;
+  grid-area: 4 / 4 / 5 / 5;
+  text-align: end;
+  color: map-get($colors, secondary);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.Job-Location {
+  margin: 0;
+  grid-area: 5 / 4 / 6 / 5;
+  text-align: end;
+  color: map-get($colors, secondary);
+  font-weight: 600;
+}
+
+//Job-Description with content//
 .Job-Description {
-  grid-area: 5 / 2 / 6 / 5;
+  margin: 0;
+  grid-area: 7 / 2 / 8 / 5;
   font-size: 1rem;
 
-
   h4 {
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-
-  .Job-Type {
-    color: map-get($colors, secondary);
     font-size: 1rem;
     font-weight: 600;
   }
 
-  .Job-Location {
-    color: map-get($colors, secondary);
-    font-weight: 600;
-  }
-
   p {
+    margin-bottom: 2rem;
+    padding: .5rem 1rem;
     font-weight: 400;
+    box-shadow: 0px 2px 6px 0px rgba(58, 58, 58, 0.70);
   }
 }
 
+//Entreprise-Description with content//
 .Entreprise-Description {
-  grid-area: 6 / 2 / 7 / 5;
+  grid-area: 8 / 2 / 9 / 5;
   font-size: 1rem;
   font-weight: 600;
 
-    h4 {
-    font-size: 1.2rem;
+  h4 {
+    font-size: 1rem;
     font-weight: 600;
   }
+  
   p {
+    padding: .5rem 1rem;
     font-weight: 400;
+    box-shadow: 0px 2px 6px 0px rgba(58, 58, 58, 0.70);
   }
 }
