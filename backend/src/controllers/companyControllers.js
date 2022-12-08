@@ -47,8 +47,24 @@ const edit = (req, res) => {
       res.sendStatus(500);
     });
 };
+
+const add = (req, res) => {
+  const company = req.body;
+
+  models.company
+    .insert(company)
+    .then(([result]) => {
+      res.location(`/companies/${result.insertId}`).sendStatus(201);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browse,
   read,
   edit,
+  add,
 };

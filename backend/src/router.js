@@ -14,5 +14,6 @@ router.delete("/offers/:id", offerControllers.destroy);
 router.get("/companies", companyControllers.browse);
 router.get("/companies/:id", companyControllers.read);
 router.put("/companies/:id", companyControllers.edit);
+router.post("/companies", companyControllers.add);
 
 module.exports = router;

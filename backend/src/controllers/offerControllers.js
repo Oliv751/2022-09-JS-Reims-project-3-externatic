@@ -61,6 +61,7 @@ const add = (req, res) => {
       res.sendStatus(500);
     });
 };
+
 const destroy = (req, res) => {
   models.offer
     .delete(req.params.id)
