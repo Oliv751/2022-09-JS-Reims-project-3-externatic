@@ -20,5 +20,6 @@ router.delete("/companies/:id", companyControllers.destroy);
 
 router.get("/candidates", candidateControllers.browse);
 router.get("/candidates/:id", candidateControllers.read);
+router.put("/candidates/:id", candidateControllers.edit);
 
 module.exports = router;

@@ -27,8 +27,28 @@ const read = (req, res) => {
       res.sendStatus(500);
     });
 };
+const edit = (req, res) => {
+  const candidate = req.body;
+
+  candidate.id = parseInt(req.params.id, 10);
+
+  models.candidate
+    .update(candidate)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
 
 module.exports = {
   browse,
   read,
+  edit,
 };
