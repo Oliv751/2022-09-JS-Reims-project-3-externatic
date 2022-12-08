@@ -19,14 +19,16 @@ CREATE TABLE company (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   company_name varchar(100) NOT NULL,
   logo varchar(250) NOT NULL,
+  company_description TEXT NOT NULL,
+  siret_number INT NOT NULL,
   user_id int(11) UNSIGNED NOT NULL,
   CONSTRAINT fk_company_user FOREIGN KEY (user_id) references user(id)
 )
   engine=InnoDB DEFAULT charset=latin1;
 
-INSERT INTO company (id, company_name, logo, user_id) VALUES
-(1, 'lorem ipsum 1', 'lorem ipsum 1', 1),
-(2, 'lorem ipsum 2', 'lorem ipsum 2', 2);
+INSERT INTO company (id, company_name, logo, company_description, siret_number, user_id) VALUES
+(1, 'lorem ipsum 1', 'lorem ipsum 1', 'lorem ipsum 1', 55555555, 1),
+(2, 'lorem ipsum 2', 'lorem ipsum 2', 'lorem ipsum 2', 55555555, 2);
 
 
 CREATE TABLE candidate (
@@ -49,15 +51,16 @@ CREATE TABLE offer (
   offer_name varchar(100) NOT NULL,
   location varchar(200) NOT NULL,
   contract varchar(200) NOT NULL,
+  offer_description TEXT NOT NULL,
   publication_date date,
   company_id int(11) UNSIGNED NOT NULL,
   CONSTRAINT fk_offer_company FOREIGN KEY (company_id) references company(id)
 )
   engine=InnoDB DEFAULT charset=latin1;
 
-INSERT INTO offer (id, offer_name, location, contract, publication_date, company_id) VALUES
-(1, 'lorem ipsum 1', 'lorem ipsum 1', 'lorem ipsum 1', '20221206', 1),
-(2, 'lorem ipsum 2', 'lorem ipsum 2', 'lorem ipsum 2', '20221206', 2);
+INSERT INTO offer (id, offer_name, location, contract, offer_description, publication_date, company_id) VALUES
+(1, 'lorem ipsum 1', 'lorem ipsum 1', 'lorem ipsum 1', 'lorem ipsum 1', '20221206', 1),
+(2, 'lorem ipsum 2', 'lorem ipsum 2', 'lorem ipsum 2', 'lorem ipsum 2', '20221206', 2);
 
 
 CREATE TABLE document (
