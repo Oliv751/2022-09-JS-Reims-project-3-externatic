@@ -6,6 +6,7 @@ const offerControllers = require("./controllers/offerControllers");
 const companyControllers = require("./controllers/companyControllers");
 const candidateControllers = require("./controllers/candidateControllers");
 const userControllers = require("./controllers/userControllers");
+const documentControllers = require("./controllers/documentControllers");
 
 router.get("/offers", offerControllers.browse);
 router.get("/offers/:id", offerControllers.read);
@@ -30,5 +31,7 @@ router.get("/users/:id", userControllers.read);
 router.put("/users/:id", userControllers.edit);
 router.post("/users", userControllers.add);
 router.delete("/users/:id", userControllers.destroy);
+
+router.get("/documents", documentControllers.browse);
 
 module.exports = router;
