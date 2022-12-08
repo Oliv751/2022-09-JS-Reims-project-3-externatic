@@ -22,5 +22,6 @@ router.get("/candidates", candidateControllers.browse);
 router.get("/candidates/:id", candidateControllers.read);
 router.put("/candidates/:id", candidateControllers.edit);
 router.post("/candidates", candidateControllers.add);
+router.delete("/candidates/:id", candidateControllers.destroy);
 
 module.exports = router;
