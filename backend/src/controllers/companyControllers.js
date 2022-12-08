@@ -1,7 +1,7 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.offer
+  models.company
     .findAll()
     .then(([rows]) => {
       res.send(rows);
@@ -13,7 +13,7 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.offer
+  models.company
     .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
@@ -29,12 +29,12 @@ const read = (req, res) => {
 };
 
 const edit = (req, res) => {
-  const offer = req.body;
+  const company = req.body;
 
-  offer.id = parseInt(req.params.id, 10);
+  company.id = parseInt(req.params.id, 10);
 
-  models.offer
-    .update(offer)
+  models.company
+    .update(company)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -49,12 +49,12 @@ const edit = (req, res) => {
 };
 
 const add = (req, res) => {
-  const offer = req.body;
+  const company = req.body;
 
-  models.offer
-    .insert(offer)
+  models.company
+    .insert(company)
     .then(([result]) => {
-      res.location(`/offers/${result.insertId}`).sendStatus(201);
+      res.location(`/companies/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -63,7 +63,7 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  models.offer
+  models.company
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
