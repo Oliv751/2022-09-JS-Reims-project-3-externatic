@@ -7,5 +7,6 @@ const offerControllers = require("./controllers/offerControllers");
 router.get("/offers", offerControllers.browse);
 router.get("/offers/:id", offerControllers.read);
 router.put("/offers/:id", offerControllers.edit);
+router.post("/offers", offerControllers.add);
 
 module.exports = router;

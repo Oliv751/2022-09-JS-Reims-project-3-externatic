@@ -48,8 +48,23 @@ const edit = (req, res) => {
     });
 };
 
+const add = (req, res) => {
+  const offer = req.body;
+
+  models.offer
+    .insert(offer)
+    .then(([result]) => {
+      res.location(`/offers/${result.insertId}`).sendStatus(201);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browse,
   read,
   edit,
+  add,
 };
