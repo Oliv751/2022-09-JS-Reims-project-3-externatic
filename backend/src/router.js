@@ -35,5 +35,6 @@ router.delete("/users/:id", userControllers.destroy);
 router.get("/documents", documentControllers.browse);
 router.get("/documents/:id", documentControllers.read);
 router.put("/documents/:id", documentControllers.edit);
+router.post("/documents", documentControllers.add);
 
 module.exports = router;
