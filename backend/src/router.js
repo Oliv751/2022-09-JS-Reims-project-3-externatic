@@ -33,5 +33,6 @@ router.post("/users", userControllers.add);
 router.delete("/users/:id", userControllers.destroy);
 
 router.get("/documents", documentControllers.browse);
+router.get("/documents/:id", documentControllers.read);
 
 module.exports = router;
