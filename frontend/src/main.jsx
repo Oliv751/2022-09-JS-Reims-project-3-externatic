@@ -16,7 +16,7 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="/offers/:id" element={<OfferDetails />} />
         <Route path="/connexion" element={<ConnexionPage />} />
-        <Route path="/createentreprise" element={<CreateAccount />} />
+        <Route path="/companies/create" element={<CreateAccount />} />
       </Routes>
     </Router>
   </React.StrictMode>

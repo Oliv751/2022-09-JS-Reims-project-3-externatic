@@ -24,7 +24,7 @@ export default function ConnexionPage() {
         <Button variant="primary">Log in</Button>
         <ButtonGroup aria-label="Basic example">
           <Button variant="secondary">Creer mon compte Candidat</Button>
-          <Link to="/createentreprise">
+          <Link to="/companies/create">
             <Button variant="secondary">Creer mon compte Entreprise</Button>
           </Link>
         </ButtonGroup>
