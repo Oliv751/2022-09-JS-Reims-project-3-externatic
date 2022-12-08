@@ -12,10 +12,10 @@ function OfferDetails() {
       <h2 className="Job-Name">Job Name {offer.id}</h2>
       <h3 className="Entreprise-Name">Entreprise Name</h3>
       <p className="Publication-Date">Publication Date</p>
+      <p className="Job-Type">Job Type</p>
+      <p className="Job-Location">Location</p>
       <section className="Job-Description">
-        <h4>Job Description</h4>
-        <h5 className="Job-Type">Job Type</h5>
-        <h6 className="Location">Location</h6>
+        <h1>Description de l'offre</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam
           lectus. Set sit amet ipsum mauris. Maecenas congue ligula as quam
@@ -25,7 +25,7 @@ function OfferDetails() {
         </p>
       </section>
       <section className="Entreprise-Description">
-        <h4>Entreprise Description</h4>
+        <h1>L'entreprise</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam
           lectus. Set sit amet ipsum mauris. Maecenas congue ligula as quam
