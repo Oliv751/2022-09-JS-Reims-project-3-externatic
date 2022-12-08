@@ -47,8 +47,22 @@ const edit = (req, res) => {
     });
 };
 
+const add = (req, res) => {
+  const candidate = req.body;
+
+  models.candidate
+    .insert(candidate)
+    .then(([result]) => {
+      res.location(`/candidates/${result.insertId}`).sendStatus(201);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
 module.exports = {
   browse,
   read,
   edit,
+  add,
 };
