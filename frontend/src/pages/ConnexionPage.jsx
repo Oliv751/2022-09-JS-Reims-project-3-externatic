@@ -6,31 +6,44 @@ import Form from "react-bootstrap/Form";
 import { ButtonGroup } from "reactstrap";
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export default function ConnexionPage() {
   return (
     <Container>
       <Form>
-        <FloatingLabel
-          controlId="floatingInput"
-          label="Email address"
-          className="mb-3"
-        >
-          <Form.Control type="email" placeholder="name@example.com" />
-        </FloatingLabel>
-        <FloatingLabel controlId="floatingPassword" label="Password">
-          <Form.Control type="password" placeholder="Password" />
-        </FloatingLabel>
+        <Row className="px-4 my-5">
+          <FloatingLabel
+            controlId="floatingInput"
+            label="Email address"
+            className="mb-3"
+          >
+            <Form.Control type="email" placeholder="name@example.com" />
+          </FloatingLabel>
+          <FloatingLabel controlId="floatingPassword" label="Password">
+            <Form.Control type="password" placeholder="Password" />
+          </FloatingLabel>
+        </Row>
         <Button variant="primary">Log in</Button>
-        <ButtonGroup aria-label="Basic example">
-          <Button variant="secondary">Creer mon compte Candidat</Button>
-          <Link to="/companies/create">
-            <Button variant="secondary">Creer mon compte Entreprise</Button>
-          </Link>
-        </ButtonGroup>
+        <Row className="px-4 my-5">
+          <Col sm={6}>
+            <ButtonGroup aria-label="Basic example">
+              <Button variant="outline-primary">
+                Creer mon compte Candidat
+              </Button>
+              <Link to="/companies/create">
+                <Button variant="outline-primary">
+                  Creer mon compte Entreprise
+                </Button>
+              </Link>
+            </ButtonGroup>
+          </Col>
+        </Row>
+
         <hr />
         <footer className="connexionfooter">
-          <p>Sign up with</p>
+          <h3>Sign up with</h3>
           <a
             className="btn btn-lg btn-google btn-block text-uppercase btn-outline"
             href="/auth/google"
