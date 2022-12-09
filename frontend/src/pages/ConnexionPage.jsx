@@ -8,11 +8,13 @@ import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import logo from "../assets/externatic.png";
 
 export default function ConnexionPage() {
   return (
     <Container>
-      <Form>
+      <img src={logo} alt="logo" />
+      <Form className="p-0">
         <Row className="px-4 my-5">
           <FloatingLabel
             controlId="floatingInput"
@@ -25,15 +27,26 @@ export default function ConnexionPage() {
             <Form.Control type="password" placeholder="Password" />
           </FloatingLabel>
         </Row>
-        <Button variant="primary">Log in</Button>
-        <Row className="px-4 my-5">
-          <Col sm={6}>
-            <ButtonGroup aria-label="Basic example">
-              <Button variant="outline-primary">
+        <Button className="w-25 m-0" variant="primary">
+          Log in
+        </Button>
+        <Row className="">
+          <Col className="w-12 ">
+            <ButtonGroup
+              className="mx-auto text-center"
+              aria-label="Basic example"
+            >
+              <Button
+                className="w-50 rounded my-5 mx-6"
+                variant="outline-primary"
+              >
                 Creer mon compte Candidat
               </Button>
               <Link to="/companies/create">
-                <Button variant="outline-primary">
+                <Button
+                  className="w-50 rounded mx-5 my-5 text-center"
+                  variant="outline-primary"
+                >
                   Creer mon compte Entreprise
                 </Button>
               </Link>

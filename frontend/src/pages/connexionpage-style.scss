@@ -2,3 +2,12 @@
   display: grid;
   text-align: center;
 };
+  .btn-group {
+    display: grid;
+    justify-content: space-around;
+    margin-left: 20rem;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+
+  
