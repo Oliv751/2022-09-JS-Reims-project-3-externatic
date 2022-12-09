@@ -13,7 +13,7 @@ import externaticLogo from "../assets/logos/externaticLogo.png";
 export default function ConnexionPage() {
   return (
     <Container>
-      <img src={externaticLogo} alt="logo" />
+      <img src={externaticLogo} alt="logo" width="40%" />
       <Form className="p-0">
         <Row className="px-4 my-5">
           <FloatingLabel
