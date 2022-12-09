@@ -1,16 +1,21 @@
-import { Link } from "react-router-dom";
 import React from "react";
+import { Link } from "react-router-dom";
+import { MdAccountCircle } from "react-icons/md";
 import "../styles/Header.css";
-import logo from "../assets/externatic.png";
+import externaticLogo from "../assets/logos/externaticLogo.png";
 
 function Header() {
   return (
     <header>
       <nav>
-        <img className="logo" src={logo} alt="logo" />
+        <img
+          className="externaticLogo"
+          src={externaticLogo}
+          alt="externaticLogo"
+        />
         <Link to="/connexion">
           <button type="button" className="button-connexion">
-            connexion
+            <MdAccountCircle className="personIcon" />
           </button>
         </Link>
       </nav>

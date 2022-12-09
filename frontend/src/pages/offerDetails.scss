@@ -4,7 +4,7 @@ $colors: (
   primary: #000,
   secondary: #404040,
   tertiary: #c91961,
-  );
+);
 
 * {
   margin: 0;
@@ -13,6 +13,14 @@ $colors: (
   /*positionner le bord à 0*/
   background-color: $background-color;
   /*couleur de fond*/
+}
+
+hr.rounded1 {
+  margin-top: 50px;
+  margin-left: 60px;
+  margin-right: 60px;
+  border-top: 3px solid #bbb;
+  border-radius: 5px;
 }
 
 .Offer-Details {
@@ -26,7 +34,7 @@ $colors: (
 .Job-Name {
   margin: 0;
   grid-area: 2 / 2 / 3 / 5;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
@@ -65,6 +73,40 @@ $colors: (
   font-weight: 600;
 }
 
+.Favorite-Icon {
+  grid-area: 5 / 3 / 6 / 4;
+}
+
+.Favorite-Icon:hover {
+  color: #c91961;
+}
+.Share-Icon {
+  margin-left: 25px;
+  grid-area: 5 / 3 / 6 / 4;
+}
+
+.Share-Icon:hover {
+  color: #c91961;
+}
+
+.Mail-Icon {
+  margin-left: 50px;
+  grid-area: 5 / 3 / 6 / 4;
+}
+
+.Mail-Icon:hover {
+  color: #c91961;
+}
+
+hr.rounded2 {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  margin-left: 33px;
+  margin-right: 33px;
+  border-top: 3px solid #bbb;
+  border-radius: 5px;
+}
+
 //Job-Description with content//
 .Job-Description {
   margin: 0;
@@ -78,9 +120,9 @@ $colors: (
 
   p {
     margin-bottom: 2rem;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     font-weight: 400;
-    box-shadow: 0px 2px 6px 0px rgba(58, 58, 58, 0.70);
+    box-shadow: 0px 2px 6px 0px rgba(58, 58, 58, 0.7);
   }
 }
 
@@ -94,10 +136,10 @@ $colors: (
     font-size: 1rem;
     font-weight: 600;
   }
-  
+
   p {
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     font-weight: 400;
-    box-shadow: 0px 2px 6px 0px rgba(58, 58, 58, 0.70);
+    box-shadow: 0px 2px 6px 0px rgba(58, 58, 58, 0.7);
   }
 }

@@ -8,12 +8,12 @@ import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import logo from "../assets/externatic.png";
+import externaticLogo from "../assets/logos/externaticLogo.png";
 
 export default function ConnexionPage() {
   return (
     <Container>
-      <img src={logo} alt="logo" />
+      <img src={externaticLogo} alt="logo" />
       <Form className="p-0">
         <Row className="px-4 my-5">
           <FloatingLabel
