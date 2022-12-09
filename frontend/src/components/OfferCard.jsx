@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Button, CardGroup } from "react-bootstrap";
 import SampleCard from "./sampleCard";
-import "./offercard-style.scss";
+import "../styles/offercard-style.scss";
 
 export default function OfferCard({ offer }) {
   return (
