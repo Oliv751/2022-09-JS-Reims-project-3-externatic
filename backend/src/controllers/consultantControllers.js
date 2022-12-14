@@ -1,7 +1,7 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.company
+  models.consultant
     .findAll()
     .then(([rows]) => {
       res.send(rows);
@@ -13,7 +13,7 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.company
+  models.consultant
     .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
@@ -29,12 +29,12 @@ const read = (req, res) => {
 };
 
 const edit = (req, res) => {
-  const company = req.body;
+  const consultant = req.body;
 
-  company.id = parseInt(req.params.id, 10);
+  consultant.id = parseInt(req.params.id, 10);
 
-  models.company
-    .update(company)
+  models.consultant
+    .update(consultant)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -49,10 +49,10 @@ const edit = (req, res) => {
 };
 
 const add = (req, res) => {
-  const company = req.body;
+  const consultant = req.body;
 
-  models.company
-    .insert(company)
+  models.consultant
+    .insert(consultant)
     .then(([result]) => {
       res.location(`/companies/${result.insertId}`).sendStatus(201);
     })
@@ -63,7 +63,7 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  models.company
+  models.consultant
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
