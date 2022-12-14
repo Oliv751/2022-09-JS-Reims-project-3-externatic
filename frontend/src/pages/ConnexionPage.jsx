@@ -13,7 +13,7 @@ import externaticLogo from "../assets/logos/externaticLogo.png";
 export default function ConnexionPage() {
   return (
     <Container>
-      <img src={externaticLogo} alt="logo" />
+      <img src={externaticLogo} alt="logo" width="40%" />
       <Form className="p-0">
         <Row className="px-4 my-5">
           <FloatingLabel
@@ -36,13 +36,16 @@ export default function ConnexionPage() {
               className="mx-auto text-center"
               aria-label="Basic example"
             >
-              <Button
-                className="w-50 rounded my-5 mx-6"
-                variant="outline-primary"
-              >
-                Creer mon compte Candidat
-              </Button>
-              <Link to="/companies/create">
+              <Link to="/createaccount/candidate">
+                <Button
+                  className="w-50 rounded my-5 mx-6"
+                  variant="outline-primary"
+                >
+                  Creer mon compte Candidat
+                </Button>
+              </Link>
+
+              <Link to="/createaccount/company">
                 <Button
                   className="w-50 rounded mx-5 my-5 text-center"
                   variant="outline-primary"
