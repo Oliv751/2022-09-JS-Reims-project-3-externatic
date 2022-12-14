@@ -1,5 +1,5 @@
 import React from "react";
-import "./connexionpage-style.scss";
+import "../styles/connexionpage-style.scss";
 import Button from "react-bootstrap/Button";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";

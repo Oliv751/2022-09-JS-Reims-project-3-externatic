@@ -3,7 +3,7 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import { BiMailSend } from "react-icons/bi";
 import Header from "../components/Header";
-import "./offerDetails.scss";
+import "../styles/offerDetails.scss";
 
 function OfferDetails() {
   // Recupere l'id passer en params
