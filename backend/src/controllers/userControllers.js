@@ -48,13 +48,21 @@ const edit = (req, res) => {
     });
 };
 
-const add = (req, res) => {
+const add = (req, res, next) => {
   const user = req.body;
 
   models.user
     .insert(user)
     .then(([result]) => {
-      res.location(`/users/${result.insertId}`).sendStatus(201);
+      const id = result.insertId;
+
+      if (id != null) {
+        req.user_id = id;
+        next();
+      } else {
+        res.sendStatus(401);
+      }
+      // res.location(`/users/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);

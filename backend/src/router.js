@@ -23,7 +23,7 @@ router.delete("/companies/:id", companyControllers.destroy);
 router.get("/candidates", candidateControllers.browse);
 router.get("/candidates/:id", candidateControllers.read);
 router.put("/candidates/:id", candidateControllers.edit);
-router.post("/candidates", candidateControllers.add);
+router.post("/candidates", userControllers.add, candidateControllers.add);
 router.delete("/candidates/:id", candidateControllers.destroy);
 
 router.get("/users", userControllers.browse);

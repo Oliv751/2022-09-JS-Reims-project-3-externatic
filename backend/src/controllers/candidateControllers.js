@@ -49,11 +49,12 @@ const edit = (req, res) => {
 
 const add = (req, res) => {
   const candidate = req.body;
+  const id = req.user_id;
 
   models.candidate
-    .insert(candidate)
-    .then(([result]) => {
-      res.location(`/candidates/${result.insertId}`).sendStatus(201);
+    .insert({ ...candidate, id })
+    .then(() => {
+      res.sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
