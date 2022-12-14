@@ -50,7 +50,6 @@ const edit = (req, res) => {
 
 const add = (req, res, next) => {
   const user = req.body;
-
   models.user
     .insert(user)
     .then(([result]) => {
