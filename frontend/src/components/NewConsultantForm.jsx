@@ -1,7 +1,7 @@
 export default function NewConsultantForm() {
   return (
     <form>
-      <p>Join Externatic as entreprise</p>
+      <p>Join Externatic as Consultant</p>
 
       <div>
         <label htmlFor="name">Nom</label>
@@ -14,10 +14,6 @@ export default function NewConsultantForm() {
       <div>
         <label htmlFor="mail">Email</label>
         <input id="mail" type="email" />
-      </div>
-      <div>
-        <label htmlFor="siret">N sriret</label>
-        <input id="siret" type="number" />
       </div>
       <div>
         <label htmlFor="password">Mot de passe</label>
