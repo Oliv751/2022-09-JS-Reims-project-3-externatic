@@ -64,16 +64,25 @@ VALUES (
     );
 
 CREATE TABLE
+    category (
+        id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+        name varchar(100) NOT NULL
+    ) engine = InnoDB DEFAULT charset = latin1;
+
+INSERT INTO category (id, name)
+VALUES (1, 'C/C++'), (2, 'Infrastructure / Cloud');
+
+CREATE TABLE
     candidate (
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
         firstname varchar(100) NOT NULL,
         lastname varchar(100) NOT NULL,
-        address varchar TEXT NOT NULL,
+        address TEXT NOT NULL,
         contract varchar(200) NOT NULL,
         user_id int(11) UNSIGNED NOT NULL,
         CONSTRAINT fk_candidate_user FOREIGN KEY (user_id) references user(id),
         category_id int(11) UNSIGNED NOT NULL,
-        CONSTRAINT fk_candidate_category FOREIGN KEY (category_id) references category(id),
+        CONSTRAINT fk_candidate_category FOREIGN KEY (category_id) references category(id)
     ) engine = InnoDB DEFAULT charset = latin1;
 
 INSERT INTO
@@ -81,7 +90,7 @@ INSERT INTO
         id,
         firstname,
         lastname,
-        adress,
+        address,
         contract,
         user_id,
         category_id

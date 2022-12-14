@@ -7,6 +7,7 @@ const consultantControllers = require("./controllers/consultantControllers");
 const candidateControllers = require("./controllers/candidateControllers");
 const userControllers = require("./controllers/userControllers");
 const documentControllers = require("./controllers/documentControllers");
+const categoryControllers = require("./controllers/categoryControllers");
 
 router.get("/offers", offerControllers.browse);
 router.get("/offers/:id", offerControllers.read);
@@ -37,5 +38,11 @@ router.get("/documents/:id", documentControllers.read);
 router.put("/documents/:id", documentControllers.edit);
 router.post("/documents", documentControllers.add);
 router.delete("/documents/:id", documentControllers.destroy);
+
+router.get("/categories", categoryControllers.browse);
+router.get("/categories/:id", categoryControllers.read);
+router.put("/categories/:id", categoryControllers.edit);
+router.post("/categories", categoryControllers.add);
+router.delete("/categories/:id", categoryControllers.destroy);
 
 module.exports = router;
