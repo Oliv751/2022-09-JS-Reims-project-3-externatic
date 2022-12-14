@@ -7,6 +7,7 @@ const companyControllers = require("./controllers/companyControllers");
 const candidateControllers = require("./controllers/candidateControllers");
 const userControllers = require("./controllers/userControllers");
 const documentControllers = require("./controllers/documentControllers");
+const { hashPassword } = require("./services/auth");
 
 router.get("/offers", offerControllers.browse);
 router.get("/offers/:id", offerControllers.read);
@@ -23,7 +24,7 @@ router.delete("/companies/:id", companyControllers.destroy);
 router.get("/candidates", candidateControllers.browse);
 router.get("/candidates/:id", candidateControllers.read);
 router.put("/candidates/:id", candidateControllers.edit);
-router.post("/candidates", candidateControllers.add);
+router.post("/candidates", hashPassword, candidateControllers.add);
 router.delete("/candidates/:id", candidateControllers.destroy);
 
 router.get("/users", userControllers.browse);
