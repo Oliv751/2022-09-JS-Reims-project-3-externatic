@@ -1,7 +1,6 @@
 CREATE TABLE
     user (
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        address varchar(300) NOT NULL,
         phone int(20) NOT NULL,
         email VARCHAR(150) NOT NULL,
         password VARCHAR (50) NOT NULL,
@@ -9,38 +8,27 @@ CREATE TABLE
     ) engine = InnoDB DEFAULT charset = latin1;
 
 INSERT INTO
-    user (
-        id,
-        address,
-        phone,
-        email,
-        password,
-        role
-    )
+    user (id, phone, email, password, role)
 VALUES (
         1,
-        'lorem ipsum 1',
         '0606060606',
         'lorem ipsum 1',
         'lorem ipsum 1',
         'lorem ipsum 1'
     ), (
         2,
-        'lorem ipsum 2',
         '0606060606',
         'lorem ipsum 2',
         'lorem ipsum 2',
         'lorem ipsum 2'
     ), (
         3,
-        'lorem ipsum 3',
         '0606060606',
         'lorem ipsum 3',
         'lorem ipsum 3',
         'lorem ipsum 3'
     ), (
         4,
-        'lorem ipsum 4',
         '0606060606',
         'lorem ipsum 4',
         'lorem ipsum 4',
@@ -50,10 +38,8 @@ VALUES (
 CREATE TABLE
     consultant (
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        consultant_name varchar(100) NOT NULL,
-        logo varchar(250) NOT NULL,
-        consultant_description TEXT NOT NULL,
-        siret_number INT NOT NULL,
+        firstname varchar(100) NOT NULL,
+        lastname varchar(100) NOT NULL,
         user_id int(11) UNSIGNED NOT NULL,
         CONSTRAINT fk_consultant_user FOREIGN KEY (user_id) references user(id)
     ) engine = InnoDB DEFAULT charset = latin1;
@@ -61,25 +47,19 @@ CREATE TABLE
 INSERT INTO
     consultant (
         id,
-        consultant_name,
-        logo,
-        consultant_description,
-        siret_number,
+        firstname,
+        lastname,
         user_id
     )
 VALUES (
         1,
         'lorem ipsum 1',
         'lorem ipsum 1',
-        'lorem ipsum 1',
-        55555555,
         1
     ), (
         2,
         'lorem ipsum 2',
         'lorem ipsum 2',
-        'lorem ipsum 2',
-        55555555,
         2
     );
 
@@ -88,9 +68,12 @@ CREATE TABLE
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
         firstname varchar(100) NOT NULL,
         lastname varchar(100) NOT NULL,
+        address varchar TEXT NOT NULL,
         contract varchar(200) NOT NULL,
         user_id int(11) UNSIGNED NOT NULL,
-        CONSTRAINT fk_candidate_user FOREIGN KEY (user_id) references user(id)
+        CONSTRAINT fk_candidate_user FOREIGN KEY (user_id) references user(id),
+        category_id int(11) UNSIGNED NOT NULL,
+        CONSTRAINT fk_candidate_category FOREIGN KEY (category_id) references category(id),
     ) engine = InnoDB DEFAULT charset = latin1;
 
 INSERT INTO
@@ -98,26 +81,34 @@ INSERT INTO
         id,
         firstname,
         lastname,
+        adress,
         contract,
-        user_id
+        user_id,
+        category_id
     )
 VALUES (
         1,
         'lorem ipsum 1',
         'lorem ipsum 1',
         'lorem ipsum 1',
-        3
+        'lorem ipsum 1',
+        3,
+        1
     ), (
         2,
         'lorem ipsum 2',
         'lorem ipsum 2',
         'lorem ipsum 2',
-        4
+        'lorem ipsum 2',
+        4,
+        2
     );
 
 CREATE TABLE
     offer (
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+        company_name varchar(200),
+        logo varchar(300) NULL,
         offer_name varchar(100) NOT NULL,
         location varchar(200) NOT NULL,
         contract varchar(200) NOT NULL,
@@ -130,6 +121,8 @@ CREATE TABLE
 INSERT INTO
     offer (
         id,
+        company_name,
+        logo,
         offer_name,
         location,
         contract,
@@ -143,10 +136,14 @@ VALUES (
         'lorem ipsum 1',
         'lorem ipsum 1',
         'lorem ipsum 1',
+        'lorem ipsum 1',
+        'lorem ipsum 1',
         '20221206',
         1
     ), (
         2,
+        'lorem ipsum 2',
+        'lorem ipsum 2',
         'lorem ipsum 2',
         'lorem ipsum 2',
         'lorem ipsum 2',
