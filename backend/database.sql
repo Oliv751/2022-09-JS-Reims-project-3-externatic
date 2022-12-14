@@ -1,6 +1,6 @@
 CREATE TABLE user (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  address varchar(300)  NULL,
+  address varchar(300) DEFAULT NULL,
   phone int(20) NOT NULL,
   email VARCHAR(150) NOT NULL,
   password VARCHAR (50) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE candidate (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   firstname varchar(100) NOT NULL,
   lastname varchar(100) NOT NULL,
-  contract varchar(200) NULL,
+  contract varchar(200) DEFAULT NULL,
   user_id int(11) UNSIGNED NOT NULL,
   CONSTRAINT fk_candidate_user FOREIGN KEY (user_id) references user(id)
 )
