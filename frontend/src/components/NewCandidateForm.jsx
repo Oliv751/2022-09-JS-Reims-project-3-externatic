@@ -39,11 +39,11 @@ export default function NewCandidateForm() {
     <form onSubmit={(e) => handleSubmit(e)}>
       <p>Join Externatic as Candidate</p>
       <div>
-        <label htmlFor="firstname">Firstname</label>
+        <label htmlFor="firstname">Prenom</label>
         <input ref={firstnameRef} id="firstname" type="text" />
       </div>
       <div>
-        <label htmlFor="lastname">lastname</label>
+        <label htmlFor="lastname">nom</label>
         <input ref={lastnameRef} id="lastname" type="text" />
       </div>
       <div>
