@@ -8,27 +8,23 @@ CREATE TABLE
     ) engine = InnoDB DEFAULT charset = latin1;
 
 INSERT INTO
-    user (id, phone, email, password, role)
+    user (phone, email, password, role)
 VALUES (
-        1,
         '0606060606',
         'lorem ipsum 1',
         'lorem ipsum 1',
         'lorem ipsum 1'
     ), (
-        2,
         '0606060606',
         'lorem ipsum 2',
         'lorem ipsum 2',
         'lorem ipsum 2'
     ), (
-        3,
         '0606060606',
         'lorem ipsum 3',
         'lorem ipsum 3',
         'lorem ipsum 3'
     ), (
-        4,
         '0606060606',
         'lorem ipsum 4',
         'lorem ipsum 4',
@@ -45,19 +41,12 @@ CREATE TABLE
     ) engine = InnoDB DEFAULT charset = latin1;
 
 INSERT INTO
-    consultant (
-        id,
-        firstname,
-        lastname,
-        user_id
-    )
+    consultant (firstname, lastname, user_id)
 VALUES (
-        1,
         'lorem ipsum 1',
         'lorem ipsum 1',
         1
     ), (
-        2,
         'lorem ipsum 2',
         'lorem ipsum 2',
         2
@@ -69,8 +58,8 @@ CREATE TABLE
         name varchar(100) NOT NULL
     ) engine = InnoDB DEFAULT charset = latin1;
 
-INSERT INTO category (id, name)
-VALUES (1, 'C/C++'), (2, 'Infrastructure / Cloud');
+INSERT INTO category (name)
+VALUES ('C/C++'), ('Infrastructure / Cloud');
 
 CREATE TABLE
     candidate (
@@ -87,7 +76,6 @@ CREATE TABLE
 
 INSERT INTO
     candidate (
-        id,
         firstname,
         lastname,
         address,
@@ -96,7 +84,6 @@ INSERT INTO
         category_id
     )
 VALUES (
-        1,
         'lorem ipsum 1',
         'lorem ipsum 1',
         'lorem ipsum 1',
@@ -104,7 +91,6 @@ VALUES (
         3,
         1
     ), (
-        2,
         'lorem ipsum 2',
         'lorem ipsum 2',
         'lorem ipsum 2',
@@ -129,7 +115,6 @@ CREATE TABLE
 
 INSERT INTO
     offer (
-        id,
         company_name,
         logo,
         offer_name,
@@ -140,7 +125,6 @@ INSERT INTO
         consultant_id
     )
 VALUES (
-        1,
         'lorem ipsum 1',
         'lorem ipsum 1',
         'lorem ipsum 1',
@@ -150,7 +134,6 @@ VALUES (
         '20221206',
         1
     ), (
-        2,
         'lorem ipsum 2',
         'lorem ipsum 2',
         'lorem ipsum 2',
@@ -173,20 +156,17 @@ CREATE TABLE
 
 INSERT INTO
     document (
-        id,
         document_type,
         date,
         document,
         candidate_id
     )
 VALUES (
-        1,
         'lorem ipsum 1',
         '20221206',
         'lorem ipsum 1',
         1
     ), (
-        2,
         'lorem ipsum 2',
         '20221206',
         'lorem ipsum 2',
