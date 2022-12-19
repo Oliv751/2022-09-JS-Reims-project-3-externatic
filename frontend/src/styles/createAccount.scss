@@ -1,53 +1,75 @@
-form {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  padding: 1rem;
+.createAccount {
+  header {
+    margin: 0;
+    padding: 20px 0;
 
-  p {
-    text-align: right;
+    nav a:last-child,
+    input {
+      display: none;
+    }
   }
-
-  label,
-  input {
-    display: inline-block;
-    margin: 1rem 0;
-  }
-
-  label {
-    width: 30vw;
-    text-align: center;
-  }
-
-  input {
-    width: 50vw;
-  }
-
-  button {
-    margin: auto;
-    margin-top: 5rem;
-    width: 50vw;
-    border-radius: 10px;
-    padding: 0.5rem;
-  }
-}
-
-.editOffer {
-  .describe {
+  form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-  }
-  .describe label {
-    width: 100%;
-    text-align: center;
-  }
-  .describe input {
-    width: 80vw;
+    margin: auto;
+    padding: 1rem;
+
+    p {
+      text-align: right;
+    }
+
+    label,
+    input {
+      display: inline-block;
+      margin: 1rem 0;
+    }
+
+    label {
+      width: 30vw;
+      text-align: center;
+      color: var(--dark_color);
+    }
+
+    input {
+      width: 50vw;
+      border-radius: var(--radius_button);
+      border: 1px solid var(--color_gray);
+      padding: 5px 0;
+    }
+
+    input:focus {
+      outline: none;
+      border: 1px solid var(--light_color);
+    }
+
+    button {
+      margin: auto;
+      margin-top: 5rem;
+      width: 50vw;
+      border: 1px solid var(--light_color);
+      border-radius: var(--radius_button);
+      color: var(--dark_color);
+      padding: 0.5rem;
+    }
   }
 
-  textarea {
-    margin: auto;
-    width: 80vw;
+  .editOffer {
+    .describe {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .describe label {
+      width: 100%;
+      text-align: center;
+    }
+    .describe input {
+      width: 80vw;
+    }
+
+    textarea {
+      margin: auto;
+      width: 80vw;
+    }
   }
 }

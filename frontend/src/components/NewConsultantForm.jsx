@@ -1,8 +1,6 @@
 export default function NewConsultantForm() {
   return (
     <form>
-      <p>Join Externatic as Consultant</p>
-
       <div>
         <label htmlFor="name">Nom</label>
         <input id="name" type="text" />

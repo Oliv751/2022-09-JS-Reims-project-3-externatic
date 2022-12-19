@@ -3,7 +3,7 @@ CREATE TABLE
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
         phone int(20) NOT NULL,
         email VARCHAR(150) NOT NULL,
-        password VARCHAR (50) NOT NULL,
+        password VARCHAR (255) NOT NULL,
         role varchar(200) NOT NULL
     ) engine = InnoDB DEFAULT charset = latin1;
 
@@ -76,7 +76,7 @@ CREATE TABLE
         contract varchar(200) DEFAULT NULL,
         user_id int(11) UNSIGNED NOT NULL,
         CONSTRAINT fk_candidate_user FOREIGN KEY (user_id) references user(id),
-        category_id int(11) UNSIGNED NOT NULL,
+        category_id int(11) UNSIGNED DEFAULT NULL,
         CONSTRAINT fk_candidate_category FOREIGN KEY (category_id) references category(id)
     ) engine = InnoDB DEFAULT charset = latin1;
 
