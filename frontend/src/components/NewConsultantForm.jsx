@@ -36,8 +36,6 @@ export default function NewConsultantForm() {
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
-      <p>Join Externatic as Consultant</p>
-
       <div>
         <label htmlFor="name">Nom</label>
         <input ref={nameRef} id="name" type="text" />

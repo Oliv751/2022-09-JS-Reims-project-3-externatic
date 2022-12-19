@@ -1,0 +1,53 @@
+.space {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 1rem;
+
+  .describeCompagny {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    label,
+    input {
+      display: inline-block;
+      margin: 1rem 0;
+    }
+
+    label {
+      width: 30vw;
+      text-align: center;
+    }
+
+    input {
+      width: 50vw;
+    }
+  }
+  button {
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .offers {
+    margin: 1rem;
+
+    div {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 1rem 0;
+      h2,
+      h3 {
+        display: inline-block;
+        font-size: 1.2rem;
+      }
+    }
+
+    div:not(:first-child) {
+      button {
+        background-color: white;
+        border: none;
+      }
+      border-bottom: 1px solid black;
+    }
+  }
+}

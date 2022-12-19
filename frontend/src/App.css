@@ -1,0 +1,10 @@
+#root {
+  margin: 0 1rem;
+}
+
+:root {
+  --dark_color: #851342;
+  --light_color: #ca2061;
+  --color_gray: gray;
+  --radius_button: 10px;
+}

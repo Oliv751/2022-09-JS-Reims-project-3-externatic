@@ -37,7 +37,6 @@ export default function NewCandidateForm() {
   };
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
-      <p>Join Externatic as Candidate</p>
       <div>
         <label htmlFor="firstname">Prenom</label>
         <input ref={firstnameRef} id="firstname" type="text" />
