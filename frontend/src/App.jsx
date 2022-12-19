@@ -1,4 +1,3 @@
-import Container from "react-bootstrap/Container";
 import OfferList from "./components/OfferList";
 import Header from "./components/Header";
 import "./App.css";
@@ -23,10 +22,8 @@ function App() {
   const offerList = [firstOffer, secondOffer];
   return (
     <div className="App">
-      <Container>
-        <Header />
-        <OfferList offerList={offerList} />
-      </Container>
+      <Header />
+      <OfferList offerList={offerList} />
     </div>
   );
 }
