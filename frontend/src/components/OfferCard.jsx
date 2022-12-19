@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { MdLocationOn } from "react-icons/md";
+import { FaFileSignature } from "react-icons/fa";
 import SampleCard from "./sampleCard";
 import "../styles/offercard-style.scss";
 
@@ -16,11 +18,11 @@ export default function OfferCard({ offer }) {
             <p>offre publie le {offer.publicationDate}</p>
           </div>
           <div>
-            <img src="" alt="" />
+            <MdLocationOn className="icon_description" />
             <p>{offer.location}</p>
           </div>
           <div>
-            <img src="" alt="" />
+            <FaFileSignature className="icon_description" />
             <p>{offer.contract}</p>
           </div>
         </section>
