@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const offerControllers = require("./controllers/offerControllers");
-const companyControllers = require("./controllers/companyControllers");
+const consultantControllers = require("./controllers/consultantControllers");
 const candidateControllers = require("./controllers/candidateControllers");
 const userControllers = require("./controllers/userControllers");
 const documentControllers = require("./controllers/documentControllers");
@@ -15,11 +15,11 @@ router.put("/offers/:id", offerControllers.edit);
 router.post("/offers", offerControllers.add);
 router.delete("/offers/:id", offerControllers.destroy);
 
-router.get("/companies", companyControllers.browse);
-router.get("/companies/:id", companyControllers.read);
-router.put("/companies/:id", companyControllers.edit);
-router.post("/companies", companyControllers.add);
-router.delete("/companies/:id", companyControllers.destroy);
+router.get("/consultant", consultantControllers.browse);
+router.get("/consultant/:id", consultantControllers.read);
+router.put("/consultant/:id", consultantControllers.edit);
+router.post("/consultant", consultantControllers.add);
+router.delete("/consultant/:id", consultantControllers.destroy);
 
 router.get("/candidates", candidateControllers.browse);
 router.get("/candidates/:id", candidateControllers.read);

@@ -14,7 +14,7 @@ export default function NewCandidateForm() {
 
     if (password === confirmPassword && password.length) {
       axios
-        .post("http://localhost:5000/candidates", {
+        .post(`${import.meta.env.VITE_BACKEND_URL}/candidates`, {
           firstname: firstnameRef.current.value,
           lastname: lastnameRef.current.value,
           phone: phoneRef.current.value,
