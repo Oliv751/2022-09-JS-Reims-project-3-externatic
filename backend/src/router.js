@@ -19,7 +19,12 @@ router.delete("/offers/:id", offerControllers.destroy);
 router.get("/consultants", consultantControllers.browse);
 router.get("/consultants/:id", consultantControllers.read);
 router.put("/consultants/:id", consultantControllers.edit);
-router.post("/consultants", consultantControllers.add);
+router.post(
+  "/consultants",
+  hashPassword,
+  userControllers.add,
+  consultantControllers.add
+);
 router.delete("/consultants/:id", consultantControllers.destroy);
 
 router.get("/candidates", candidateControllers.browse);
