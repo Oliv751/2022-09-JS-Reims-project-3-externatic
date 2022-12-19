@@ -2,7 +2,8 @@ import axios from "axios";
 import { useRef, useState } from "react";
 
 export default function NewConsultantForm() {
-  const nameRef = useRef();
+  const firstnameRef = useRef();
+  const lastnameRef = useRef();
   const phoneRef = useRef();
   const emailRef = useRef();
   const [password, setPassword] = useState("");
@@ -14,7 +15,8 @@ export default function NewConsultantForm() {
     if (password === confirmPassword && password.length) {
       axios
         .post(`${import.meta.env.VITE_BACKEND_URL}/consultants`, {
-          name: nameRef.current.value,
+          firstname: firstnameRef.current.value,
+          lastnameRef: lastnameRef.current.value,
           phone: phoneRef.current.value,
           email: emailRef.current.value,
           password,
@@ -37,8 +39,12 @@ export default function NewConsultantForm() {
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <div>
-        <label htmlFor="name">Nom</label>
-        <input ref={nameRef} id="name" type="text" />
+        <label htmlFor="firstname">Nom</label>
+        <input ref={firstnameRef} id="name" type="text" />
+      </div>
+      <div>
+        <label htmlFor="lastname">Nom</label>
+        <input ref={lastnameRef} id="name" type="text" />
       </div>
       <div>
         <label htmlFor="phone">Telephone</label>
