@@ -1,8 +1,6 @@
 export default function NewCandidateForm() {
   return (
     <form>
-      <p>Join Externatic as Candidate</p>
-
       <div>
         <label htmlFor="name">Nom</label>
         <input id="name" type="text" />

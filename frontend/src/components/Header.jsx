@@ -8,22 +8,20 @@ function Header() {
   return (
     <header>
       <nav>
-        <img
-          className="externaticLogo"
-          src={externaticLogo}
-          alt="externaticLogo"
-        />
+        <Link to="/">
+          <img
+            className="externaticLogo"
+            src={externaticLogo}
+            alt="externaticLogo"
+          />
+        </Link>
         <Link to="/connexion">
           <button type="button" className="button-connexion">
             <MdAccountCircle className="personIcon" />
           </button>
         </Link>
       </nav>
-      <div className="search">
-        <label>
-          <input className="input" type="text" placeholder="Rechercher" />
-        </label>
-      </div>
+      <input className="input" type="text" placeholder="Rechercher" />
     </header>
   );
 }
