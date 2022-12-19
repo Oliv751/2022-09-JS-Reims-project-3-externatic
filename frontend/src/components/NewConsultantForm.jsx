@@ -13,7 +13,7 @@ export default function NewConsultantForm() {
 
     if (password === confirmPassword && password.length) {
       axios
-        .post(`${import.meta.env.VITE_BACKEND_URL}/consultant`, {
+        .post(`${import.meta.env.VITE_BACKEND_URL}/consultants`, {
           name: nameRef.current.value,
           phone: phoneRef.current.value,
           email: emailRef.current.value,
