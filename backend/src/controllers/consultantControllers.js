@@ -50,9 +50,10 @@ const edit = (req, res) => {
 
 const add = (req, res) => {
   const consultant = req.body;
+  const id = req.user_id;
 
   models.consultant
-    .insert(consultant)
+    .insert({ ...consultant, id })
     .then(([result]) => {
       res.location(`/companies/${result.insertId}`).sendStatus(201);
     })
