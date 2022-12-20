@@ -8,6 +8,15 @@
       display: none;
     }
   }
+
+  .error {
+    text-align: center;
+    color: red;
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
   form {
     display: flex;
     flex-direction: column;
