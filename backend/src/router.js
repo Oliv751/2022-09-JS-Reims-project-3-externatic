@@ -8,7 +8,7 @@ const candidateControllers = require("./controllers/candidateControllers");
 const userControllers = require("./controllers/userControllers");
 const documentControllers = require("./controllers/documentControllers");
 const categoryControllers = require("./controllers/categoryControllers");
-const { hashPassword } = require("./services/auth");
+const { hashPassword, verifyPassword } = require("./services/auth");
 
 router.get("/offers", offerControllers.browse);
 router.get("/offers/:id", offerControllers.read);
@@ -55,5 +55,11 @@ router.get("/categories/:id", categoryControllers.read);
 router.put("/categories/:id", categoryControllers.edit);
 router.post("/categories", categoryControllers.add);
 router.delete("/categories/:id", categoryControllers.destroy);
+
+router.post(
+  "/login",
+  userControllers.getUserByEmailWithPasswordAndPassToNext,
+  verifyPassword
+);
 
 module.exports = router;
