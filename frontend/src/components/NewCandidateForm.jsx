@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function NewCandidateForm() {
   const firstnameRef = useRef();
@@ -8,6 +9,8 @@ export default function NewCandidateForm() {
   const emailRef = useRef();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [messageError, setMessageError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,20 +26,23 @@ export default function NewCandidateForm() {
           role: "candidate",
         })
         .then((reponse) => {
-          console.warn(reponse);
+          if (reponse.status === 201) {
+            navigate("/connexion");
+          }
         })
         .catch((err) => {
-          console.error(err);
+          setMessageError(err.response.data);
         });
     } else {
       setConfirmPassword("");
       setPassword("");
 
-      alert("Erreur dans le mot de passe");
+      setMessageError("Erreur dans le mot de passe");
     }
   };
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
+      {messageError && <p className="error">{messageError}</p>}
       <div>
         <label htmlFor="firstname">Prenom</label>
         <input ref={firstnameRef} id="firstname" type="text" />

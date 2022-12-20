@@ -2,7 +2,7 @@ CREATE TABLE
     user (
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
         phone int(20) NOT NULL,
-        email VARCHAR(150) NOT NULL,
+        email VARCHAR(150) NOT NULL UNIQUE,
         password VARCHAR (255) NOT NULL,
         role varchar(200) NOT NULL
     ) engine = InnoDB DEFAULT charset = utf8;
