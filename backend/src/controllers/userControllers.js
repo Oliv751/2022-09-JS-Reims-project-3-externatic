@@ -1,3 +1,5 @@
+const errorMessage = require("../services/setMessageErrorCreateAccount");
+
 const models = require("../models");
 
 const browse = (req, res) => {
@@ -61,12 +63,11 @@ const add = (req, res, next) => {
       } else {
         res.sendStatus(401);
       }
-      // res.location(`/users/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
 
-      res.status(500).send(err.sqlMessage);
+      res.status(500).send(errorMessage(err));
     });
 };
 

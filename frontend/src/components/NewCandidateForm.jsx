@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import errorMessage from "@services/setMessageErreurCreateAccount";
 
 export default function NewCandidateForm() {
   const firstnameRef = useRef();
@@ -27,15 +26,12 @@ export default function NewCandidateForm() {
           role: "candidate",
         })
         .then((reponse) => {
-          // console.log(reponse);
           if (reponse.status === 201) {
             navigate("/connexion");
           }
         })
         .catch((err) => {
-          setMessageError(errorMessage(err.response.data));
-
-          // console.error(err);
+          setMessageError(err.response.data);
         });
     } else {
       setConfirmPassword("");
