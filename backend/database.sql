@@ -40,6 +40,7 @@ CREATE TABLE
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
         firstname varchar(100) NOT NULL,
         lastname varchar(100) NOT NULL,
+        consultant_description TEXT NOT NULL,
         user_id int(11) UNSIGNED NOT NULL,
         CONSTRAINT fk_consultant_user FOREIGN KEY (user_id) references user(id)
     ) engine = InnoDB DEFAULT charset = utf8;
@@ -49,9 +50,22 @@ INSERT INTO
         id,
         firstname,
         lastname,
+        consultant_description,
         user_id
     )
-VALUES (1, 'John', 'Doe', 1), (2, 'Jane', 'Smith', 2);
+VALUES (
+        1,
+        'John',
+        'Doe',
+        "Je suis John Doe, Consultant recrutement chez Externatic, je te propose aujourd’hui de découvrir l’offre ci-dessous et d’échanger ensemble : plutôt en visio ? Ou autour d’un verre ? Je serai ravi de t'accompagner et de te présenter ce job plus en détail !",
+        1
+    ), (
+        2,
+        'Jane',
+        'Smith',
+        "Je suis Jane Smith, consultante en recrutement au sein d'Externatic, je vous propose aujourd’hui de découvrir l’offre ci-dessous et d’échanger ensemble : plutôt en visio ? Ou autour d’un verre ? Je serai ravie de vous accompagner et de vous présenter ce job plus en détail !",
+        2
+    );
 
 CREATE TABLE
     category (
@@ -106,7 +120,6 @@ VALUES (
 CREATE TABLE
     offer (
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        consultant_description TEXT NOT NULL,
         company_description TEXT NOT NULL,
         offer_name varchar(100) NOT NULL,
         location varchar(200) NOT NULL,
@@ -120,7 +133,6 @@ CREATE TABLE
 INSERT INTO
     offer (
         id,
-        consultant_description,
         company_description,
         offer_name,
         location,
@@ -131,7 +143,6 @@ INSERT INTO
     )
 VALUES (
         1,
-        "Je suis John Doe, Consultant recrutement chez Externatic, je te propose aujourd’hui de découvrir l’offre ci-dessous et d’échanger ensemble : plutôt en visio ? Ou autour d’un verre ? Je serai ravi de t'accompagner et de te présenter ce job plus en détail !",
         "Nous accompagnons un éditeur de logiciel nantais spécialisé dans les solutions SIRH. Forte d'une activité prospère, l'entreprise continue de recruter plusieurs personnes sur le socle et cherche justement à compléter ses équipes avec son futur développeur C / C++. Les besoins sont plutôt techniques mais aussi avec un métier fort.",
         "Développeur C / C++ @ Editeur H/F",
         'NANTES',
@@ -182,11 +193,10 @@ Pour la partie technique : des compétences sur C ou C++ (les 2 env existent). O
 Pour la partie métier : une simple envie suffit mais si par bonheur tu as déjà été confronté à un env d'éditions de logiciels, cela devrait t'aider
 
 Tu es arrivé jusqu'ici, c'est que le poste est fait pour toi, à toi de postuler !",
-        '20221213',
+        "2013-04-02 12:45:34",
         1
     ), (
         2,
-        "Je suis Jane Smith, consultante en recrutement au sein d'Externatic, je vous propose aujourd’hui de découvrir l’offre ci-dessous et d’échanger ensemble : plutôt en visio ? Ou autour d’un verre ? Je serai ravie de vous accompagner et de vous présenter ce job plus en détail !",
         "Mon client est un grand groupe Nantais spécialisé dans l’infogérance et l’édition de logiciels de renommés. Il existe depuis de 50 ans ! Pour fêter cet événement, ils ont pour objectif de doubler le chiffre d’affaires en doublant l'effectif.
 
     Typologie de marchés : santé, retail, transports, habitat, …
@@ -232,7 +242,7 @@ Ingénieur infrastructure confirmé et autonome sur l'environnement Linux, vous 
     Maitrisez les bases en administration Unix / Linux (CentOS, RedHat, OracleLinux, Debian).
     Conaissez des outils d'industrialisation (Ansible) et des langages de scripting (Shell, Python). (Un plus)
     Êtes curieux et souhaitez consolider vos compétences sur les technos évoquées",
-        '20221219',
+        "2013-09-02 09:08:47",
         2
     );
 
