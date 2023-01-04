@@ -7,8 +7,13 @@ class ConsultantManager extends AbstractManager {
 
   insert(consultant) {
     return this.connection.query(
-      `insert into ${this.table} ( firstname , lastname , user_id) value (? , ? , ?)`,
-      [consultant.firstname, consultant.lastname, consultant.id]
+      `insert into ${this.table} ( firstname , lastname , consultant_description, user_id) value (? , ? , ? , ?)`,
+      [
+        consultant.firstname,
+        consultant.lastname,
+        consultant.consultant_description,
+        consultant.id,
+      ]
     );
   }
 }
