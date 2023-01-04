@@ -1,7 +1,7 @@
 CREATE TABLE
     user (
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        phone int(20) NOT NULL,
+        phone VARCHAR(20) NOT NULL,
         email VARCHAR(150) NOT NULL UNIQUE,
         password VARCHAR (255) NOT NULL,
         role varchar(200) NOT NULL
@@ -45,18 +45,13 @@ CREATE TABLE
     ) engine = InnoDB DEFAULT charset = utf8;
 
 INSERT INTO
-    consultant (id, firstname, lastname, user_id)
-VALUES (
-        1,
-        'John',
-        'Doe',
-        1
-    ), (
-        2,
-        'Jane',
-        'Smith',
-        2
-    );
+    consultant (
+        id,
+        firstname,
+        lastname,
+        user_id
+    )
+VALUES (1, 'John', 'Doe', 1), (2, 'Jane', 'Smith', 2);
 
 CREATE TABLE
     category (
