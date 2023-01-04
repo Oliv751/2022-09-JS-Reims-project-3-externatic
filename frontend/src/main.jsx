@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import EditOffer from "@pages/EditOffer";
 import OfferDetails from "./pages/OfferDetails";
 import App from "./App";
 import ConnexionPage from "./pages/ConnexionPage";
@@ -16,6 +17,7 @@ root.render(
         <Route path="/offers/:id" element={<OfferDetails />} />
         <Route path="/connexion" element={<ConnexionPage />} />
         <Route path="/createaccount/:type" element={<CreateAccount />} />
+        <Route path="/edit" element={<EditOffer />} />;
       </Routes>
     </Router>
   </React.StrictMode>
