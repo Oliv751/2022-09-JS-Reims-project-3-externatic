@@ -1,6 +1,6 @@
-import Header from "@components/Header";
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
 import "../styles/connexion_page.scss";
 
 export default function ConnexionPage() {
