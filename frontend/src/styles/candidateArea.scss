@@ -1,0 +1,96 @@
+.space {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 1 rem;
+
+  .describeCandidate {
+    border-bottom: 1px solid var(--light_color);
+    padding-bottom: 30px;
+    label,
+    input {
+      display: inline-block;
+      margin: 1rem 0;
+    }
+
+    label {
+      color: var(--dark_color);
+      width: 30vw;
+      text-align: center;
+    }
+
+    input {
+      width: 60vw;
+      border-radius: 10px;
+      padding: 5px;
+      outline: none;
+      border: 1px solid gray;
+    }
+  }
+  button {
+    font-size: 1rem;
+    color: var(--dark_color);
+    padding: 5px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid var(--light_color);
+  }
+
+  div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    h2,
+    h3 {
+      display: inline-block;
+      font-size: 1.2rem;
+    }
+  }
+
+  div:not(:first-child) {
+    button {
+      background-color: white;
+      border: none;
+    }
+  }
+}
+
+.methodOfContact {
+  border-bottom: 1px solid var(--light_color);
+  padding: 30px 0px;
+  h1 {
+    font-size: 1rem;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: center;
+  }
+  .methods {
+    display: flex;
+  }
+  input {
+    margin-left: 15px;
+  }
+}
+
+.typeOfContract {
+  border-bottom: 1px solid var(--light_color);
+  padding: 30px 0px;
+    h1 {
+    font-size: 1rem;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: center;
+  }
+  input {
+    margin: 10px;
+    margin-inline-start: auto ;
+  }
+}
+
+.experience {
+  margin: 50px 15px 15px 15px;
+}
+
+.save {
+  margin: 15px;
+}
