@@ -1,20 +1,38 @@
-import React from "react";
+import axios from "axios";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import "../styles/connexion_page.scss";
 
 export default function ConnexionPage() {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post(`http://localhost:5000/login`, {
+        email: emailRef.current.value,
+        password: passwordRef.current.value,
+      })
+      .then((response) => {
+        console.warn(response);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   return (
     <section className="connexion">
       <Header />
-      <form action="">
+      <form onSubmit={(e) => handleSubmit(e)}>
         <label htmlFor="email">Email</label>
-        <input type="text" />
+        <input ref={emailRef} type="text" />
 
         <label htmlFor="password">Password</label>
-        <input type="password" />
+        <input ref={passwordRef} type="password" />
 
-        <button type="button">Connexion</button>
+        <button type="submit">Connexion</button>
       </form>
       <nav>
         <Link to="/createaccount/candidate">
