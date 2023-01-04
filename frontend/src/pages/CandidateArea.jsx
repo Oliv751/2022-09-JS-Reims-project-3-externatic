@@ -42,17 +42,21 @@ function CandidateArea() {
         </section>
 
         <section className="methodOfContact">
-          <div>
-            <label htmlFor="phone">Telephone</label>
-            <input id="phone" type="checkbox" />
-          </div>
-          <div>
-            <label htmlFor="mail">Email</label>
-            <input id="mail" type="checkbox" />
+          <h1>Modes de contact</h1>
+          <div className="methods">
+            <div>
+              <label htmlFor="phone">Telephone</label>
+              <input id="phone" type="checkbox" />
+            </div>
+            <div>
+              <label htmlFor="mail">Email</label>
+              <input id="mail" type="checkbox" />
+            </div>
           </div>
         </section>
 
-        <section className="typeOfContact">
+        <section className="typeOfContract">
+          <h1>Type de contrat recherché</h1>
           <div>
             <label htmlFor="cdd">CDD</label>
             <input id="cdd" type="checkbox" />
@@ -71,9 +75,13 @@ function CandidateArea() {
           </div>
         </section>
 
-        <button type="button">Mes expériences</button>
+        <button className="experience" type="button">
+          Renseigner mes expériences
+        </button>
 
-        <button type="button">Enregistrer</button>
+        <button className="save" type="button">
+          Enregistrer
+        </button>
       </form>
     </div>
   );
