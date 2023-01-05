@@ -19,7 +19,7 @@ root.render(
           <Route path="/offers/:id" element={<OfferDetails />} />
           <Route path="/connexion" element={<ConnexionPage />} />
           <Route path="/createaccount/:type" element={<CreateAccount />} />
-          <Route path="/CandidateArea" element={<CandidateArea />} />
+          <Route path="/profil" element={<CandidateArea />} />
         </Routes>
       </Router>
     </AuthContextProvider>
