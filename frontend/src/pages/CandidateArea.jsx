@@ -55,7 +55,7 @@ function CandidateArea() {
           </div>
           <div>
             <label htmlFor="address">Adresse</label>
-            <input id="address" type="text" value="10 rue de reims , REIMS" />
+            <input id="address" type="text" value={candidateData.address} />
           </div>
         </section>
 
