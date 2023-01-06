@@ -1,7 +1,7 @@
 CREATE TABLE
     user (
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        phone int(20) NOT NULL,
+        phone VARCHAR(20) NOT NULL,
         email VARCHAR(150) NOT NULL UNIQUE,
         password VARCHAR (255) NOT NULL,
         role varchar(200) NOT NULL
@@ -46,7 +46,13 @@ CREATE TABLE
     ) engine = InnoDB DEFAULT charset = utf8;
 
 INSERT INTO
-    consultant (id, firstname, lastname, consultant_description, user_id)
+    consultant (
+        id,
+        firstname,
+        lastname,
+        consultant_description,
+        user_id
+    )
 VALUES (
         1,
         'John',
@@ -187,7 +193,7 @@ Pour la partie technique : des compétences sur C ou C++ (les 2 env existent). O
 Pour la partie métier : une simple envie suffit mais si par bonheur tu as déjà été confronté à un env d'éditions de logiciels, cela devrait t'aider
 
 Tu es arrivé jusqu'ici, c'est que le poste est fait pour toi, à toi de postuler !",
-        '20221213',
+        "2013-04-02 12:45:34",
         1
     ), (
         2,
@@ -236,7 +242,7 @@ Ingénieur infrastructure confirmé et autonome sur l'environnement Linux, vous 
     Maitrisez les bases en administration Unix / Linux (CentOS, RedHat, OracleLinux, Debian).
     Conaissez des outils d'industrialisation (Ansible) et des langages de scripting (Shell, Python). (Un plus)
     Êtes curieux et souhaitez consolider vos compétences sur les technos évoquées",
-        '20221219',
+        "2013-09-02 09:08:47",
         2
     );
 

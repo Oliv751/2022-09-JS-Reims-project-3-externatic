@@ -54,6 +54,7 @@ hr.rounded1 {
   grid-area: 2 / 2 / 3 / 5;
   font-size: 1.2rem;
   font-weight: 600;
+  color: map-get($colors, tertiary);
 }
 
 .Entreprise-Name {
@@ -67,7 +68,7 @@ hr.rounded1 {
 .Publication-Date {
   margin: 0;
   grid-area: 3 / 4 / 4 / 5;
-  color: map-get($colors, tertiary);
+  color: map-get($colors, secondary);
   inset-block: 0;
   font-size: 1rem;
   font-weight: 600;

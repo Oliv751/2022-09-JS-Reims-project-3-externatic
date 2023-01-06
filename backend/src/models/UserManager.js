@@ -11,6 +11,13 @@ class UserManager extends AbstractManager {
       [user.email, user.hashedPassword, parseInt(user.phone, 10), user.role]
     );
   }
+
+  find(email) {
+    return this.connection.query(
+      `select * from ${this.table} where email = ?`,
+      [email]
+    );
+  }
 }
 
 module.exports = UserManager;
