@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CandidateArea from "./pages/CandidateArea";
+import CandidateExperience from "./pages/CandidateExperience";
 import OfferDetails from "./pages/OfferDetails";
 import App from "./App";
 import ConnexionPage from "./pages/ConnexionPage";
@@ -18,6 +19,7 @@ root.render(
         <Route path="/connexion" element={<ConnexionPage />} />
         <Route path="/createaccount/:type" element={<CreateAccount />} />
         <Route path="/CandidateArea" element={<CandidateArea />} />
+        <Route path="/experience" element={<CandidateExperience />} />;
       </Routes>
     </Router>
   </React.StrictMode>
