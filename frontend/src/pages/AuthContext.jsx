@@ -7,6 +7,7 @@ function AuthContextProvider({ children }) {
   const [auth, setAuth] = useState({
     isAuthenticated: false,
     token: null,
+    id: null,
   });
 
   const value = useMemo(() => ({ auth, setAuth }), [auth, setAuth]);

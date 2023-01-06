@@ -1,9 +1,27 @@
 import "../styles/candidateArea.scss";
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import externaticLogo from "../assets/logos/externaticLogo.png";
+import { AuthContext } from "./AuthContext";
 
 function CandidateArea() {
+  const { auth } = useContext(AuthContext);
+  const [candidateData, setCandidateData] = useState({});
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/candidates/${auth.id}`, {
+        headers: { Authorization: `Bearer ${auth.token}` },
+      })
+      .then((response) => {
+        setCandidateData(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <div>
       <form className="space">
@@ -20,20 +38,20 @@ function CandidateArea() {
         </header>
         <section className="describeCandidate">
           <div>
-            <label htmlFor="firstName">Nom</label>
-            <input id="name" type="text" value="wild code" />
+            <label htmlFor="lastName">Nom</label>
+            <input id="name" type="text" value={candidateData.lastName} />
           </div>
           <div>
-            <label htmlFor="lastName">Prénom</label>
-            <input id="name" type="text" value="wild code" />
+            <label htmlFor="firstName">Prénom</label>
+            <input id="name" type="text" value={candidateData.firstName} />
           </div>
           <div>
             <label htmlFor="phone">Telephone</label>
-            <input id="phone" type="text" value="0606060606" />
+            <input id="phone" type="text" value={candidateData.phone} />
           </div>
           <div>
             <label htmlFor="mail">Email</label>
-            <input id="mail" type="email" value="wild@wild.fr" />
+            <input id="mail" type="email" value={candidateData.mail} />
           </div>
           <div>
             <label htmlFor="address">Adresse</label>
