@@ -1,0 +1,70 @@
+.area {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 1rem;
+
+  .describeConsultant {
+    border-bottom: 1px solid var(--light_color);
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    label,
+    input {
+      display: inline-block;
+      margin: 1rem 0;
+    }
+
+    label {
+      color: var(--dark_color);
+      width: 30vw;
+      text-align: center;
+    }
+
+    input {
+      width: 60vw;
+      border-radius: 10px;
+      padding: 5px;
+      outline: none;
+      border: 1px solid gray;
+    }
+    textarea {
+      width: 60vw;
+      height: 100px;
+      border-radius: 10px;
+      padding: 5px;
+      outline: none;
+      border: 1px solid gray;
+    }
+    .btnSave {
+      margin: auto;
+    }
+    button {
+      padding: 5px;
+      border-radius: 10px;
+      font-size: 1rem;
+      color: var(--dark_color);
+      outline: none;
+      border: 1px solid var(--dark_color);
+    }
+  }
+  .offres {
+    border-bottom: 1px solid var(--light_color);
+    padding-bottom: 10px;
+
+    button {
+      padding: 5px;
+      border-radius: 10px;
+      font-size: 1rem;
+      color: var(--dark_color);
+      outline: none;
+      border: 1px solid var(--dark_color);
+    }
+    h2 {
+      text-align: center;
+    }
+    .btnOffre {
+      margin: auto;
+    }
+  }
+}
