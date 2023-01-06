@@ -1,38 +1,58 @@
 import axios from "axios";
-import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import "../styles/connexion_page.scss";
+import { AuthContext } from "./AuthContext";
 
 export default function ConnexionPage() {
+  const { setAuth } = useContext(AuthContext);
+  const [errorInput, setErrorInput] = useState(false);
+  const navigate = useNavigate();
   const emailRef = useRef();
   const passwordRef = useRef();
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleLogin = () => {
     axios
-      .post(`http://localhost:5000/login`, {
+      .post("http://localhost:5000/login", {
         email: emailRef.current.value,
         password: passwordRef.current.value,
       })
-      .then((response) => {
-        console.warn(response);
+      .then((res) => {
+        const { token } = res.data;
+        if (token) {
+          setAuth((oldAuth) => ({
+            ...oldAuth,
+            isAuthenticated: true,
+            token,
+          }));
+          navigate("/");
+        } else {
+          setErrorInput(true);
+        }
       })
-      .catch((err) => {
-        console.error(err);
+      .catch((error) => {
+        console.warn(error);
       });
   };
-
   return (
     <section className="connexion">
       <Header />
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleLogin();
+        }}
+      >
         <label htmlFor="email">Email</label>
         <input ref={emailRef} type="text" />
 
         <label htmlFor="password">Password</label>
         <input ref={passwordRef} type="password" />
 
-        <button type="submit">Connexion</button>
+        <button type="submit" onClick={handleLogin}>
+          Connexion
+        </button>
+        {errorInput && <p className="alert">Email ou mot de passe incorrect</p>}
       </form>
       <nav>
         <Link to="/createaccount/candidate">
