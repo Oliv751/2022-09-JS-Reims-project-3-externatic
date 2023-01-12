@@ -1,10 +1,16 @@
-import { React, useEffect, useRef } from "react";
+import { React, useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { MdAccountCircle } from "react-icons/md";
-import externaticLogo from "../assets/logos/externaticLogo.png";
 import "../styles/consultantArea.scss";
+import axios from "axios";
+import jwt from "jwt-decode";
+import { AuthContext } from "./AuthContext";
+
+import externaticLogo from "../assets/logos/externaticLogo.png";
 
 export default function ConsultantArea() {
+  const { auth } = useContext(AuthContext);
+  const [setData] = useState([]);
   const firstnameRef = useRef();
   const lastnameRef = useRef();
   const phoneRef = useRef();
@@ -13,7 +19,22 @@ export default function ConsultantArea() {
   // const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch("").then((response) => response.json());
+    const id = jwt(auth.token);
+    console.warn(id);
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/consultants/${id.sub}`, {
+        headers: {
+          Authorization: `Bearer ${auth.token}`,
+        },
+      })
+      .then((reponse) => {
+        setData(reponse.data);
+        console.warn("reponse /consultant/id");
+        console.warn(reponse);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   return (

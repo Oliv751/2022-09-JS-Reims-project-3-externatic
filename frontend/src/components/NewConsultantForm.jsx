@@ -32,6 +32,7 @@ export default function NewConsultantForm() {
       setConfirmPassword("");
       setPassword("");
 
+      // eslint-disable-next-line no-alert
       alert("Erreur dans le mot de passe");
     }
   };

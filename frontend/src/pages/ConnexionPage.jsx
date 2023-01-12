@@ -13,7 +13,7 @@ export default function ConnexionPage() {
   const passwordRef = useRef();
   const handleLogin = () => {
     axios
-      .post("http://localhost:5000/login", {
+      .post(`${import.meta.env.VITE_BACKEND_URL}/login`, {
         email: emailRef.current.value,
         password: passwordRef.current.value,
       })
