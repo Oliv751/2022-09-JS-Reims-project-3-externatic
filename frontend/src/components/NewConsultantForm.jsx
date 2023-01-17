@@ -39,7 +39,7 @@ export default function NewConsultantForm() {
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <div>
-        <label htmlFor="firstname">Nom</label>
+        <label htmlFor="firstname">Prénom</label>
         <input ref={firstnameRef} id="name" type="text" />
       </div>
       <div>
