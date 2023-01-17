@@ -8,12 +8,14 @@ import { AuthContext } from "./AuthContext";
 function CandidateArea() {
   const { auth } = useContext(AuthContext);
   const [candidateData, setCandidateData] = useState({});
-
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/candidates/${auth.id}`, {
-        headers: { Authorization: `Bearer ${auth.token}` },
-      })
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/candidates/${candidateData.id}`,
+        {
+          headers: { Authorization: `Bearer ${auth.token}` },
+        }
+      )
       .then((response) => {
         setCandidateData(response.data);
       })
@@ -72,7 +74,6 @@ function CandidateArea() {
             </div>
           </div>
         </section>
-
         <section className="typeOfContract">
           <h1>Type de contrat recherché</h1>
           <div>
@@ -92,11 +93,9 @@ function CandidateArea() {
             <input id="alternance" type="checkbox" />
           </div>
         </section>
-
         <button className="experience" type="button">
           Renseigner mes expériences
         </button>
-
         <button className="save" type="button">
           Enregistrer
         </button>
