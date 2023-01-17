@@ -18,12 +18,16 @@ function Experience() {
       startDate,
       endDate,
     };
-    setExperiences([...experiences, newExperience]);
-    setTitle("");
-    setCompany("");
-    setDescription("");
-    setStartDate("");
-    setEndDate("");
+
+    if (
+      title.length &&
+      company.length &&
+      description.length >= 50 &&
+      startDate &&
+      endDate
+    ) {
+      setExperiences([...experiences, newExperience]);
+    }
   };
 
   return (
