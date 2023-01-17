@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function NewConsultantForm() {
   const firstnameRef = useRef();
@@ -8,6 +9,7 @@ export default function NewConsultantForm() {
   const emailRef = useRef();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,14 +18,16 @@ export default function NewConsultantForm() {
       axios
         .post(`${import.meta.env.VITE_BACKEND_URL}/consultants`, {
           firstname: firstnameRef.current.value,
-          lastnameRef: lastnameRef.current.value,
+          lastname: lastnameRef.current.value,
           phone: phoneRef.current.value,
           email: emailRef.current.value,
           password,
           role: "consultant",
         })
         .then((reponse) => {
-          console.warn(reponse);
+          if (reponse.status === 201) {
+            navigate("/connexion");
+          }
         })
         .catch((err) => {
           console.error(err);
@@ -39,7 +43,7 @@ export default function NewConsultantForm() {
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <div>
-        <label htmlFor="firstname">Nom</label>
+        <label htmlFor="firstname">Prénom</label>
         <input ref={firstnameRef} id="name" type="text" />
       </div>
       <div>

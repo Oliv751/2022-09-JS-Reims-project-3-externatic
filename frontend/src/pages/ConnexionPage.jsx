@@ -18,12 +18,13 @@ export default function ConnexionPage() {
         password: passwordRef.current.value,
       })
       .then((res) => {
-        const { token } = res.data;
+        const { token, user } = res.data;
         if (token) {
           setAuth((oldAuth) => ({
             ...oldAuth,
             isAuthenticated: true,
             token,
+            id: user.id,
           }));
           navigate("/");
         } else {

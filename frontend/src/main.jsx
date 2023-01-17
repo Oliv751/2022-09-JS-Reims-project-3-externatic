@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthContextProvider } from "./pages/AuthContext";
-import CandidateArea from "./pages/CandidateArea";
-import CandidateExperience from "./pages/CandidateExperience";
+import Profil from "./pages/Profil";
+import CandidateExperience from "./pages/CandidateArea";
 import OfferDetails from "./pages/OfferDetails";
 import App from "./App";
 import ConnexionPage from "./pages/ConnexionPage";
@@ -20,8 +20,8 @@ root.render(
           <Route path="/offers/:id" element={<OfferDetails />} />
           <Route path="/connexion" element={<ConnexionPage />} />
           <Route path="/createaccount/:type" element={<CreateAccount />} />
-          <Route path="/profil" element={<CandidateArea />} />
-          <Route path="/experience" element={<CandidateExperience />} />
+          <Route path="/profil/:type" element={<Profil />} />
+          <Route path="/experience" element={<CandidateExperience />} />;
         </Routes>
       </Router>
     </AuthContextProvider>
