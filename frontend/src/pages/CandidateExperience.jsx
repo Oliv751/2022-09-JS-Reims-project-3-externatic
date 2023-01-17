@@ -6,6 +6,8 @@ function Experience() {
   const [title, setTitle] = useState("");
   const [company, setCompany] = useState("");
   const [description, setDescription] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,11 +15,15 @@ function Experience() {
       title,
       company,
       description,
+      startDate,
+      endDate,
     };
     setExperiences([...experiences, newExperience]);
     setTitle("");
     setCompany("");
     setDescription("");
+    setStartDate("");
+    setEndDate("");
   };
 
   return (
@@ -29,7 +35,7 @@ function Experience() {
         <h1>Mes Expériences</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            Titre de l'expérience :
+            Nom du poste :
             <input
               type="text"
               value={title}
@@ -54,6 +60,23 @@ function Experience() {
             />
           </label>
           <br />
+          <label>
+            Date de début :
+            <input
+              type="date"
+              value={startDate}
+              onChange={(event) => setStartDate(event.target.value)}
+            />
+          </label>
+          <label>
+            Date de fin :
+            <input
+              type="date"
+              value={endDate}
+              onChange={(event) => setEndDate(event.target.value)}
+            />
+          </label>
+          <br />
           <button type="submit">Ajouter</button>
         </form>
         <br />
@@ -63,6 +86,8 @@ function Experience() {
             <h3>{experience.title}</h3>
             <p>{experience.company}</p>
             <p>{experience.description}</p>
+            <p>Date de début : {experience.startDate}</p>
+            <p>Date de fin : {experience.endDate}</p>
           </div>
         ))}
       </div>

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthContextProvider } from "./pages/AuthContext";
 import Profil from "./pages/Profil";
-import CandidateExperience from "./pages/CandidateArea";
+import CandidateExperience from "./pages/CandidateExperience";
 import OfferDetails from "./pages/OfferDetails";
 import App from "./App";
 import ConnexionPage from "./pages/ConnexionPage";
