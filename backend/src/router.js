@@ -64,7 +64,12 @@ router.post("/categories", categoryControllers.add);
 router.delete("/categories/:id", categoryControllers.destroy);
 
 router.get("/users", userControllers.browse);
-router.get("/users/:id", userControllers.read);
+router.get(
+  "/users/:id",
+  userControllers.findJoinCandidate,
+  userControllers.read
+);
+router.get("/users/candidates/:id", userControllers.findJoinCandidate);
 router.put("/users/:id", userControllers.edit);
 router.delete("/users/:id", userControllers.destroy);
 

@@ -7,7 +7,7 @@ import { AuthContext } from "./AuthContext";
 
 function CandidateArea() {
   const { auth } = useContext(AuthContext);
-  const [candidateData, setCandidateData] = useState({});
+  const [candidateData] = useState({});
   const [formData, setFormData] = useState({
     lastName: "",
     firstName: "",
@@ -20,32 +20,19 @@ function CandidateArea() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/users/${auth.userId}`, {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/users/candidates/${auth.id}`, {
         headers: { Authorization: `Bearer ${auth.token}` },
       })
       .then((response) => {
         setFormData({
           ...formData,
-          phone: response.data.phone,
-          email: response.data.email,
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/candidates/${auth.userId}`, {
-        headers: { Authorization: `Bearer ${auth.token}` },
-      })
-      .then((response) => {
-        setCandidateData(response.data);
-        setFormData({
-          ...formData,
-          lastName: response.data.lastName,
-          firstName: response.data.firstName,
-          address: response.data.address,
-          contract: response.data.contract,
+          phone: response.data[0].phone,
+          email: response.data[0].email,
+          lastName: response.data[0].lastName,
+          firstName: response.data[0].firstName,
+          address: response.data[0].address,
+          contract: response.data[0].contract,
+          id: response.data[0].candidate_id,
         });
       })
       .catch((error) => {
