@@ -89,7 +89,7 @@ const destroy = (req, res) => {
 
 const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
   models.user
-    .find(req.body.email)
+    .findByEmail(req.body.email)
     .then(([users]) => {
       if (users[0] != null) {
         [req.user] = users;

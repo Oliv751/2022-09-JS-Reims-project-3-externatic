@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -6,15 +6,16 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import { BiMailSend } from "react-icons/bi";
 import Header from "../components/Header";
+import { AuthContext } from "./AuthContext";
 import "../styles/offerDetails.scss";
 
 function OfferDetails() {
   const offerId = useParams();
+  const { auth } = useContext(AuthContext);
 
   const [offer, setOffer] = useState([]);
   const [date, setDate] = useState("");
-  const [userId, setUserId] = useState();
-  const [userInfo, setUserInfo] = useState();
+  const [user, setUser] = useState({});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [hasAccess, setHasAccess] = useState(false);
 
@@ -26,15 +27,22 @@ function OfferDetails() {
       });
 
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/user/info`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/users/${auth.id}`, {
+        headers: { Authorization: `Bearer ${auth.token}` },
+      })
       .then((response) => {
-        setUserId(response.data.userId);
-        setUserInfo(response.data.userInfo);
+        setUser(response.data.user);
         setIsAuthenticated(response.data.isAuthenticated);
         setHasAccess(response.data.hasAccess);
       })
       .catch((error) => {
-        console.error(error);
+        if (error.response.status === 401) {
+          toast.error(
+            "Vous devez être connecté pour accéder à cette ressource"
+          );
+        } else {
+          console.error(error);
+        }
       });
   }, []);
 
@@ -43,13 +51,16 @@ function OfferDetails() {
   }, [offer]);
 
   function handleContactRequest() {
-    if (isAuthenticated && hasAccess && userInfo) {
+    if (isAuthenticated && hasAccess && user) {
       axios
         .post(
           `${import.meta.env.VITE_BACKEND_URL}/offers/${offerId.id}/contact`,
           {
-            userId,
-            userInfo,
+            userId: user.id,
+            userInfo: {
+              phone: user.phone,
+              email: user.email,
+            },
           }
         )
         .then((response) => {
@@ -66,8 +77,16 @@ function OfferDetails() {
         .catch((error) => {
           console.error(error);
         });
-    } else {
+    } else if (!isAuthenticated) {
       toast.error("Vous devez être connecté pour postuler à cette offre");
+    } else if (!user) {
+      toast.error(
+        "Une erreur est survenue lors de la récupération des informations de l'utilisateur, veuillez réessayer"
+      );
+    } else if (!hasAccess) {
+      toast.error(
+        "Vous n'avez pas les autorisations pour postuler à cette offre"
+      );
     }
   }
 
@@ -84,7 +103,7 @@ function OfferDetails() {
         <AiOutlineShareAlt className="Share-Icon" />
         <BiMailSend className="Mail-Icon" />
         <section className="Job-Description">
-          <button type="button" onClick={handleContactRequest}>
+          <button type="submit" onClick={handleContactRequest}>
             Postuler
           </button>
           <hr className="rounded2" />
