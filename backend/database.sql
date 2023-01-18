@@ -40,7 +40,7 @@ CREATE TABLE
         id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
         firstname varchar(100) NOT NULL,
         lastname varchar(100) NOT NULL,
-        consultant_description TEXT NOT NULL,
+        consultant_description TEXT NULL,
         user_id int(11) UNSIGNED NOT NULL,
         CONSTRAINT fk_consultant_user FOREIGN KEY (user_id) references user(id)
     ) engine = InnoDB DEFAULT charset = utf8;

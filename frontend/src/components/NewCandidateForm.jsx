@@ -48,7 +48,7 @@ export default function NewCandidateForm() {
         <input ref={firstnameRef} id="firstname" type="text" />
       </div>
       <div>
-        <label htmlFor="lastname">nom</label>
+        <label htmlFor="lastname">Nom</label>
         <input ref={lastnameRef} id="lastname" type="text" />
       </div>
       <div>

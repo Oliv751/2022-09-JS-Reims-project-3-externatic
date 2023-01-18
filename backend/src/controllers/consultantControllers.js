@@ -55,8 +55,8 @@ const add = (req, res) => {
 
   models.consultant
     .insert({ ...consultant, id })
-    .then(([result]) => {
-      res.location(`/companies/${result.insertId}`).sendStatus(201);
+    .then(() => {
+      res.sendStatus(201);
     })
     .catch((err) => {
       console.error(err);

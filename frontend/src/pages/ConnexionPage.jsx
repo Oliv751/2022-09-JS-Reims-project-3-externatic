@@ -18,12 +18,14 @@ export default function ConnexionPage() {
         password: passwordRef.current.value,
       })
       .then((res) => {
-        const { token } = res.data;
+        const { token, user } = res.data;
         if (token) {
           setAuth((oldAuth) => ({
             ...oldAuth,
             isAuthenticated: true,
             token,
+            id: user.id,
+            role: user.role,
           }));
           navigate("/");
         } else {
@@ -49,9 +51,7 @@ export default function ConnexionPage() {
         <label htmlFor="password">Password</label>
         <input ref={passwordRef} type="password" />
 
-        <button type="submit" onClick={handleLogin}>
-          Connexion
-        </button>
+        <button type="submit">Connexion</button>
         {errorInput && <p className="alert">Email ou mot de passe incorrect</p>}
       </form>
       <nav>
