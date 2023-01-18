@@ -49,9 +49,7 @@ export default function ConnexionPage() {
         <label htmlFor="password">Password</label>
         <input ref={passwordRef} type="password" />
 
-        <button type="submit" onClick={handleLogin}>
-          Connexion
-        </button>
+        <button type="submit">Connexion</button>
         {errorInput && <p className="alert">Email ou mot de passe incorrect</p>}
       </form>
       <nav>
