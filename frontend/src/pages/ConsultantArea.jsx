@@ -84,7 +84,9 @@ export default function ConsultantArea() {
       <section className="offres">
         <div className="header">
           <h2>Mes offres</h2>
-          <button type="submit">Ajouter une offre</button>
+          <Link to="/consultant/editOffer">
+            <button type="submit">Ajouter une offre</button>
+          </Link>
         </div>
       </section>
     </form>
