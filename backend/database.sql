@@ -38,6 +38,12 @@ VALUES (
         '0612345678',
         'mainAdmin@mail.com',
         '$argon2id$v=19$m=65536,t=5,p=1$qZMlPdVzKxH0MZI9BMWA5w$JtLcNV4Oy+WKco8bUrjye1mYi6YqRGXoBGw9GwcC9ys',
+        'consultant'
+    ), (
+        6,
+        '9876543210 ',
+        'superCandi@mail.com',
+        '$argon2id$v=19$m=65536,t=5,p=1$AoVTRpHTM2vEvmj5wTwS6Q$WdD4LYMptE2rvvNgm5jrBB8H08r0d2VaXUAzi13e78I',
         'candidate'
     );
 
