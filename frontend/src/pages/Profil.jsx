@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
 import CandidateArea from "./CandidateArea";
@@ -11,9 +11,11 @@ function Profil() {
   /**
    * type : consultant || candidate
    */
-  if (!auth.isAuthenticated) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (!auth.isAuthenticated) {
+      navigate("/");
+    }
+  });
   return (
     <>
       {type === "consultant" && <ConsultantArea />}
