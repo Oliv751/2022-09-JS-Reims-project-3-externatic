@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthContextProvider } from "./pages/AuthContext";
-import CandidateArea from "./pages/CandidateArea";
+import Profil from "./pages/Profil";
 import OfferDetails from "./pages/OfferDetails";
 import App from "./App";
 import ConnexionPage from "./pages/ConnexionPage";
@@ -19,7 +19,7 @@ root.render(
           <Route path="/offers/:id" element={<OfferDetails />} />
           <Route path="/connexion" element={<ConnexionPage />} />
           <Route path="/createaccount/:type" element={<CreateAccount />} />
-          <Route path="/profil" element={<CandidateArea />} />
+          <Route path="/profil/:type" element={<Profil />} />
         </Routes>
       </Router>
     </AuthContextProvider>
