@@ -25,6 +25,7 @@ export default function ConnexionPage() {
             isAuthenticated: true,
             token,
             id: user.id,
+            role: user.role,
           }));
           navigate("/");
         } else {
