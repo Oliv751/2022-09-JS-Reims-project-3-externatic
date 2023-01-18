@@ -25,7 +25,6 @@ hr.rounded1 {
 
 .Offer-Details {
   display: grid;
-  grid-column-gap: 9px;
   grid-template: 20px 60px 60px 30px 30px 30px 4fr 4fr 20px / 20px 2fr 3fr 2fr 20px;
   font-family: $font-family;
   color: map-get($colors, primary);
@@ -33,6 +32,9 @@ hr.rounded1 {
   section {
     font-size: 1rem;
     margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     h1 {
       font-size: 1rem;
       font-weight: 600;
@@ -47,6 +49,15 @@ hr.rounded1 {
       border-radius: var(--radius_button);
     }
   }
+}
+
+button {
+  font-size: 1rem;
+  color: var(--dark_color);
+  padding: 5px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid var(--light_color);
 }
 
 .Job-Name {
