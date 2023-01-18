@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { MdAccountCircle, MdClose } from "react-icons/md";
 import "../styles/Header.scss";
-import { AuthContext } from "@pages/AuthContext";
+import { AuthContext } from "../pages/AuthContext";
 import externaticLogo from "../assets/logos/externaticLogo.png";
 
 function Header() {
