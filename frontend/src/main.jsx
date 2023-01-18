@@ -21,7 +21,7 @@ root.render(
           <Route path="/connexion" element={<ConnexionPage />} />
           <Route path="/createaccount/:type" element={<CreateAccount />} />
           <Route path="/profil/:type" element={<Profil />} />
-          <Route path="/experience" element={<CandidateExperience />} />;
+          <Route path="/experiences" element={<CandidateExperience />} />;
         </Routes>
       </Router>
     </AuthContextProvider>
