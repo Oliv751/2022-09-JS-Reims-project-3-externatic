@@ -49,7 +49,6 @@ const verifyPassword = (req, res) => {
 const verifyToken = (req, res, next) => {
   try {
     const authorizationHeader = req.get("Authorization");
-
     if (authorizationHeader == null) {
       throw new Error("Authorization header is missing");
     }
