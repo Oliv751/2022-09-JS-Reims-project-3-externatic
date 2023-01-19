@@ -13,9 +13,9 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  const id = parseInt(req.params.id, 10);
+  const userId = parseInt(req.params.userId, 10);
   models.candidate
-    .find(id)
+    .find(userId)
     .then(([rows]) => {
       if (rows[0] == null) {
         res.sendStatus(404);

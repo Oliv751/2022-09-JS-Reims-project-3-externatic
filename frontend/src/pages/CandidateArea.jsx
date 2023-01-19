@@ -7,7 +7,7 @@ import { AuthContext } from "./AuthContext";
 
 function CandidateArea() {
   const { auth } = useContext(AuthContext);
-  const [candidateData, setCandidateData] = useState({});
+  const [candidateData] = useState({});
   const [formData, setFormData] = useState({
     lastName: "",
     firstName: "",
@@ -20,7 +20,7 @@ function CandidateArea() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/users/${auth.userId}`, {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/candidates/${auth.id}`, {
         headers: { Authorization: `Bearer ${auth.token}` },
       })
       .then((response) => {
@@ -28,24 +28,11 @@ function CandidateArea() {
           ...formData,
           phone: response.data.phone,
           email: response.data.email,
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/candidates/${auth.userId}`, {
-        headers: { Authorization: `Bearer ${auth.token}` },
-      })
-      .then((response) => {
-        setCandidateData(response.data);
-        setFormData({
-          ...formData,
           lastName: response.data.lastName,
           firstName: response.data.firstName,
           address: response.data.address,
           contract: response.data.contract,
+          id: response.data.candidate_id,
         });
       })
       .catch((error) => {
@@ -64,7 +51,7 @@ function CandidateArea() {
     event.preventDefault();
     // Envoi des données modifiées à l'API pour mise à jour en base de données
     axios
-      .patch(
+      .put(
         `${import.meta.env.VITE_BACKEND_URL}/candidates/${candidateData.id}`,
         formData,
         {
