@@ -44,6 +44,25 @@ function OfferDetails() {
           console.error(error);
         }
       });
+
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/users/candidates/${auth.id}`, {
+        headers: { Authorization: `Bearer ${auth.token}` },
+      })
+      .then((response) => {
+        setUser(response.data.user);
+        setIsAuthenticated(response.data.isAuthenticated);
+        setHasAccess(response.data.hasAccess);
+      })
+      .catch((error) => {
+        if (error.response.status === 401) {
+          toast.error(
+            "Vous devez être connecté pour accéder à cette ressource"
+          );
+        } else {
+          console.error(error);
+        }
+      });
   }, []);
 
   useEffect(() => {
