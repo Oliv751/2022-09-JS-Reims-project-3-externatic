@@ -20,19 +20,19 @@ function CandidateArea() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/users/candidates/${auth.id}`, {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/candidates/${auth.id}`, {
         headers: { Authorization: `Bearer ${auth.token}` },
       })
       .then((response) => {
         setFormData({
           ...formData,
-          phone: response.data[0].phone,
-          email: response.data[0].email,
-          lastName: response.data[0].lastName,
-          firstName: response.data[0].firstName,
-          address: response.data[0].address,
-          contract: response.data[0].contract,
-          id: response.data[0].candidate_id,
+          phone: response.data.phone,
+          email: response.data.email,
+          lastName: response.data.lastName,
+          firstName: response.data.firstName,
+          address: response.data.address,
+          contract: response.data.contract,
+          id: response.data.candidate_id,
         });
       })
       .catch((error) => {
