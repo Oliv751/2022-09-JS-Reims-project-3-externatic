@@ -35,7 +35,7 @@ function Experience() {
 
   return (
     <>
-      <Header className="header" />
+      <Header />
       <section className="experience_capture">
         <h1>Mes Expériences</h1>
         <form onSubmit={handleSubmit}>
