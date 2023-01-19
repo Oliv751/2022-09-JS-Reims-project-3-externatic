@@ -77,6 +77,12 @@ VALUES (
         'Smith',
         "Je suis Jane Smith, consultante en recrutement au sein d'Externatic, je vous propose aujourd’hui de découvrir l’offre ci-dessous et d’échanger ensemble : plutôt en visio ? Ou autour d’un verre ? Je serai ravie de vous accompagner et de vous présenter ce job plus en détail !",
         2
+    ), (
+        3,
+        'Main',
+        'Admin',
+        "Je suis Main Admin, le boss du site !",
+        1
     );
 
 CREATE TABLE
@@ -169,6 +175,14 @@ VALUES (
         '53 rue Vernouillet 51100 REIMS',
         'CDD',
         4,
+        2
+    ), (
+        3,
+        'Super',
+        'Candidate',
+        '12 rue des Blaireaux 24000 PERIGUEUX',
+        'CDD',
+        6,
         2
     );
 
