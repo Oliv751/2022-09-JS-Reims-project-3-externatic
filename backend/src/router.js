@@ -65,7 +65,6 @@ router.delete("/categories/:id", categoryControllers.destroy);
 
 router.get("/users", userControllers.browse);
 router.get("/users/:id", userControllers.read);
-router.get("/users/candidates/:id", userControllers.findJoinCandidate);
 router.put("/users/:id", userControllers.edit);
 router.delete("/users/:id", userControllers.destroy);
 
@@ -75,7 +74,7 @@ router.put("/consultants/:id", consultantControllers.edit);
 router.delete("/consultants/:id", consultantControllers.destroy);
 
 router.get("/candidates", candidateControllers.browse);
-router.get("/candidates/:id", candidateControllers.read);
+router.get("/candidates/:userId", candidateControllers.read);
 router.put("/candidates/:id", candidateControllers.edit);
 router.delete("/candidates/:id", candidateControllers.destroy);
 

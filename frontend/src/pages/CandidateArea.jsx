@@ -51,7 +51,7 @@ function CandidateArea() {
     event.preventDefault();
     // Envoi des données modifiées à l'API pour mise à jour en base de données
     axios
-      .patch(
+      .put(
         `${import.meta.env.VITE_BACKEND_URL}/candidates/${candidateData.id}`,
         formData,
         {
