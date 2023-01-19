@@ -33,6 +33,18 @@ VALUES (
         'Paula.Green@example.com',
         '98765432',
         'candidate'
+    ), (
+        5,
+        '0612345678',
+        'mainAdmin@mail.com',
+        '$argon2id$v=19$m=65536,t=5,p=1$qZMlPdVzKxH0MZI9BMWA5w$JtLcNV4Oy+WKco8bUrjye1mYi6YqRGXoBGw9GwcC9ys',
+        'consultant'
+    ), (
+        6,
+        '9876543210 ',
+        'superCandi@mail.com',
+        '$argon2id$v=19$m=65536,t=5,p=1$AoVTRpHTM2vEvmj5wTwS6Q$WdD4LYMptE2rvvNgm5jrBB8H08r0d2VaXUAzi13e78I',
+        'candidate'
     );
 
 CREATE TABLE
@@ -75,6 +87,49 @@ CREATE TABLE
 
 INSERT INTO category (id, name)
 VALUES (1, 'C/C++'), (2, 'Infrastructure / Cloud');
+
+CREATE TABLE
+    experience (
+        id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+        job_name VARCHAR(255) NOT NULL,
+        company_name VARCHAR(255) NOT NULL,
+        experience_description TEXT NOT NULL,
+        startDate DATE NOT NULL,
+        endDate DATE NOT NULL,
+        category_id int(11) UNSIGNED NOT NULL,
+        candidate_id int(11) UNSIGNED NOT NULL
+    ) engine = InnoDB DEFAULT charset = utf8;
+
+INSERT INTO
+    experience (
+        id,
+        job_name,
+        company_name,
+        experience_description,
+        startDate,
+        endDate,
+        category_id,
+        candidate_id
+    )
+VALUES (
+        1,
+        'Développeur',
+        'Wild code school',
+        "Je suis actuellement en formation intensive pour le métier de développeur web dans laquelle j 'apprends des languages de programmation",
+        "2022-09-12 09:00:00",
+        "2023-01-18 11:00:00",
+        1,
+        1
+    ), (
+        2,
+        'Serveur',
+        'Lalambic',
+        "J'ai travaillé en tant que serveur au bar Lalambic pendant une durée d' environ 3 ans, j'y ai apprécié les relations clients et cela m' a permis d 'améliorer mes relations avec les gens",
+        "2018-01-01 00:00:01",
+        "2021-07-18 18:50:32",
+        2,
+        2
+    );
 
 CREATE TABLE
     candidate (

@@ -1,7 +1,7 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.candidate
+  models.experience
     .findAll()
     .then(([rows]) => {
       res.send(rows);
@@ -13,9 +13,8 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  const id = parseInt(req.params.id, 10);
-  models.candidate
-    .find(id)
+  models.experience
+    .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
         res.sendStatus(404);
@@ -30,12 +29,12 @@ const read = (req, res) => {
 };
 
 const edit = (req, res) => {
-  const candidate = req.body;
+  const experience = req.body;
 
-  candidate.id = parseInt(req.params.id, 10);
+  experience.id = parseInt(req.params.id, 10);
 
-  models.candidate
-    .update(candidate)
+  models.experience
+    .update(experience)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -50,11 +49,11 @@ const edit = (req, res) => {
 };
 
 const add = (req, res) => {
-  const candidate = req.body;
+  const experience = req.body;
   const id = req.user_id;
 
-  models.candidate
-    .insert({ ...candidate, id })
+  models.experience
+    .insert({ ...experience, id })
     .then(() => {
       res.sendStatus(201);
     })
@@ -65,7 +64,7 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  models.candidate
+  models.experience
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
