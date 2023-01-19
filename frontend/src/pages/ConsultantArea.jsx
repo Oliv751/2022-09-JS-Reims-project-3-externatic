@@ -1,5 +1,5 @@
 import { React, useContext, useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link, NavLink } from "react-router-dom";
 import { MdAccountCircle } from "react-icons/md";
 import "../styles/consultantArea.scss";
 import axios from "axios";
@@ -9,6 +9,7 @@ import { AuthContext } from "./AuthContext";
 import externaticLogo from "../assets/logos/externaticLogo.png";
 
 export default function ConsultantArea() {
+  const navigate = useNavigate();
   const { auth } = useContext(AuthContext);
   const [setData] = useState([]);
   const firstnameRef = useRef();
@@ -17,6 +18,10 @@ export default function ConsultantArea() {
   const emailRef = useRef();
   const descriptionRef = useRef();
   // const [data, setData] = useState(null);
+
+  function handleSubmit() {
+    navigate("/consultant/editOffer");
+  }
 
   useEffect(() => {
     const id = jwt(auth.token);
@@ -38,7 +43,13 @@ export default function ConsultantArea() {
   }, []);
 
   return (
-    <form className="area">
+    <form
+      className="area"
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit();
+      }}
+    >
       <header>
         <nav>
           <Link to="/">
@@ -48,11 +59,9 @@ export default function ConsultantArea() {
               alt="externaticLogo"
             />
           </Link>
-          <Link to="/connexion">
-            <button type="button" className="button-connexion">
-              <MdAccountCircle className="personIcon" />
-            </button>
-          </Link>
+          <NavLink to="/connexion" className="button-connexion">
+            <MdAccountCircle className="personIcon" />
+          </NavLink>
         </nav>
       </header>
       <section className="describeConsultant">
@@ -84,9 +93,7 @@ export default function ConsultantArea() {
       <section className="offres">
         <div className="header">
           <h2>Mes offres</h2>
-          <Link to="/consultant/editOffer">
-            <button type="submit">Ajouter une offre</button>
-          </Link>
+          <button type="submit">Ajouter une offre</button>
         </div>
       </section>
     </form>
