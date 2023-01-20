@@ -19,6 +19,19 @@ class CandidateManager extends AbstractManager {
     );
   }
 
+  update(candidate) {
+    return this.connection.query(
+      `update ${this.table} set firstname = ?, lastname = ?, address = ?, contract = ? where id = ?`,
+      [
+        candidate.firstname,
+        candidate.lastname,
+        candidate.address,
+        candidate.contract,
+        candidate.id,
+      ]
+    );
+  }
+
   find(id) {
     return this.connection.query(
       `select user.id, user.phone, user.email, candidate.id as candidate_id, candidate.firstName, candidate.lastName, candidate.address, candidate.contract from user join candidate on user.id = candidate.user_id where user.id = ?`,
