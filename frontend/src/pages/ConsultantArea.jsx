@@ -3,7 +3,6 @@ import { useNavigate, Link, NavLink } from "react-router-dom";
 import { MdAccountCircle } from "react-icons/md";
 import "../styles/consultantArea.scss";
 import axios from "axios";
-import jwt from "jwt-decode";
 import { AuthContext } from "./AuthContext";
 
 import externaticLogo from "../assets/logos/externaticLogo.png";
@@ -24,10 +23,9 @@ export default function ConsultantArea() {
   }
 
   useEffect(() => {
-    const id = jwt(auth.token);
-    console.warn(id);
+    console.warn(auth.id);
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/consultants/${id.sub}`, {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/consultants/${auth.id}`, {
         headers: {
           Authorization: `Bearer ${auth.token}`,
         },
