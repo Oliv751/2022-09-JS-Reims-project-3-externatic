@@ -5,11 +5,10 @@
   padding: 1 rem;
 }
 
-button {
+.candidateArea button {
   align-items: center;
   margin: auto;
-  margin-top: 5rem;
-  width: 80vw;
+  width: 90vw;
   border: 1px solid var(--light_color);
   border-radius: var(--radius_button);
   color: var(--dark_color);
@@ -21,6 +20,7 @@ button {
   label,
   input {
     display: inline-block;
+    margin-top: 1rem;
    }
 
     label {
@@ -39,7 +39,6 @@ button {
 
   .candidateArea div {
     display: inline-flex;
-    justify-content: space-around;
     align-items: center;
   }
 
@@ -73,14 +72,11 @@ button {
   .methods {
     display: flex;
   }
-  input {
+  .cabdidateArea input {
     margin-left: 15px;
   }
 }
 
-.phoneCheckbox {
-  justify-content:flex-start;
-}
 
 .typeOfContract {
   border-top: 1px solid var(--light_color);
@@ -111,7 +107,6 @@ button {
 }
 
 .buttons {
-  border-top: 1px solid var(--light_color);
   display: flex;
   flex-direction: column;
   gap: 2rem;
