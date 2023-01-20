@@ -16,6 +16,7 @@ const read = (req, res) => {
   models.consultant
     .find(req.params.id)
     .then(([rows]) => {
+      console.warn(rows);
       if (rows[0] == null) {
         res.sendStatus(404);
       } else {

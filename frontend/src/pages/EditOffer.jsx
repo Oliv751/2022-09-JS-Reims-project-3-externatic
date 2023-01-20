@@ -1,4 +1,4 @@
-import Header from "@components/Header";
+import Header from "../components/Header";
 import "../styles/editOffer.scss";
 
 export default function EditOffer() {
