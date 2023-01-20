@@ -12,6 +12,13 @@ class UserManager extends AbstractManager {
     );
   }
 
+  update(user) {
+    return this.connection.query(
+      `UPDATE ${this.table} SET email = ?, phone = ? WHERE id = ?`,
+      [user.email, parseInt(user.phone, 10), user.id]
+    );
+  }
+
   findByEmail(email) {
     return this.connection.query(
       `select * from ${this.table} where email = ?`,

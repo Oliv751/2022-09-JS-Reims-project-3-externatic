@@ -3,15 +3,25 @@
   flex-direction: column;
   margin: auto;
   padding: 1 rem;
+}
 
-  .describeCandidate {
-    border-bottom: 1px solid var(--light_color);
-    padding-bottom: 30px;
-    label,
-    input {
-      display: inline-block;
-      margin: 1rem 0;
-    }
+button {
+  align-items: center;
+  margin: auto;
+  margin-top: 5rem;
+  width: 80vw;
+  border: 1px solid var(--light_color);
+  border-radius: var(--radius_button);
+  color: var(--dark_color);
+  padding: 0.5rem;
+}
+
+.describeCandidate {
+  padding-bottom: 30px;
+  label,
+  input {
+    display: inline-block;
+   }
 
     label {
       color: var(--dark_color);
@@ -20,25 +30,20 @@
     }
 
     input {
-      width: 60vw;
       border-radius: 10px;
       padding: 5px;
       outline: none;
       border: 1px solid gray;
     }
   }
-  button {
-    font-size: 1rem;
-    color: var(--dark_color);
-    padding: 5px;
-    border-radius: 10px;
-    outline: none;
-    border: 1px solid var(--light_color);
+
+  .candidateArea div {
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
   }
 
-  div {
-    display: flex;
-    justify-content: space-around;
+  div {    
     align-items: center;
     h2,
     h3 {
@@ -50,13 +55,14 @@
   div:not(:first-child) {
     button {
       background-color: white;
-      border: none;
+      display: flex;
     }
   }
-}
+
 
 .methodOfContact {
-  border-bottom: 1px solid var(--light_color);
+  margin-top: 2rem;
+  border-top: 1px solid var(--light_color);
   padding: 30px 0px;
   h1 {
     font-size: 1rem;
@@ -72,8 +78,12 @@
   }
 }
 
+.phoneCheckbox {
+  justify-content:flex-start;
+}
+
 .typeOfContract {
-  border-bottom: 1px solid var(--light_color);
+  border-top: 1px solid var(--light_color);
   padding: 30px 0px;
   h1 {
     font-size: 1rem;
@@ -88,9 +98,21 @@
 }
 
 .experience {
-  margin: 50px 15px 15px 15px;
+  justify-content: center;
+  margin: 25px 15px 15px 15px;
+}
+
+.submitForm {
+  justify-content: center;
 }
 
 .save {
   margin: 15px;
+}
+
+.buttons {
+  border-top: 1px solid var(--light_color);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
