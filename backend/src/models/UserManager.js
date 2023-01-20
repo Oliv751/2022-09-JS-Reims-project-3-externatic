@@ -21,7 +21,7 @@ class UserManager extends AbstractManager {
 
   findByEmail(email) {
     return this.connection.query(
-      `select * from ${this.table} where email = ?`,
+      `select user.*, candidate.id as candidate_id, consultant.id as consultant_id from user left join candidate on user.id = candidate.user_id left join consultant on user.id = consultant.user_id where email = ?`,
       [email]
     );
   }
