@@ -1,10 +1,16 @@
-import { React, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { React, useContext, useEffect, useRef, useState } from "react";
+import { useNavigate, Link, NavLink } from "react-router-dom";
 import { MdAccountCircle } from "react-icons/md";
-import externaticLogo from "../assets/logos/externaticLogo.png";
 import "../styles/consultantArea.scss";
+import axios from "axios";
+import { AuthContext } from "./AuthContext";
+
+import externaticLogo from "../assets/logos/externaticLogo.png";
 
 export default function ConsultantArea() {
+  const navigate = useNavigate();
+  const { auth } = useContext(AuthContext);
+  const [setData] = useState([]);
   const firstnameRef = useRef();
   const lastnameRef = useRef();
   const phoneRef = useRef();
@@ -12,12 +18,36 @@ export default function ConsultantArea() {
   const descriptionRef = useRef();
   // const [data, setData] = useState(null);
 
+  function handleSubmit() {
+    navigate("/consultant/editOffer");
+  }
+
   useEffect(() => {
-    fetch("").then((response) => response.json());
+    console.warn(auth.id);
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/consultants/${auth.id}`, {
+        headers: {
+          Authorization: `Bearer ${auth.token}`,
+        },
+      })
+      .then((reponse) => {
+        setData(reponse.data);
+        console.warn("reponse /consultant/id");
+        console.warn(reponse);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   return (
-    <form className="area">
+    <form
+      className="area"
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit();
+      }}
+    >
       <header>
         <nav>
           <Link to="/">
@@ -27,11 +57,9 @@ export default function ConsultantArea() {
               alt="externaticLogo"
             />
           </Link>
-          <Link to="/connexion">
-            <button type="button" className="button-connexion">
-              <MdAccountCircle className="personIcon" />
-            </button>
-          </Link>
+          <NavLink to="/connexion" className="button-connexion">
+            <MdAccountCircle className="personIcon" />
+          </NavLink>
         </nav>
       </header>
       <section className="describeConsultant">

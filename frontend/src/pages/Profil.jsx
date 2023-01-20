@@ -18,8 +18,8 @@ function Profil() {
   });
   return (
     <>
-      {type === "consultant" && <ConsultantArea />}
-      {type === "candidate" && <CandidateArea />}
+      {type === "consultant" && auth.isAuthenticated && <ConsultantArea />}
+      {type === "candidate" && auth.isAuthenticated && <CandidateArea />}
     </>
   );
 }
