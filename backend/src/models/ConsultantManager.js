@@ -16,6 +16,13 @@ class ConsultantManager extends AbstractManager {
       ]
     );
   }
+
+  find(id) {
+    return this.connection.query(
+      `select * from user inner join ${this.table} on user.id = ${this.table}.user_id where user.id = ?`,
+      [id]
+    );
+  }
 }
 
 module.exports = ConsultantManager;

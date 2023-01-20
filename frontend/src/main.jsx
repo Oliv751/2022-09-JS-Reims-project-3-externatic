@@ -8,6 +8,7 @@ import OfferDetails from "./pages/OfferDetails";
 import App from "./App";
 import ConnexionPage from "./pages/ConnexionPage";
 import CreateAccount from "./pages/CreateAccount";
+import EditOffer from "./pages/EditOffer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -21,6 +22,7 @@ root.render(
           <Route path="/connexion" element={<ConnexionPage />} />
           <Route path="/createaccount/:type" element={<CreateAccount />} />
           <Route path="/profil/:type" element={<Profil />} />
+          <Route path="/consultant/editOffer" element={<EditOffer />} />
           <Route
             path="profil/candidate/experiences"
             element={<CandidateExperience />}

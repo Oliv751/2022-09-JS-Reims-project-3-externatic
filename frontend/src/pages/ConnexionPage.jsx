@@ -13,7 +13,7 @@ export default function ConnexionPage() {
   const passwordRef = useRef();
   const handleLogin = () => {
     axios
-      .post("http://localhost:5000/login", {
+      .post(`${import.meta.env.VITE_BACKEND_URL}/login`, {
         email: emailRef.current.value,
         password: passwordRef.current.value,
       })
@@ -51,9 +51,7 @@ export default function ConnexionPage() {
         <label htmlFor="password">Password</label>
         <input ref={passwordRef} type="password" />
 
-        <button type="submit" onClick={handleLogin}>
-          Connexion
-        </button>
+        <button type="submit">Connexion</button>
         {errorInput && <p className="alert">Email ou mot de passe incorrect</p>}
       </form>
       <nav>
