@@ -246,9 +246,11 @@ function CandidateArea() {
             </div>
           </section>
           <div className="buttons">
-            <button className="experience" type="button">
-              Renseigner mes expériences
-            </button>
+            <Link to="/profil/candidate/experiences">
+              <button className="experience" type="button">
+                Renseigner mes expériences
+              </button>
+            </Link>
             <button className="submitForm" type="submit">
               Enregistrer les modifications
             </button>
