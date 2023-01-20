@@ -27,14 +27,6 @@
       border: 1px solid gray;
     }
   }
-  button {
-    font-size: 1rem;
-    color: var(--dark_color);
-    padding: 5px;
-    border-radius: 10px;
-    outline: none;
-    border: 1px solid var(--light_color);
-  }
 
   div {
     display: flex;
@@ -51,6 +43,7 @@
     button {
       background-color: white;
       border: none;
+      display: flex;
     }
   }
 }
@@ -88,9 +81,15 @@
 }
 
 .experience {
-  margin: 50px 15px 15px 15px;
+  margin: 25px 15px 15px 15px;
 }
 
 .save {
   margin: 15px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }

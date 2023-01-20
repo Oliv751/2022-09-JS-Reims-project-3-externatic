@@ -7,7 +7,7 @@ import { AuthContext } from "./AuthContext";
 
 function CandidateArea() {
   const { auth } = useContext(AuthContext);
-  const [candidateData] = useState({});
+  const [candidateData, setCandidateData] = useState({});
   const [formData, setFormData] = useState({
     lastName: "",
     firstName: "",
@@ -17,28 +17,33 @@ function CandidateArea() {
     contract: "",
   });
   const [submitionStatus, setSubmitionStatus] = useState("");
+  const [candidateId, setCandidateId] = useState("");
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/candidates/${auth.id}`, {
-        headers: { Authorization: `Bearer ${auth.token}` },
-      })
-      .then((response) => {
-        setFormData({
-          ...formData,
-          phone: response.data.phone,
-          email: response.data.email,
-          lastName: response.data.lastName,
-          firstName: response.data.firstName,
-          address: response.data.address,
-          contract: response.data.contract,
-          id: response.data.candidate_id,
+    if (auth.isAuthenticated) {
+      axios
+        .get(`${import.meta.env.VITE_BACKEND_URL}/candidates/${auth.id}`, {
+          headers: { Authorization: `Bearer ${auth.token}` },
+        })
+        .then((response) => {
+          setCandidateData(response.data);
+          setCandidateId(response.data.candidate_id);
+          setFormData({
+            ...formData,
+            phone: response.data.phone,
+            email: response.data.email,
+            lastName: response.data.lastName,
+            firstName: response.data.firstName,
+            address: response.data.address,
+            contract: response.data.contract,
+            id: response.data.candidate_id,
+          });
+        })
+        .catch((error) => {
+          console.error(error);
         });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+    }
+  }, [auth.isAuthenticated]);
 
   const handleChange = (event) => {
     setFormData({
@@ -46,14 +51,16 @@ function CandidateArea() {
       [event.target.name]: event.target.value,
     });
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Envoi des données modifiées à l'API pour mise à jour en base de données
+    // Envoi des données modifiées à la base de données pour mise à jour
     axios
       .put(
-        `${import.meta.env.VITE_BACKEND_URL}/candidates/${candidateData.id}`,
-        formData,
+        `${import.meta.env.VITE_BACKEND_URL}/users/${auth.id}`,
+        {
+          phone: formData.phone,
+          email: formData.email,
+        },
         {
           headers: { Authorization: `Bearer ${auth.token}` },
         }
@@ -65,10 +72,32 @@ function CandidateArea() {
       .catch((error) => {
         console.error("Erreur lors de la mise à jour des données", error);
       });
+
+    axios
+      .put(
+        `${import.meta.env.VITE_BACKEND_URL}/candidates/${candidateId}`,
+        {
+          firstname: formData.firstName,
+          lastname: formData.lastName,
+          address: formData.address,
+          contract: formData.contract,
+        },
+        {
+          headers: { Authorization: `Bearer ${auth.token}` },
+        }
+      )
+      .then((response) => {
+        console.warn("Données mises à jour avec succès", response.data);
+        setSubmitionStatus("Modifications enregistrées !");
+        setCandidateData(response.data);
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la mise à jour des données", error);
+      });
   };
 
   return (
-    <div>
+    <div className="candidateArea">
       <form className="space" onSubmit={handleSubmit}>
         <header>
           <nav>
@@ -88,7 +117,7 @@ function CandidateArea() {
               id="lastName"
               type="text"
               name="lastName"
-              value={formData.lastName}
+              value={candidateData.lastName}
               onChange={handleChange}
             />
           </div>
@@ -113,7 +142,7 @@ function CandidateArea() {
             />
           </div>
           <div>
-            <label htmlFor="mail">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               id="email"
               type="email"
@@ -132,89 +161,100 @@ function CandidateArea() {
               onChange={handleChange}
             />
           </div>
-        </section>
+          <div>
+            <label htmlFor="contract">Type de contrat</label>
+            <input
+              id="contract"
+              type="text"
+              name="contract"
+              value={formData.contract}
+              onChange={handleChange}
+            />
+          </div>
 
-        <section className="methodOfContact">
-          <h1>Modes de contact</h1>
-          <div className="methods">
+          <section className="methodOfContact">
+            <h1>Modes de contact</h1>
+            <div className="methods">
+              <div className="phoneCheckbox">
+                <label htmlFor="phone">Téléphone</label>
+                <input
+                  id="phone"
+                  type="checkbox"
+                  name="phone"
+                  checked={formData.phone}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="emailCheckbox">
+                <label htmlFor="email">Email</label>
+                <input
+                  id="email"
+                  type="checkbox"
+                  name="email"
+                  checked={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+          </section>
+
+          <section className="typeOfContract">
+            <h1>Type de contrat recherché</h1>
             <div>
-              <label htmlFor="phone">Téléphone</label>
+              <label htmlFor="cdd">CDD</label>
               <input
-                id="phone"
-                type="checkbox"
-                name="phone"
-                checked={formData.phone}
+                id="cdd"
+                type="radio"
+                name="contract"
+                value="cdd"
+                checked={formData.contract === "cdd"}
                 onChange={handleChange}
               />
             </div>
             <div>
-              <label htmlFor="email">Email</label>
+              <label htmlFor="cdi">CDI</label>
               <input
-                id="email"
-                type="checkbox"
-                name="email"
-                checked={formData.email}
+                id="cdi"
+                type="radio"
+                name="contract"
+                value="cdi"
+                checked={formData.contract === "cdi"}
                 onChange={handleChange}
               />
             </div>
+            <div>
+              <label htmlFor="stage">Stage</label>
+              <input
+                id="stage"
+                type="radio"
+                name="contract"
+                value="stage"
+                checked={formData.contract === "stage"}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="alternance">Alternance</label>
+              <input
+                id="alternance"
+                type="radio"
+                name="contract"
+                value="alternance"
+                checked={formData.contract === "alternance"}
+                onChange={handleChange}
+              />
+            </div>
+          </section>
+          <div className="buttons">
+            <button className="experience" type="button">
+              Renseigner mes expériences
+            </button>
+            <button className="submitForm" type="submit">
+              Enregistrer les modifications
+            </button>
+            <p>{submitionStatus}</p>
           </div>
         </section>
-
-        <section className="typeOfContract">
-          <h1>Type de contrat recherché</h1>
-          <div>
-            <label htmlFor="cdd">CDD</label>
-            <input
-              id="cdd"
-              type="radio"
-              name="contract"
-              value="cdd"
-              checked={formData.contract === "cdd"}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="cdi">CDI</label>
-            <input
-              id="cdi"
-              type="radio"
-              name="contract"
-              value="cdi"
-              checked={formData.contract === "cdi"}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="stage">Stage</label>
-            <input
-              id="stage"
-              type="radio"
-              name="contract"
-              value="stage"
-              checked={formData.contract === "stage"}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="alternance">Alternance</label>
-            <input
-              id="alternance"
-              type="radio"
-              name="contract"
-              value="alternance"
-              checked={formData.contract === "alternance"}
-              onChange={handleChange}
-            />
-          </div>
-        </section>
-
-        <button className="experience" type="button">
-          Renseigner mes expériences
-        </button>
-        <button className="submitForm" type="submit">
-          Enregistrer les modifications
-        </button>
-        <p>{submitionStatus}</p>
       </form>
     </div>
   );
