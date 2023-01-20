@@ -8,6 +8,7 @@ const candidateControllers = require("./controllers/candidateControllers");
 const userControllers = require("./controllers/userControllers");
 const documentControllers = require("./controllers/documentControllers");
 const categoryControllers = require("./controllers/categoryControllers");
+const experienceControllers = require("./controllers/experienceControllers");
 const {
   hashPassword,
   verifyPassword,
@@ -74,8 +75,14 @@ router.put("/consultants/:id", consultantControllers.edit);
 router.delete("/consultants/:id", consultantControllers.destroy);
 
 router.get("/candidates", candidateControllers.browse);
-router.get("/candidates/:id", candidateControllers.read);
+router.get("/candidates/:userId", candidateControllers.read);
 router.put("/candidates/:id", candidateControllers.edit);
 router.delete("/candidates/:id", candidateControllers.destroy);
+
+router.get("/experiences", experienceControllers.browse);
+router.get("/experiences/:id", experienceControllers.read);
+router.put("/experiences/:id", experienceControllers.edit);
+router.post("/experiences", experienceControllers.add);
+router.delete("/experiences/:id", experienceControllers.destroy);
 
 module.exports = router;

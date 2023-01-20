@@ -93,7 +93,6 @@ const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
     .then(([users]) => {
       if (users[0] != null) {
         [req.user] = users;
-
         next();
       } else {
         res.sendStatus(401);
@@ -105,6 +104,23 @@ const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
     });
 };
 
+const findJoinCandidate = (req, res) => {
+  models.user
+    .findJoinCandidate(req.params.id)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        req.user = rows;
+        res.send(req.user);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browse,
   read,
@@ -112,4 +128,5 @@ module.exports = {
   add,
   destroy,
   getUserByEmailWithPasswordAndPassToNext,
+  findJoinCandidate,
 };
