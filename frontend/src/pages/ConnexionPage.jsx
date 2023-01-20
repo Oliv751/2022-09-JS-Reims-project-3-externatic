@@ -26,6 +26,8 @@ export default function ConnexionPage() {
             token,
             id: user.id,
             role: user.role,
+            consultantId: user.consultant_id,
+            candidateId: user.candidate_id,
           }));
           navigate("/");
         } else {

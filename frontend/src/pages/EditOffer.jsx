@@ -25,7 +25,7 @@ export default function EditOffer() {
     axios
       .post(
         `${import.meta.env.VITE_BACKEND_URL}/offers`,
-        { ...offer, consultantId: auth.id },
+        { ...offer, consultantId: auth.consultantId },
         {
           headers: { Authorization: `Bearer ${auth.token}` },
         }
