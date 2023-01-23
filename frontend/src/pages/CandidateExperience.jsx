@@ -19,7 +19,7 @@ function Experience() {
     category_id: null,
   });
 
-  useEffect(() => {
+  const fetchExperiences = () => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/experiences`, {
         headers: { Authorization: `Bearer ${auth.token}` },
@@ -30,6 +30,11 @@ function Experience() {
       .catch((error) => {
         console.error(error);
       });
+  };
+
+  useEffect(() => {
+    fetchExperiences();
+
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/categories`)
       .then((response) => {
@@ -41,39 +46,37 @@ function Experience() {
   }, []);
 
   const handleChange = (event) => {
-    if (event.target.id === "select") {
-      setFormData({
-        ...formData,
-        [event.target.name]: parseInt(event.target.value, 10),
-      });
-    } else {
-      setFormData({
-        ...formData,
-        [event.target.name]: event.target.value,
-      });
-    }
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const form = {
+      ...formData,
+      category_id: parseInt(formData.category_id, 10),
+    };
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/experiences`, formData, {
+      .post(`${import.meta.env.VITE_BACKEND_URL}/experiences`, form, {
         headers: { Authorization: `Bearer ${auth.token}` },
       })
       .then((response) => {
-        setExperiences([...experiences, formData]);
+        // setExperiences([...experiences, formData]);
         if (response.status === 201) {
           alert("Votre expérience a bien été ajoutée !");
+          setFormData({
+            job_name: "",
+            company_name: "",
+            experience_description: "",
+            startDate: "",
+            endDate: "",
+            candidate_id: auth.candidateId,
+            category_id: null,
+          });
+          fetchExperiences();
         }
-        setFormData({
-          job_name: "",
-          company_name: "",
-          experience_description: "",
-          startDate: "",
-          endDate: "",
-          candidate_id: auth.candidateId,
-          category_id: null,
-        });
       })
       .catch((error) => {
         console.error(error);
