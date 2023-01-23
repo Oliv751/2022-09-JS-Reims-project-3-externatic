@@ -63,7 +63,6 @@ function Experience() {
         headers: { Authorization: `Bearer ${auth.token}` },
       })
       .then((response) => {
-        // setExperiences([...experiences, formData]);
         if (response.status === 201) {
           alert("Votre expérience a bien été ajoutée !");
           setFormData({
