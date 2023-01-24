@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header searchBar />
       <OfferList offerList={offers} />
     </div>
   );
