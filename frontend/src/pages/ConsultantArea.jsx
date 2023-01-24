@@ -19,7 +19,6 @@ export default function ConsultantArea() {
   }
 
   useEffect(() => {
-    console.warn(auth.id);
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/consultants/${auth.id}`, {
         headers: {
