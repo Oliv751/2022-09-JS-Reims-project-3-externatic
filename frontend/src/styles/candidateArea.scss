@@ -5,7 +5,7 @@
   padding: 1 rem;
 }
 
-.candidateArea button {
+.candidateArea .candidateArea button {
   align-items: center;
   margin: auto;
   width: 90vw;
@@ -21,43 +21,42 @@
   input {
     display: inline-block;
     margin-top: 1rem;
-   }
-
-    label {
-      color: var(--dark_color);
-      width: 30vw;
-      text-align: center;
-    }
-
-    input {
-      border-radius: 10px;
-      padding: 5px;
-      outline: none;
-      border: 1px solid gray;
-    }
   }
 
-  .candidateArea div {
-    display: inline-flex;
-    align-items: center;
+  label {
+    color: var(--dark_color);
+    width: 30vw;
+    text-align: center;
   }
 
-  div {    
-    align-items: center;
-    h2,
-    h3 {
-      display: inline-block;
-      font-size: 1.2rem;
-    }
+  input {
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+    border: 1px solid gray;
   }
+}
 
-  div:not(:first-child) {
-    button {
-      background-color: white;
-      display: flex;
-    }
+.candidateArea div {
+  display: inline-flex;
+  align-items: center;
+}
+
+div {
+  align-items: center;
+  h2,
+  h3 {
+    display: inline-block;
+    font-size: 1.2rem;
   }
+}
 
+div:not(:first-child) {
+  button {
+    background-color: white;
+    display: flex;
+  }
+}
 
 .methodOfContact {
   margin-top: 2rem;
@@ -72,11 +71,14 @@
   .methods {
     display: flex;
   }
-  .cabdidateArea input {
+  input {
     margin-left: 15px;
   }
 }
 
+.phoneCheckbox {
+  justify-content: flex-start;
+}
 
 .typeOfContract {
   border-top: 1px solid var(--light_color);
