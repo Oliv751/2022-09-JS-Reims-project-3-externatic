@@ -273,7 +273,7 @@ Tu es arrivé jusqu'ici, c'est que le poste est fait pour toi, à toi de postule
     Convention Syntec
     Avantages : prime de participation et d’intéressement, primes exceptionnelles, CE ultra dynamique, mutuelle à 70",
         "Ingénieur Infrastructures DBA",
-        'Nantes',
+        'NANTES',
         'CDD',
         "Les missions
 

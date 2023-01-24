@@ -15,7 +15,10 @@ export default function OfferCard({ offer }) {
           <div className="description">
             <h2>{offer.offer_name}</h2>
 
-            <p>publié le {date.toLocaleDateString("fr-FR")}</p>
+            <p className="published">
+              <span>publié le </span>
+              {date.toLocaleDateString("fr-FR")}
+            </p>
           </div>
           <div>
             <MdLocationOn className="icon_description" />
