@@ -1,4 +1,4 @@
-import { React, useContext, useEffect, useRef, useState } from "react";
+import { React, useContext, useEffect, useRef } from "react";
 import { useNavigate, Link, NavLink } from "react-router-dom";
 import { MdAccountCircle } from "react-icons/md";
 import "../styles/consultantArea.scss";
@@ -10,13 +10,11 @@ import externaticLogo from "../assets/logos/externaticLogo.png";
 export default function ConsultantArea() {
   const navigate = useNavigate();
   const { auth } = useContext(AuthContext);
-  const [setData] = useState([]);
   const firstnameRef = useRef();
   const lastnameRef = useRef();
   const phoneRef = useRef();
   const emailRef = useRef();
   const descriptionRef = useRef();
-  // const [data, setData] = useState(null);
 
   function handleSubmit() {
     navigate("/consultant/editOffer");
@@ -31,9 +29,13 @@ export default function ConsultantArea() {
         },
       })
       .then((reponse) => {
-        setData(reponse.data);
-        console.warn("reponse /consultant/id");
-        console.warn(reponse);
+        const { firstname, lastname, consultantDescription, email, phone } =
+          reponse.data;
+        firstnameRef.current.value = firstname;
+        lastnameRef.current.value = lastname;
+        emailRef.current.value = email;
+        descriptionRef.current.value = consultantDescription;
+        phoneRef.current.value = phone;
       })
       .catch((err) => {
         console.error(err);
