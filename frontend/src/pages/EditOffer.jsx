@@ -9,7 +9,7 @@ export default function EditOffer() {
     companyDescription: "",
     offerName: "",
     offerDescription: "",
-    contract: "",
+    contract: "CDI",
     location: "",
   });
 
@@ -80,9 +80,9 @@ export default function EditOffer() {
             onChange={handleChange}
             required
           >
-            <option value="cdi">CDI</option>
-            <option value="cdd">CDD</option>
-            <option value="stage">STAGE</option>
+            <option value="CDI">CDI</option>
+            <option value="CDD">CDD</option>
+            <option value="STAGE">STAGE</option>
           </select>
         </div>
         <div className="premises">

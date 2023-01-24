@@ -15,7 +15,7 @@ class OfferManager extends AbstractManager {
       consultantId,
     } = data;
     return this.connection.query(
-      `INSERT ${this.table} SET company_description = ?, offer_name = ?, offer_description = ?, contract = ?, location = ?, consultant_id = ?`,
+      `INSERT INTO ${this.table} (company_description, offer_name, offer_description, contract, location, consultant_id, publication_date) VALUES (?, ?, ?, ?, ?, ?, NOW())`,
       [
         companyDescription,
         offerName,
