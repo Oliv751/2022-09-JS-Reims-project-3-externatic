@@ -6,6 +6,7 @@ export default function NewCandidateForm() {
   const firstnameRef = useRef();
   const lastnameRef = useRef();
   const phoneRef = useRef();
+  const adressRef = useRef();
   const emailRef = useRef();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -54,6 +55,10 @@ export default function NewCandidateForm() {
       <div>
         <label htmlFor="phone">Telephone</label>
         <input ref={phoneRef} id="phone" type="text" />
+      </div>
+      <div>
+        <label htmlFor="adresse">Adresse</label>
+        <input ref={adressRef} id="adress" type="text" />
       </div>
       <div>
         <label htmlFor="mail">Email</label>
