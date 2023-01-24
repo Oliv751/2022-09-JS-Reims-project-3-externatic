@@ -23,7 +23,7 @@ function Header() {
           <Link to="/connexion">
             <button type="button" className="button-connexion">
               <MdAccountCircle className="personIcon" />
-              <p>Connectez vous</p>
+              <p className="connect">Connectez vous</p>
             </button>
           </Link>
         )}
@@ -40,7 +40,7 @@ function Header() {
               {!menuIsVisible ? (
                 <>
                   <MdAccountCircle className="personIcon" />
-                  <p>Connecté</p>
+                  <p className="connectOn">Connecté</p>
                 </>
               ) : (
                 <MdClose className="personIconClose" />
@@ -64,7 +64,7 @@ function Header() {
                         });
                       }}
                     >
-                      Deconnexion
+                      Déconnexion
                     </button>
                   </li>
                 </ul>
