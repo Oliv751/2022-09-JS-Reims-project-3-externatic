@@ -1,4 +1,4 @@
-import { React, useContext, useEffect, useRef, useState } from "react";
+import { React, useContext, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/consultantArea.scss";
 import axios from "axios";
@@ -7,7 +7,6 @@ import Header from "../components/Header";
 
 export default function ConsultantArea() {
   const { auth } = useContext(AuthContext);
-  const [setData] = useState([]);
   const firstnameRef = useRef();
   const lastnameRef = useRef();
   const phoneRef = useRef();
@@ -16,7 +15,6 @@ export default function ConsultantArea() {
   // const [data, setData] = useState(null);
 
   useEffect(() => {
-    console.warn(auth.id);
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/consultants/${auth.id}`, {
         headers: {
@@ -24,9 +22,13 @@ export default function ConsultantArea() {
         },
       })
       .then((reponse) => {
-        setData(reponse.data);
-        console.warn("reponse /consultant/id");
-        console.warn(reponse);
+        const { firstname, lastname, consultantDescription, email, phone } =
+          reponse.data;
+        firstnameRef.current.value = firstname;
+        lastnameRef.current.value = lastname;
+        emailRef.current.value = email;
+        descriptionRef.current.value = consultantDescription;
+        phoneRef.current.value = phone;
       })
       .catch((err) => {
         console.error(err);
