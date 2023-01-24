@@ -5,7 +5,7 @@
   padding: 1 rem;
 }
 
-.candidateArea button {
+.candidateArea .candidateArea button {
   align-items: center;
   margin: auto;
   width: 90vw;
@@ -71,9 +71,13 @@ div:not(:first-child) {
   .methods {
     display: flex;
   }
-  .cabdidateArea input {
+  input {
     margin-left: 15px;
   }
+}
+
+.phoneCheckbox {
+  justify-content: flex-start;
 }
 
 .typeOfContract {
