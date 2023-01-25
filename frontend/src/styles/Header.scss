@@ -22,7 +22,7 @@ input:focus {
 }
 
 .externaticLogo {
-  width: 30vw;
+  width: 44vw;
 }
 
 .personIcon {
@@ -62,19 +62,17 @@ header {
 }
 
 header::before {
-content: "";
-position: absolute;
-bottom: -10px;
-left: 0;
-right: 0;
-height: 10px;
-background: linear-gradient(to right, #851342 0%, #ca2061 20%, white 100%);
-filter: blur(1.2px);
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(to right, #851342 0%, #ca2061 20%, white 100%);
+  filter: blur(1.2px);
 }
 
-
-
-.menuConnected { 
+.menuConnected {
   position: absolute;
   right: 10px;
   li {
@@ -101,12 +99,12 @@ filter: blur(1.2px);
   }
 }
 
-.connect{
+.connect {
   font-size: 0.8em;
   color: var(--light_color);
 }
 
-.connectOn{
+.connectOn {
   font-size: 0.8em;
   color: var(--light_color);
 }
