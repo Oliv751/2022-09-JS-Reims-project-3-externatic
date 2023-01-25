@@ -2,7 +2,7 @@ import { React, useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/consultantArea.scss";
 import axios from "axios";
-import { AuthContext } from "./AuthContext";
+import { AuthContext } from "../contexts/AuthContext";
 import Header from "../components/Header";
 
 export default function ConsultantArea() {

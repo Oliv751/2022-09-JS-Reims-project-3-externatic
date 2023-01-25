@@ -26,6 +26,12 @@ class ExperienceManager extends AbstractManager {
       experience.id,
     ]);
   }
+
+  delete(id) {
+    return this.connection.query(`delete from ${this.table} where id = ?`, [
+      id,
+    ]);
+  }
 }
 
 module.exports = ExperienceManager;

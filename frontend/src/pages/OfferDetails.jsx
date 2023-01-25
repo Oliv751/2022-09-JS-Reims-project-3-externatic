@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { BiMailSend } from "react-icons/bi";
 import Header from "../components/Header";
-import { AuthContext } from "./AuthContext";
+import { AuthContext } from "../contexts/AuthContext";
 import "../styles/offerDetails.scss";
 
 function OfferDetails() {

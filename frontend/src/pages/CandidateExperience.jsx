@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { AuthContext } from "./AuthContext";
+import { HiOutlinePlusCircle, HiOutlineMinusCircle } from "react-icons/hi";
+import { CiEdit } from "react-icons/ci";
+import { MdOutlineDeleteForever } from "react-icons/md";
+import { AuthContext } from "../contexts/AuthContext";
 import Header from "../components/Header";
 import "../styles/candidateExperience.scss";
 
@@ -82,83 +85,132 @@ function Experience() {
       });
   };
 
+  const handleDelete = (experience) => {
+    const { id } = experience;
+    axios
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/experiences/${id}`, {
+        headers: { Authorization: `Bearer ${auth.token}` },
+      })
+      .then((response) => {
+        if (response.status === 204) {
+          alert("Votre expérience a bien été supprimée !");
+          fetchExperiences();
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const [showForm, setShowForm] = useState(false);
+
   return (
     <>
       <Header />
       <section className="experience_capture">
-        <h1>Ajouter une expérience</h1>
-        <form onSubmit={handleSubmit}>
-          <label
-            className="form-candidate-experience-input-category"
-            htmlFor="category_id"
-          >
-            Categorie
-          </label>
-          <select name="category_id" onChange={handleChange} id="select">
-            {categories.map((category) => (
-              <option key={category.id} value={category.id}>
-                {category.name}
-              </option>
-            ))}
-          </select>
+        <h2 className="exp-title">
+          Ajouter une expérience
+          {showForm ? (
+            <HiOutlineMinusCircle
+              className="minus-icon"
+              onClick={() => setShowForm(false)}
+            />
+          ) : (
+            <HiOutlinePlusCircle
+              className="plus-icon"
+              onClick={() => setShowForm(true)}
+            />
+          )}
+        </h2>
+        {showForm && (
+          <form onSubmit={handleSubmit}>
+            <label className="job-category" htmlFor="category_id">
+              Categorie
+              <select name="category_id" onChange={handleChange} id="select">
+                <option>Sélectionnez une catégorie</option>
+                {categories.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-          <label className="job-name">
-            Nom du poste :
-            <input
-              type="text"
-              value={formData.job_name}
-              onChange={handleChange}
-              name="job_name"
-            />
-          </label>
-          <label className="company-name">
-            Nom de l'entreprise :
-            <input
-              type="text"
-              value={formData.company_name}
-              onChange={handleChange}
-              name="company_name"
-            />
-          </label>
-          <label className="experience-description">
-            Description de l'expérience :
-            <textarea
-              value={formData.experience_description}
-              onChange={handleChange}
-              name="experience_description"
-            />
-          </label>
-          <label className="start-date">
-            Date de début :
-            <input
-              type="date"
-              value={formData.startDate}
-              onChange={handleChange}
-              name="startDate"
-            />
-          </label>
-          <label className="end-date">
-            Date de fin :
-            <input
-              type="date"
-              value={formData.endDate}
-              onChange={handleChange}
-              name="endDate"
-            />
-          </label>
-          <button className="submit-button" type="submit">
-            Ajouter
-          </button>
-        </form>
-        <h2>Mes expériences professionnelles</h2>
+            <label className="job-name">
+              Nom du poste :
+              <input
+                type="text"
+                value={formData.job_name}
+                onChange={handleChange}
+                name="job_name"
+              />
+            </label>
+            <label className="company-name">
+              Nom de l'entreprise :
+              <input
+                type="text"
+                value={formData.company_name}
+                onChange={handleChange}
+                name="company_name"
+              />
+            </label>
+            <label className="experience-description">
+              Description de l'expérience :
+              <textarea
+                value={formData.experience_description}
+                onChange={handleChange}
+                name="experience_description"
+              />
+            </label>
+            <label className="start-date">
+              Date de début :
+              <input
+                type="date"
+                value={formData.startDate}
+                onChange={handleChange}
+                name="startDate"
+              />
+            </label>
+            <label className="end-date">
+              Date de fin :
+              <input
+                type="date"
+                value={formData.endDate}
+                onChange={handleChange}
+                name="endDate"
+              />
+            </label>
+            <button
+              className="submit-button"
+              type="submit"
+              // onClick={() => setShowForm(false)}
+            >
+              Ajouter
+            </button>
+          </form>
+        )}
+      </section>
+      <section className="experience-list">
+        <h2 className="exp-title">Mes expériences professionnelles</h2>
         {experiences.map((experience) => (
-          <section className="experience_list" key={experience.id}>
-            <h3>{experience.job_name}</h3>
-            <p>{experience.company_name}</p>
-            <p>{experience.experience_description}</p>
-            <p>Date de début : {experience.startDate}</p>
-            <p>Date de fin : {experience.endDate}</p>
-          </section>
+          <div className="one-experience" key={experience.id}>
+            <h3>
+              {experience.job_name}
+              <CiEdit className="edit-icon" />
+              <button
+                type="button"
+                onClick={() => {
+                  handleDelete(experience);
+                }}
+              >
+                <MdOutlineDeleteForever className="delete-icon" />
+              </button>
+            </h3>
+            <p className="exp-company">{experience.company_name}</p>
+            <p className="exp-desc">{experience.experience_description}</p>
+            <p className="exp-date">Date de début : {experience.startDate}</p>
+            <p className="exp-date">Date de fin : {experience.endDate}</p>
+          </div>
         ))}
       </section>
     </>
