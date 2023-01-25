@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { HiOutlinePlusCircle, HiOutlineMinusCircle } from "react-icons/hi";
+import { CiEdit } from "react-icons/ci";
+import { MdOutlineDeleteForever } from "react-icons/md";
 import { AuthContext } from "./AuthContext";
 import Header from "../components/Header";
 import "../styles/candidateExperience.scss";
@@ -163,7 +165,7 @@ function Experience() {
             <button
               className="submit-button"
               type="submit"
-              onClick={() => setShowForm(false)}
+              // onClick={() => setShowForm(false)}
             >
               Ajouter
             </button>
@@ -179,6 +181,8 @@ function Experience() {
             <p>{experience.experience_description}</p>
             <p>Date de début : {experience.startDate}</p>
             <p>Date de fin : {experience.endDate}</p>
+            <CiEdit className="edit-icon" />
+            <MdOutlineDeleteForever className="delete-icon" />
           </div>
         ))}
       </section>
