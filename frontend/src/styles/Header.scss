@@ -22,7 +22,7 @@ input:focus {
 }
 
 .externaticLogo {
-  width: 30vw;
+  width: 44vw;
 }
 
 .personIcon {
@@ -72,9 +72,7 @@ header::before {
   filter: blur(1.2px);
 }
 
-
-
-.menuConnected { 
+.menuConnected {
   position: absolute;
   right: 10px;
   li {
@@ -101,12 +99,12 @@ header::before {
   }
 }
 
-.connect{
+.connect {
   font-size: 0.8em;
   color: var(--light_color);
 }
 
-.connectOn{
+.connectOn {
   font-size: 0.8em;
   color: var(--light_color);
 }

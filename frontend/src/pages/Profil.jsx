@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { AuthContext } from "./AuthContext";
+import { AuthContext } from "../contexts/AuthContext";
 import CandidateArea from "./CandidateArea";
 import ConsultantArea from "./ConsultantArea";
 

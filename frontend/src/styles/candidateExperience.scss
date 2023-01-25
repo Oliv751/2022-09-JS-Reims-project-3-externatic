@@ -1,7 +1,34 @@
 .experience_capture {
+  font-family: "Jost", sans-serif;
+  
+  h2{
+    font-size: 1.2rem;
+    display: flex;
+  }
+
+  .plus-icon {
+    font-size: 1.6rem;
+    margin-left: 1.4rem;
+    cursor: pointer;
+  }
+
+  .plus-icon:hover {
+    color: var(--light_color);
+  }
+
+  .minus-icon {
+    font-size: 1.6rem;
+    margin-left: 1.4rem;
+    cursor: pointer;
+  }
+
+  .minus-icon:hover {
+    color: var(--light_color);
+  }
+
   form {
     display: grid;
-    grid-template: auto 1fr auto auto/ 1fr 1fr;
+    grid-template: auto 1fr auto auto auto/ 1fr 1fr;
     margin: auto;
     padding: 0.5rem;
 
@@ -17,22 +44,27 @@
       grid-area: 2 / 1 / 3 / 3;
     }
 
+    .job-category {
+      grid-area: 3 / 1 / 4 / 3;
+    }
+
+    
     .start-date {
-      grid-area: 3 / 1 / 4 / 2;
+      grid-area: 4 / 1 / 5 / 2;
     }
 
     .end-date {
-      grid-area: 3 / 2 / 4 / 3;
+      grid-area: 4 / 2 / 5 / 3;
     }
-
+    
     .submit-button {
-      grid-area: 4 / 1 / 5 / 3;
+      grid-area: 5 / 1 / 6 / 3;
     }
-
+    
     p {
       text-align: right;
     }
-
+    
     label {
       text-align: center;
       color: var(--dark_color);
@@ -40,13 +72,13 @@
       flex-direction: column;
       padding: 1rem;
     }
-
+    
     input {
       border-radius: var(--radius_button);
       border: 1px solid var(--color_gray);
       padding: 5px 0;
     }
-
+    
     textarea {
       height: 100px;
       border-radius: 10px;
@@ -56,6 +88,17 @@
       resize: none;
     }
 
+    select {
+      border-radius: var(--radius_button);
+      border: 1px solid var(--color_gray);
+      padding: 5px 0;
+    }
+
+    select:focus {
+      outline: none;
+      border: 1px solid var(--light_color);
+    }
+    
     input:focus {
       outline: none;
       border: 1px solid var(--light_color);
@@ -78,4 +121,58 @@
       padding: 0.5rem;
     }
   }
+}
+
+.experience-list {
+  font-family: "Jost", sans-serif;
+  margin-top: 2rem;
+  
+  .one-experience {
+  margin-top: 1rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin: 0.2rem 0;
+    color: var(--light_color);
+  }
+
+  .exp-company {
+    font-size: 1rem;
+    margin: 0.2rem 0;
+    font-weight: 600;
+  }
+
+  .exp-desc {
+    font-size: 1.1rem;
+    margin: 0.4rem 0;
+    font-weight: 500;
+  }
+
+  .exp-date {
+    font-size: 1rem;
+    margin: 0.4rem 0;
+  }
+
+  .edit-icon {
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: black;
+  }
+
+  .edit-icon:hover {
+    color: var(--light_color);
+  }
+
+  .delete-icon {
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: black;
+  }
+
+  .delete-icon:hover {
+    color: var(--light_color);
+  }
+
 }
