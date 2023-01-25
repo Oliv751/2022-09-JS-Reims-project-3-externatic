@@ -11,7 +11,7 @@ export default function EditOffer() {
     companyDescription: "",
     offerName: "",
     offerDescription: "",
-    contract: "",
+    contract: "CDI",
     location: "",
   });
 
@@ -84,6 +84,7 @@ export default function EditOffer() {
             <option value="cdi">CDI</option>
             <option value="cdd">CDD</option>
             <option value="stage">STAGE</option>
+            <option value="alternance">ALTERNANCE</option>
           </select>
         </div>
         <div className="premises">
@@ -97,7 +98,9 @@ export default function EditOffer() {
           />
         </div>
         <input type="hidden" name="id" value={offer.id} />
-        <button type="submit">Enregistrer</button>
+        <button className="offerregister" type="submit">
+          Enregistrer
+        </button>
       </form>
     </div>
   );

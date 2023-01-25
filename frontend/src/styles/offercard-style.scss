@@ -1,13 +1,15 @@
 li {
   list-style: none;
+  margin-bottom: 1.5rem; 
 
   .cardsOffer {
     text-decoration: none;
     color: black;
 
     section {
-      border: 1px solid var(--color_gray);
+      border: 1px var(--color_gray);
       border-radius: var(--radius_button);
+      box-shadow: 3px 3px 10px 1px var(--color_gray);
       width: 100%;
       margin-bottom: 10px;
 
@@ -35,7 +37,7 @@ li {
       background-color: transparent;
 
       h2 {
-        font-size: 1.3em;
+        font-size: 1em;
         color: var(--light_color);
         margin-bottom: 10px;
       }
@@ -61,5 +63,13 @@ li {
     flex-direction: column;
     align-items: center;
     margin-top: 1.5rem;
+  }
+}
+
+.published{
+  text-align: center;
+  font-size: 0.8em;
+  span{
+   font-weight: bold;
   }
 }

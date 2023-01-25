@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { MdAccountCircle, MdClose } from "react-icons/md";
@@ -6,7 +5,7 @@ import "../styles/Header.scss";
 import { AuthContext } from "../pages/AuthContext";
 import externaticLogo from "../assets/logos/externaticLogo.png";
 
-function Header({ searchBar }) {
+function Header() {
   const { auth, setAuth } = useContext(AuthContext);
   const [menuIsVisible, setMenuIsVisible] = useState(false);
 
@@ -24,7 +23,7 @@ function Header({ searchBar }) {
           <Link to="/connexion">
             <button type="button" className="button-connexion">
               <MdAccountCircle className="personIcon" />
-              <p>Connectez vous</p>
+              <p className="connect">Connectez vous</p>
             </button>
           </Link>
         )}
@@ -41,7 +40,7 @@ function Header({ searchBar }) {
               {!menuIsVisible ? (
                 <>
                   <MdAccountCircle className="personIcon" />
-                  <p>Connecté</p>
+                  <p className="connectOn">Connecté</p>
                 </>
               ) : (
                 <MdClose className="personIconClose" />
@@ -65,7 +64,7 @@ function Header({ searchBar }) {
                         });
                       }}
                     >
-                      Deconnexion
+                      Déconnexion
                     </button>
                   </li>
                 </ul>
@@ -74,14 +73,8 @@ function Header({ searchBar }) {
           </div>
         )}
       </nav>
-      {searchBar && (
-        <input className="input" type="text" placeholder="Rechercher" />
-      )}
     </header>
   );
 }
 
-Header.propTypes = {
-  searchBar: PropTypes.bool.isRequired,
-};
 export default Header;

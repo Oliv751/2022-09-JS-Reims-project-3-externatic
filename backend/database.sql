@@ -162,7 +162,7 @@ INSERT INTO
 VALUES (
         1,
         "Nous accompagnons un éditeur de logiciel nantais spécialisé dans les solutions SIRH. Forte d'une activité prospère, l'entreprise continue de recruter plusieurs personnes sur le socle et cherche justement à compléter ses équipes avec son futur développeur C / C++. Les besoins sont plutôt techniques mais aussi avec un métier fort.",
-        "Développeur C / C++ @ Editeur H/F",
+        "Développeur C / C++",
         'NANTES',
         'CDI',
         "Le poste et l'équipe :
@@ -221,8 +221,8 @@ Tu es arrivé jusqu'ici, c'est que le poste est fait pour toi, à toi de postule
     Environ 700 collaborateurs
     Convention Syntec
     Avantages : prime de participation et d’intéressement, primes exceptionnelles, CE ultra dynamique, mutuelle à 70",
-        "Ingénieur Infrastructures DBA (H/F) – Nantes Nord Est – @Infogérance",
-        'Nantes',
+        "Ingénieur Infrastructures DBA",
+        'NANTES',
         'CDD',
         "Les missions
 
