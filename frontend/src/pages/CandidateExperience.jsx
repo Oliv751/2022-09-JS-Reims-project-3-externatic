@@ -3,7 +3,7 @@ import axios from "axios";
 import { HiOutlinePlusCircle, HiOutlineMinusCircle } from "react-icons/hi";
 import { CiEdit } from "react-icons/ci";
 import { MdOutlineDeleteForever } from "react-icons/md";
-import { AuthContext } from "./AuthContext";
+import { AuthContext } from "../contexts/AuthContext";
 import Header from "../components/Header";
 import "../styles/candidateExperience.scss";
 
@@ -85,6 +85,23 @@ function Experience() {
       });
   };
 
+  const handleDelete = (experience) => {
+    const { id } = experience;
+    axios
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/experiences/${id}`, {
+        headers: { Authorization: `Bearer ${auth.token}` },
+      })
+      .then((response) => {
+        if (response.status === 204) {
+          alert("Votre expérience a bien été supprimée !");
+          fetchExperiences();
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   const [showForm, setShowForm] = useState(false);
 
   return (
@@ -110,6 +127,7 @@ function Experience() {
             <label className="job-category" htmlFor="category_id">
               Categorie
               <select name="category_id" onChange={handleChange} id="select">
+                <option>Sélectionnez une catégorie</option>
                 {categories.map((category) => (
                   <option key={category.id} value={category.id}>
                     {category.name}
@@ -176,13 +194,22 @@ function Experience() {
         <h2 className="exp-title">Mes expériences professionnelles</h2>
         {experiences.map((experience) => (
           <div className="one-experience" key={experience.id}>
-            <h3>{experience.job_name}</h3>
+            <h3>
+              {experience.job_name}
+              <CiEdit className="edit-icon" />
+              <button
+                type="button"
+                onClick={() => {
+                  handleDelete(experience);
+                }}
+              >
+                <MdOutlineDeleteForever className="delete-icon" />
+              </button>
+            </h3>
             <p className="exp-company">{experience.company_name}</p>
             <p className="exp-desc">{experience.experience_description}</p>
             <p className="exp-date">Date de début : {experience.startDate}</p>
             <p className="exp-date">Date de fin : {experience.endDate}</p>
-            <CiEdit className="edit-icon" />
-            <MdOutlineDeleteForever className="delete-icon" />
           </div>
         ))}
       </section>

@@ -128,27 +128,51 @@
   margin-top: 2rem;
   
   .one-experience {
-  margin-top: 2rem;
+  margin-top: 1rem;
   }
 
   h3 {
     font-size: 1.2rem;
     margin: 0.2rem 0;
+    color: var(--light_color);
   }
 
   .exp-company {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: 0.2rem 0;
+    font-weight: 600;
   }
 
   .exp-desc {
     font-size: 1.1rem;
     margin: 0.4rem 0;
+    font-weight: 500;
   }
 
   .exp-date {
     font-size: 1rem;
-    margin: 0.3rem 0;
+    margin: 0.4rem 0;
+  }
+
+  .edit-icon {
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: black;
+  }
+
+  .edit-icon:hover {
+    color: var(--light_color);
+  }
+
+  .delete-icon {
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: black;
+  }
+
+  .delete-icon:hover {
+    color: var(--light_color);
   }
 
 }

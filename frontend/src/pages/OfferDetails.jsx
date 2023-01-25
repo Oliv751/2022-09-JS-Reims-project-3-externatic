@@ -6,7 +6,7 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import { BiMailSend } from "react-icons/bi";
 import Header from "../components/Header";
-import { AuthContext } from "./AuthContext";
+import { AuthContext } from "../contexts/AuthContext";
 import "../styles/offerDetails.scss";
 
 function OfferDetails() {
