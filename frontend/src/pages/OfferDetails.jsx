@@ -116,7 +116,6 @@ function OfferDetails() {
   return (
     <>
       <Header />
-      <hr className="rounded1" />
       <article className="Offer-Details">
         <h2 className="Job-Name"> {offer.offer_name}</h2>
         <p className="Publication-Date">{date} </p>
