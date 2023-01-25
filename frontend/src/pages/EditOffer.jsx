@@ -11,7 +11,7 @@ export default function EditOffer() {
     companyDescription: "",
     offerName: "",
     offerDescription: "",
-    contract: "",
+    contract: "CDI",
     location: "",
   });
 
