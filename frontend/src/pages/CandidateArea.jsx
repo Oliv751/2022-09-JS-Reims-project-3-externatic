@@ -66,8 +66,9 @@ function CandidateArea() {
         }
       )
       .then((response) => {
-        console.warn("Données mises à jour avec succès", response.data);
-        setSubmitionStatus("Modifications enregistrées !");
+        if (response.status === 204) {
+          setSubmitionStatus("Modifications enregistrées !");
+        }
       })
       .catch((error) => {
         console.error("Erreur lors de la mise à jour des données", error);
