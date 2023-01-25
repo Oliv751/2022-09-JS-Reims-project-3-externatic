@@ -51,6 +51,7 @@ function CandidateArea() {
       [event.target.name]: event.target.value,
     });
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Envoi des données modifiées à la base de données pour mise à jour
