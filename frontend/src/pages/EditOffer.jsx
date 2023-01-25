@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import "../styles/editOffer.scss";
 import { AuthContext } from "./AuthContext";
 
 export default function EditOffer() {
+  const navigate = useNavigate();
   const [offer, setOffer] = useState({
     companyDescription: "",
     offerName: "",
@@ -14,7 +16,6 @@ export default function EditOffer() {
   });
 
   const { auth } = useContext(AuthContext);
-  const [error, setError] = useState("");
 
   const handleChange = (event) => {
     setOffer({ ...offer, [event.target.name]: event.target.value });
@@ -31,8 +32,8 @@ export default function EditOffer() {
         }
       )
       .then((response) => {
-        if (response.status === 200) {
-          setError("Offre modifiée");
+        if (response.status === 201) {
+          navigate("/profil/consultant");
         }
       })
       .catch((err) => {
@@ -83,6 +84,7 @@ export default function EditOffer() {
             <option value="cdi">CDI</option>
             <option value="cdd">CDD</option>
             <option value="stage">STAGE</option>
+            <option value="alternance">ALTERNANCE</option>
           </select>
         </div>
         <div className="premises">
@@ -96,8 +98,9 @@ export default function EditOffer() {
           />
         </div>
         <input type="hidden" name="id" value={offer.id} />
-        <button type="submit">Enregistrer</button>
-        {error && <p>{error}</p>}
+        <button className="offerregister" type="submit">
+          Enregistrer
+        </button>
       </form>
     </div>
   );

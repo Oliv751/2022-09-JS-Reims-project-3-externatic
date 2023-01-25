@@ -52,21 +52,38 @@ input:focus {
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
 }
 
 header {
-  padding: 20px 0;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  position: relative;
 }
 
-.menuConnected {
+header::before {
+content: "";
+position: absolute;
+bottom: -10px;
+left: 0;
+right: 0;
+height: 10px;
+background: linear-gradient(to right, #851342 0%, #ca2061 20%, white 100%);
+filter: blur(1.2px);
+}
+
+
+
+.menuConnected { 
   position: absolute;
-  right: 0px;
+  right: 10px;
   li {
+    font-size: 0.8em;
     background-color: var(--light_color);
     border-radius: 10px;
 
     button {
+      font-size: 0.8em;
       background-color: inherit;
       color: inherit;
       border: none;
@@ -82,4 +99,14 @@ header {
     margin: 2px;
     padding: 10px;
   }
+}
+
+.connect{
+  font-size: 0.8em;
+  color: var(--light_color);
+}
+
+.connectOn{
+  font-size: 0.8em;
+  color: var(--light_color);
 }
