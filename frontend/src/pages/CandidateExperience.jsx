@@ -177,10 +177,10 @@ function Experience() {
         {experiences.map((experience) => (
           <div className="one-experience" key={experience.id}>
             <h3>{experience.job_name}</h3>
-            <p>{experience.company_name}</p>
-            <p>{experience.experience_description}</p>
-            <p>Date de début : {experience.startDate}</p>
-            <p>Date de fin : {experience.endDate}</p>
+            <p className="exp-company">{experience.company_name}</p>
+            <p className="exp-desc">{experience.experience_description}</p>
+            <p className="exp-date">Date de début : {experience.startDate}</p>
+            <p className="exp-date">Date de fin : {experience.endDate}</p>
             <CiEdit className="edit-icon" />
             <MdOutlineDeleteForever className="delete-icon" />
           </div>
