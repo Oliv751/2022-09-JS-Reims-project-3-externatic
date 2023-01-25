@@ -1,5 +1,6 @@
 li {
   list-style: none;
+  margin-bottom: 1.5rem; 
 
   .cardsOffer {
     text-decoration: none;
@@ -8,7 +9,7 @@ li {
     section {
       border: 1px var(--color_gray);
       border-radius: var(--radius_button);
-      box-shadow: 2px 2px 2px 0px var(--light_color);
+      box-shadow: 3px 3px 10px 1px var(--color_gray);
       width: 100%;
       margin-bottom: 10px;
 
