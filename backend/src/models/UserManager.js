@@ -25,6 +25,20 @@ class UserManager extends AbstractManager {
       [email]
     );
   }
+
+  findCandidateByUserId(id) {
+    return this.connection.query(
+      `select user.*, candidate.* from user left join candidate on user.id = candidate.user_id  where user.id = ?`,
+      [id]
+    );
+  }
+
+  findConsultantByUserId(id) {
+    return this.connection.query(
+      `select user.*, consultant.* from user left join consultant on user.id = consultant.user_id  where user.id = ?`,
+      [id]
+    );
+  }
 }
 
 module.exports = UserManager;

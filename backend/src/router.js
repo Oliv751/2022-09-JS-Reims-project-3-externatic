@@ -15,6 +15,7 @@ const {
   verifyToken,
 } = require("./services/auth");
 
+const { sendEmail } = require("./services/email");
 // Public routes
 
 router.get("/offers", offerControllers.browse);
@@ -59,6 +60,7 @@ router.use(verifyToken); // authentication wall : verifyToken is activated for e
 router.put("/offers/:id", offerControllers.edit);
 router.post("/offers", offerControllers.add);
 router.delete("/offers/:id", offerControllers.destroy);
+router.post("/offers/candidacy", sendEmail);
 
 router.put("/categories/:id", categoryControllers.edit);
 router.post("/categories", categoryControllers.add);

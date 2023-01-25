@@ -15,60 +15,12 @@ function OfferDetails() {
 
   const [offer, setOffer] = useState([]);
   const [date, setDate] = useState("");
-  const [user, setUser] = useState({});
-  const [consultant, setConsultant] = useState([]);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [hasAccess, setHasAccess] = useState(false);
 
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/offers/${offerId.id}`)
       .then((reponse) => {
         setOffer(reponse.data);
-      });
-    const consultantId = offer.consultant_id;
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/consultants/${consultantId}`)
-      .then((response) => {
-        setConsultant(response.data);
-      });
-
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/users/${auth.id}`, {
-        headers: { Authorization: `Bearer ${auth.token}` },
-      })
-      .then((response) => {
-        setUser(response.data.user);
-        setIsAuthenticated(response.data.isAuthenticated);
-        setHasAccess(response.data.hasAccess);
-      })
-      .catch((error) => {
-        if (error.response.status === 401) {
-          toast.error(
-            "Vous devez être connecté pour accéder à cette ressource"
-          );
-        } else {
-          console.error(error);
-        }
-      });
-
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/users/candidates/${auth.id}`, {
-        headers: { Authorization: `Bearer ${auth.token}` },
-      })
-      .then((response) => {
-        setUser(response.data.user);
-        setIsAuthenticated(response.data.isAuthenticated);
-        setHasAccess(response.data.hasAccess);
-      })
-      .catch((error) => {
-        if (error.response.status === 401) {
-          toast.error(
-            "Vous devez être connecté pour accéder à cette ressource"
-          );
-        } else {
-          console.error(error);
-        }
       });
   }, []);
 
@@ -77,13 +29,17 @@ function OfferDetails() {
   }, [offer]);
 
   function handleContactRequest() {
-    if (isAuthenticated && hasAccess && user) {
+    if (auth.isAuthenticated && auth.candidateId) {
       axios
         .post(
-          `${import.meta.env.VITE_BACKEND_URL}/offers/${offerId.id}/contact`,
+          `${import.meta.env.VITE_BACKEND_URL}/offers/candidacy`,
           {
             userId: auth.id,
-            consultantEmail: consultant.email,
+            consultantId: offer.consultant_id,
+            offerId: offer.id,
+          },
+          {
+            headers: { Authorization: `Bearer ${auth.token}` },
           }
         )
         .then((response) => {
@@ -100,16 +56,8 @@ function OfferDetails() {
         .catch((error) => {
           console.error(error);
         });
-    } else if (!isAuthenticated) {
+    } else {
       toast.error("Vous devez être connecté pour postuler à cette offre");
-    } else if (!user) {
-      toast.error(
-        "Une erreur est survenue lors de la récupération des informations de l'utilisateur, veuillez réessayer"
-      );
-    } else if (!hasAccess) {
-      toast.error(
-        "Vous n'avez pas les autorisations pour postuler à cette offre"
-      );
     }
   }
 
