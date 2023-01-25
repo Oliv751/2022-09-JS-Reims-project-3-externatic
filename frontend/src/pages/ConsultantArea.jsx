@@ -1,72 +1,158 @@
-import { React, useContext, useEffect, useRef } from "react";
+import { React, useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/consultantArea.scss";
 import axios from "axios";
-import { AuthContext } from "./AuthContext";
+import { AuthContext } from "../contexts/AuthContext";
 import Header from "../components/Header";
 
 export default function ConsultantArea() {
   const { auth } = useContext(AuthContext);
-  const firstnameRef = useRef();
-  const lastnameRef = useRef();
-  const phoneRef = useRef();
-  const emailRef = useRef();
-  const descriptionRef = useRef();
-  // const [data, setData] = useState(null);
+  const [data, setData] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    consultant_description: "",
+  });
+
+  const [submitForm, setSubmitForm] = useState("");
+  const [consultantId, setConsultantId] = useState("");
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/consultants/${auth.id}`, {
-        headers: {
-          Authorization: `Bearer ${auth.token}`,
-        },
-      })
-      .then((reponse) => {
-        const { firstname, lastname, consultantDescription, email, phone } =
-          reponse.data;
-        firstnameRef.current.value = firstname;
-        lastnameRef.current.value = lastname;
-        emailRef.current.value = email;
-        descriptionRef.current.value = consultantDescription;
-        phoneRef.current.value = phone;
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
+    if (auth.isAuthenticated) {
+      axios
+        .get(`${import.meta.env.VITE_BACKEND_URL}/consultants/${auth.id}`, {
+          headers: {
+            Authorization: `Bearer ${auth.token}`,
+          },
+        })
+        .then((response) => {
+          setConsultantId(response.data.consultant_id);
+          setData({
+            ...data,
+            firstName: response.data.firstName,
+            lastName: response.data.lastName,
+            email: response.data.email,
+            consultant_description: response.data.consultant_description,
+            phone: response.data.phone,
+            id: response.data.consultant_id,
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  }, [auth.isAuthenticated]);
 
-  function handlesubmit(e) {
+  const handleChange = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-  }
+    // Envoi des données modifiées à la base de données pour mise à jour
+    axios
+      .put(
+        `${import.meta.env.VITE_BACKEND_URL}/users/${auth.id}`,
+        {
+          phone: data.phone,
+          email: data.email,
+        },
+        {
+          headers: { Authorization: `Bearer ${auth.token}` },
+        }
+      )
+      .then((response) => {
+        console.warn("Données mises à jour avec succès", response.data);
+        setSubmitForm("Modifications enregistrées !");
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la mise à jour des données", error);
+      });
+
+    axios
+      .put(
+        `${import.meta.env.VITE_BACKEND_URL}/consultants/${consultantId}`,
+        {
+          consultantId: auth.consultantId,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          consultant_description: data.consultant_description,
+        },
+        {
+          headers: { Authorization: `Bearer ${auth.token}` },
+        }
+      )
+      .then((response) => {
+        console.warn("Données mises à jour avec succès", response.data);
+        setSubmitForm("Modifications enregistrées !");
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la mise à jour des données", error);
+      });
+  };
 
   return (
     <>
       <Header searchBar={false} />
       <section className="area">
-        <form onSubmit={(e) => handlesubmit(e)}>
+        <form onSubmit={handleSubmit}>
           <section className="describeConsultant">
             <div>
               <label htmlFor="firstname">Prénom</label>
-              <input ref={firstnameRef} id="name" type="text" />
+              <input
+                id="firstName"
+                type="text"
+                name="firstName"
+                value={data.firstName}
+                onChange={handleChange}
+              />
             </div>
             <div>
               <label htmlFor="lastname">Nom</label>
-              <input ref={lastnameRef} id="name" type="text" />
+              <input
+                id="lastName"
+                type="text"
+                name="lastName"
+                value={data.lastName}
+                onChange={handleChange}
+              />
             </div>
             <div>
               <label htmlFor="phone">Telephone</label>
-              <input ref={phoneRef} id="phone" type="number" />
+              <input
+                id="phone"
+                type="text"
+                name="phone"
+                value={data.phone}
+                onChange={handleChange}
+              />
             </div>
             <div>
               <label htmlFor="mail">Email</label>
-              <input ref={emailRef} id="mail" type="email" />
+              <input
+                id="mail"
+                type="email"
+                name="email"
+                value={data.email}
+                onChange={handleChange}
+              />
             </div>
             <div>
               <label htmlFor="Description">Description</label>
-              <textarea ref={descriptionRef} id="description" />
+              <textarea
+                id="consultant_description"
+                name="consultant_description"
+                value={data.consultant_description}
+                onChange={handleChange}
+              />
             </div>
             <div className="btnSave">
               <button type="submit">Enregistrer</button>
+              <p>{submitForm}</p>
             </div>
           </section>
         </form>

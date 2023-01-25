@@ -12,38 +12,15 @@ INSERT INTO
 VALUES (
         1,
         '0607446215',
-        'consultant1@externatic.com',
-        '12345678',
+        'externatic.consultant@gmail.com',
+        '$argon2id$v=19$m=65536,t=5,p=1$GtxtHcddU56yS/qwiNJPLA$lXWIVeBIDCZ8Ng18sQGGwCvghiAvlkGoREzcunVzE/Q',
         'consultant'
-    ), (
+    ),
+    (
         2,
-        '0754958212',
-        'consultant2@externatic.com',
-        '23456789',
-        'consultant'
-    ), (
-        3,
-        '0632546975',
-        'steve.Johnson@example.com',
-        '87654321',
-        'candidate'
-    ), (
-        4,
-        '0623157924',
-        'Paula.Green@example.com',
-        '98765432',
-        'candidate'
-    ), (
-        5,
-        '0612345678',
-        'mainAdmin@mail.com',
-        '$argon2id$v=19$m=65536,t=5,p=1$qZMlPdVzKxH0MZI9BMWA5w$JtLcNV4Oy+WKco8bUrjye1mYi6YqRGXoBGw9GwcC9ys',
-        'consultant'
-    ), (
-        6,
-        '9876543210 ',
-        'superCandi@mail.com',
-        '$argon2id$v=19$m=65536,t=5,p=1$AoVTRpHTM2vEvmj5wTwS6Q$WdD4LYMptE2rvvNgm5jrBB8H08r0d2VaXUAzi13e78I',
+        '0607446215',
+        'externatic.candidat@gmail.com',
+        '$argon2id$v=19$m=65536,t=5,p=1$auOdUljcApHs58i8OlWhuQ$gYHM8GCMrfTuaQNo8sCG/BdIxtXQLXGVh8P3VyrAxq4',
         'candidate'
     );
 
@@ -70,18 +47,6 @@ VALUES (
         'John',
         'Doe',
         "Je suis John Doe, Consultant recrutement chez Externatic, je te propose aujourd’hui de découvrir l’offre ci-dessous et d’échanger ensemble : plutôt en visio ? Ou autour d’un verre ? Je serai ravi de t'accompagner et de te présenter ce job plus en détail !",
-        1
-    ), (
-        2,
-        'Jane',
-        'Smith',
-        "Je suis Jane Smith, consultante en recrutement au sein d'Externatic, je vous propose aujourd’hui de découvrir l’offre ci-dessous et d’échanger ensemble : plutôt en visio ? Ou autour d’un verre ? Je serai ravie de vous accompagner et de vous présenter ce job plus en détail !",
-        2
-    ), (
-        3,
-        'Main',
-        'Admin',
-        "Je suis Main Admin, le boss du site !",
         1
     );
 
@@ -166,24 +131,8 @@ VALUES (
         'Johnson',
         '6 rue de Saint Brice 51100 REIMS',
         'CDI',
-        3,
-        1
-    ), (
         2,
-        'Paula',
-        'Green',
-        '53 rue Vernouillet 51100 REIMS',
-        'CDD',
-        4,
-        2
-    ), (
-        3,
-        'Super',
-        'Candidate',
-        '12 rue des Blaireaux 24000 PERIGUEUX',
-        'CDD',
-        6,
-        2
+        1
     );
 
 CREATE TABLE
@@ -312,45 +261,6 @@ Ingénieur infrastructure confirmé et autonome sur l'environnement Linux, vous 
     Conaissez des outils d'industrialisation (Ansible) et des langages de scripting (Shell, Python). (Un plus)
     Êtes curieux et souhaitez consolider vos compétences sur les technos évoquées",
         "2013-09-02 09:08:47",
-        2
-    );
-
-CREATE TABLE
-    document (
-        id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        document_type varchar(100) NOT NULL,
-        date date NOT NULL,
-        document varchar(300) NOT NULL,
-        candidate_id int(11) UNSIGNED NOT NULL,
-        CONSTRAINT fk_document_candidate FOREIGN KEY (candidate_id) REFERENCES candidate(id)
-    ) engine = InnoDB DEFAULT charset = utf8;
-
-INSERT INTO
-    document (
-        id,
-        document_type,
-        date,
-        document,
-        candidate_id
-    )
-VALUES (
-        1,
-        'lorem ipsum 1',
-        '20221206',
-        'lorem ipsum 1',
         1
-    ), (
-        2,
-        'lorem ipsum 2',
-        '20221206',
-        'lorem ipsum 2',
-        2
     );
 
-CREATE TABLE
-    offer_candidate (
-        offer_id int(11) UNSIGNED NOT NULL,
-        CONSTRAINT fk_candidate_offer FOREIGN KEY (offer_id) references offer(id),
-        candidate_id int(11) UNSIGNED NOT NULL,
-        CONSTRAINT fk_offer_candidate FOREIGN KEY (candidate_id) references candidate(id)
-    ) engine = InnoDB DEFAULT charset = utf8;

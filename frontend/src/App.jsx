@@ -1,23 +1,47 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import OfferList from "./components/OfferList";
-import Header from "./components/Header";
+import { useContext } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
+
+import { AuthContext } from "./contexts/AuthContext";
+import Home from "./pages/Home";
+import Profil from "./pages/Profil";
+import CandidateExperience from "./pages/CandidateExperience";
+import OfferDetails from "./pages/OfferDetails";
+import ConnexionPage from "./pages/ConnexionPage";
+import CreateAccount from "./pages/CreateAccount";
+import EditOffer from "./pages/EditOffer";
+
 import "./App.css";
 
 function App() {
-  const [offers, setOffers] = useState([]);
-
-  useEffect(() => {
-    axios.get(`${import.meta.env.VITE_BACKEND_URL}/offers`).then((reponse) => {
-      setOffers(reponse.data);
-    });
-  }, []);
+  const { auth } = useContext(AuthContext);
 
   return (
-    <div className="App">
-      <Header searchBar />
-      <OfferList offerList={offers} />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/connexion" element={<ConnexionPage />} />
+        <Route path="/offers/:id" element={<OfferDetails />} />
+        <Route
+          element={
+            auth.isAuthenticated ? <Outlet /> : <Navigate to="/connexion" />
+          }
+        >
+          <Route path="/createaccount/:type" element={<CreateAccount />} />
+          <Route path="/profil/:type" element={<Profil />} />
+          <Route path="/consultant/editOffer" element={<EditOffer />} />
+          <Route
+            path="profil/candidate/experiences"
+            element={<CandidateExperience />}
+          />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 

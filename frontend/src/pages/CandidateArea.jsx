@@ -2,12 +2,11 @@ import "../styles/candidateArea.scss";
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { AuthContext } from "./AuthContext";
+import { AuthContext } from "../contexts/AuthContext";
 import Header from "../components/Header";
 
 function CandidateArea() {
   const { auth } = useContext(AuthContext);
-  const [candidateData, setCandidateData] = useState({});
   const [formData, setFormData] = useState({
     lastName: "",
     firstName: "",
@@ -26,7 +25,6 @@ function CandidateArea() {
           headers: { Authorization: `Bearer ${auth.token}` },
         })
         .then((response) => {
-          setCandidateData(response.data);
           setCandidateId(response.data.candidate_id);
           setFormData({
             ...formData,
@@ -51,6 +49,7 @@ function CandidateArea() {
       [event.target.name]: event.target.value,
     });
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Envoi des données modifiées à la base de données pour mise à jour
@@ -109,7 +108,7 @@ function CandidateArea() {
                 id="lastName"
                 type="text"
                 name="lastName"
-                value={candidateData.lastName}
+                value={formData.lastName}
                 onChange={handleChange}
               />
             </div>

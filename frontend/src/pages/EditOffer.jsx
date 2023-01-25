@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import "../styles/editOffer.scss";
-import { AuthContext } from "./AuthContext";
+import { AuthContext } from "../contexts/AuthContext";
 
 export default function EditOffer() {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ export default function EditOffer() {
     companyDescription: "",
     offerName: "",
     offerDescription: "",
-    contract: "",
+    contract: "CDI",
     location: "",
   });
 
