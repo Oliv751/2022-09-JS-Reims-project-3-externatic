@@ -1,16 +1,12 @@
-import { React, useContext, useEffect, useRef, useState } from "react";
-import { useNavigate, Link, NavLink } from "react-router-dom";
-import { MdAccountCircle } from "react-icons/md";
+import { React, useContext, useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
 import "../styles/consultantArea.scss";
 import axios from "axios";
 import { AuthContext } from "./AuthContext";
-
-import externaticLogo from "../assets/logos/externaticLogo.png";
+import Header from "../components/Header";
 
 export default function ConsultantArea() {
-  const navigate = useNavigate();
   const { auth } = useContext(AuthContext);
-  const [setData] = useState([]);
   const firstnameRef = useRef();
   const lastnameRef = useRef();
   const phoneRef = useRef();
@@ -18,12 +14,7 @@ export default function ConsultantArea() {
   const descriptionRef = useRef();
   // const [data, setData] = useState(null);
 
-  function handleSubmit() {
-    navigate("/consultant/editOffer");
-  }
-
   useEffect(() => {
-    console.warn(auth.id);
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/consultants/${auth.id}`, {
         headers: {
@@ -31,69 +22,61 @@ export default function ConsultantArea() {
         },
       })
       .then((reponse) => {
-        setData(reponse.data);
-        console.warn("reponse /consultant/id");
-        console.warn(reponse);
+        const { firstname, lastname, consultantDescription, email, phone } =
+          reponse.data;
+        firstnameRef.current.value = firstname;
+        lastnameRef.current.value = lastname;
+        emailRef.current.value = email;
+        descriptionRef.current.value = consultantDescription;
+        phoneRef.current.value = phone;
       })
       .catch((err) => {
         console.error(err);
       });
   }, []);
 
-  return (
-    <form
-      className="area"
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit();
-      }}
-    >
-      <header>
-        <nav>
-          <Link to="/">
-            <img
-              className="externaticLogo"
-              src={externaticLogo}
-              alt="externaticLogo"
-            />
-          </Link>
-          <NavLink to="/connexion" className="button-connexion">
-            <MdAccountCircle className="personIcon" />
-          </NavLink>
-        </nav>
-      </header>
-      <section className="describeConsultant">
-        <div>
-          <label htmlFor="firstname">Prénom</label>
-          <input ref={firstnameRef} id="name" type="text" />
-        </div>
-        <div>
-          <label htmlFor="lastname">Nom</label>
-          <input ref={lastnameRef} id="name" type="text" />
-        </div>
-        <div>
-          <label htmlFor="phone">Telephone</label>
-          <input ref={phoneRef} id="phone" type="number" />
-        </div>
-        <div>
-          <label htmlFor="mail">Email</label>
-          <input ref={emailRef} id="mail" type="email" />
-        </div>
-        <div>
-          <label htmlFor="Description">Description</label>
-          <textarea ref={descriptionRef} id="description" />
-        </div>
-        <div className="btnSave">
-          <button type="submit">Enregistrer</button>
-        </div>
-      </section>
+  function handlesubmit(e) {
+    e.preventDefault();
+  }
 
-      <section className="offres">
-        <div className="header">
+  return (
+    <>
+      <Header searchBar={false} />
+      <section className="area">
+        <form onSubmit={(e) => handlesubmit(e)}>
+          <section className="describeConsultant">
+            <div>
+              <label htmlFor="firstname">Prénom</label>
+              <input ref={firstnameRef} id="name" type="text" />
+            </div>
+            <div>
+              <label htmlFor="lastname">Nom</label>
+              <input ref={lastnameRef} id="name" type="text" />
+            </div>
+            <div>
+              <label htmlFor="phone">Telephone</label>
+              <input ref={phoneRef} id="phone" type="number" />
+            </div>
+            <div>
+              <label htmlFor="mail">Email</label>
+              <input ref={emailRef} id="mail" type="email" />
+            </div>
+            <div>
+              <label htmlFor="Description">Description</label>
+              <textarea ref={descriptionRef} id="description" />
+            </div>
+            <div className="btnSave">
+              <button type="submit">Enregistrer</button>
+            </div>
+          </section>
+        </form>
+        <div className="offer">
           <h2>Mes offres</h2>
-          <button type="submit">Ajouter une offre</button>
+          <NavLink to="/consultant/editOffer" className="button">
+            <button type="button">Ajouter une offre</button>
+          </NavLink>
         </div>
       </section>
-    </form>
+    </>
   );
 }

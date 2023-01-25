@@ -16,6 +16,7 @@ function OfferDetails() {
   const [offer, setOffer] = useState([]);
   const [date, setDate] = useState("");
   const [user, setUser] = useState({});
+  const [consultant, setConsultant] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [hasAccess, setHasAccess] = useState(false);
 
@@ -24,6 +25,12 @@ function OfferDetails() {
       .get(`${import.meta.env.VITE_BACKEND_URL}/offers/${offerId.id}`)
       .then((reponse) => {
         setOffer(reponse.data);
+      });
+    const consultantId = offer.consultant_id;
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/consultants/${consultantId}`)
+      .then((response) => {
+        setConsultant(response.data);
       });
 
     axios
@@ -75,17 +82,14 @@ function OfferDetails() {
         .post(
           `${import.meta.env.VITE_BACKEND_URL}/offers/${offerId.id}/contact`,
           {
-            userId: user.id,
-            userInfo: {
-              phone: user.phone,
-              email: user.email,
-            },
+            userId: auth.id,
+            consultantEmail: consultant.email,
           }
         )
         .then((response) => {
           if (response.status === 200) {
             toast.success(
-              "Un consultant prendra contacte avec vous très rapidement"
+              "Votre demande de contact a été envoyée au consultant, il vous contactera bientôt"
             );
           } else {
             toast.error(
@@ -112,7 +116,6 @@ function OfferDetails() {
   return (
     <>
       <Header />
-      <hr className="rounded1" />
       <article className="Offer-Details">
         <h2 className="Job-Name"> {offer.offer_name}</h2>
         <p className="Publication-Date">{date} </p>
@@ -120,9 +123,9 @@ function OfferDetails() {
         <p className="Job-Location">{offer.location}</p>
         <MdFavoriteBorder className="Favorite-Icon" />
         <AiOutlineShareAlt className="Share-Icon" />
-        <BiMailSend className="Mail-Icon" />
         <section className="Job-Description">
-          <button type="submit" onClick={handleContactRequest}>
+          <button type="button" onClick={handleContactRequest}>
+            <BiMailSend />
             Postuler
           </button>
           <hr className="rounded2" />

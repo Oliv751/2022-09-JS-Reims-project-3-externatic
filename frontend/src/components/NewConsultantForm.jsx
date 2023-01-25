@@ -53,7 +53,7 @@ export default function NewConsultantForm() {
       </div>
       <div>
         <label htmlFor="phone">Telephone</label>
-        <input ref={phoneRef} id="phone" type="number" />
+        <input ref={phoneRef} id="phone" type="text" />
       </div>
       <div>
         <label htmlFor="mail">Email</label>

@@ -58,27 +58,14 @@
       border: 1px solid var(--dark_color);
     }
   }
-  .offres {
-    border-bottom: 1px solid var(--light_color);
-    padding: 10px 0;
 
-    .header {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
+  .offer {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
 
-      button {
-        border-radius: 10px;
-        color: var(--dark_color);
-        border: 1px solid var(--dark_color);
-        display: inline;
-        padding: 5px;
-        font-size: 1rem;
-      }
-      h2 {
-        margin: 15px 0;
-        display: inline-block;
-      }
+    a {
+      display: inline;
     }
   }
 }
