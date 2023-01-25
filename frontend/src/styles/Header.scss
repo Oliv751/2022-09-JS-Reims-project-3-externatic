@@ -62,14 +62,14 @@ header {
 }
 
 header::before {
-content: "";
-position: absolute;
-bottom: -10px;
-left: 0;
-right: 0;
-height: 10px;
-background: linear-gradient(to right, #851342 0%, #ca2061 20%, white 100%);
-filter: blur(1.2px);
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(to right, #851342 0%, #ca2061 20%, white 100%);
+  filter: blur(1.2px);
 }
 
 
