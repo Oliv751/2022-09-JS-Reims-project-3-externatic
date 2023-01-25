@@ -7,13 +7,12 @@ import Header from "../components/Header";
 
 export default function ConsultantArea() {
   const { auth } = useContext(AuthContext);
-  const [consultantData, setConsultantData] = useState({});
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
     phone: "",
     email: "",
-    description: "",
+    consultant_description: "",
   });
 
   const [submitForm, setSubmitForm] = useState("");
@@ -28,14 +27,13 @@ export default function ConsultantArea() {
           },
         })
         .then((response) => {
-          setConsultantData(response.data);
           setConsultantId(response.data.consultant_id);
           setData({
             ...data,
             firstName: response.data.firstName,
             lastName: response.data.lastName,
             email: response.data.email,
-            description: response.data.description,
+            consultant_description: response.data.consultant_description,
             phone: response.data.phone,
             id: response.data.consultant_id,
           });
@@ -77,20 +75,20 @@ export default function ConsultantArea() {
 
     axios
       .put(
-        `${import.meta.env.VITE_BACKEND_URL}/consultant/${consultantId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/consultants/${consultantId}`,
         {
-          firstname: data.firstName,
+          consultantId: auth.consultantId,
+          firstName: data.firstName,
           lastName: data.lastName,
-          description: data.description,
+          consultant_description: data.consultant_description,
         },
         {
-          headers: { Authorization: `bearer ${auth.token}` },
+          headers: { Authorization: `Bearer ${auth.token}` },
         }
       )
       .then((response) => {
         console.warn("Données mises à jour avec succès", response.data);
         setSubmitForm("Modifications enregistrées !");
-        setConsultantData(response.data);
       })
       .catch((error) => {
         console.error("Erreur lors de la mise à jour des données", error);
@@ -109,7 +107,7 @@ export default function ConsultantArea() {
                 id="firstName"
                 type="text"
                 name="firstName"
-                value={consultantData.firstName}
+                value={data.firstName}
                 onChange={handleChange}
               />
             </div>
@@ -119,7 +117,7 @@ export default function ConsultantArea() {
                 id="lastName"
                 type="text"
                 name="lastName"
-                value={consultantData.lastName}
+                value={data.lastName}
                 onChange={handleChange}
               />
             </div>
@@ -127,7 +125,7 @@ export default function ConsultantArea() {
               <label htmlFor="phone">Telephone</label>
               <input
                 id="phone"
-                type="number"
+                type="text"
                 name="phone"
                 value={data.phone}
                 onChange={handleChange}
@@ -146,10 +144,9 @@ export default function ConsultantArea() {
             <div>
               <label htmlFor="Description">Description</label>
               <textarea
-                id="description"
-                type="text"
-                name="description"
-                value={data.description}
+                id="consultant_description"
+                name="consultant_description"
+                value={data.consultant_description}
                 onChange={handleChange}
               />
             </div>
