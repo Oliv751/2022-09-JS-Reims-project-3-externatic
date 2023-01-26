@@ -26,6 +26,13 @@ class OfferManager extends AbstractManager {
       ]
     );
   }
+
+  findAllByConsultantId(id) {
+    return this.connection.query(
+      `SELECT * FROM ${this.table} WHERE consultant_id = ?`,
+      [id]
+    );
+  }
 }
 
 module.exports = OfferManager;

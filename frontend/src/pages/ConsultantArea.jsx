@@ -4,6 +4,7 @@ import "../styles/consultantArea.scss";
 import axios from "axios";
 import { AuthContext } from "../contexts/AuthContext";
 import Header from "../components/Header";
+import OfferCard from "../components/OfferCard";
 
 export default function ConsultantArea() {
   const { auth } = useContext(AuthContext);
@@ -14,6 +15,25 @@ export default function ConsultantArea() {
     email: "",
     consultant_description: "",
   });
+
+  const [offers, setOffers] = useState([]);
+  useEffect(() => {
+    axios
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/consultant/${
+          auth.consultantId
+        }/offers`,
+        {
+          headers: {
+            Authorization: `Bearer ${auth.token}`,
+          },
+        }
+      )
+      .then((response) => {
+        console.warn(response.data);
+        setOffers(response.data);
+      });
+  }, []);
 
   const [submitForm, setSubmitForm] = useState("");
   const [consultantId, setConsultantId] = useState("");
@@ -42,7 +62,7 @@ export default function ConsultantArea() {
           console.error(err);
         });
     }
-  }, [auth.isAuthenticated]);
+  }, [auth]);
 
   const handleChange = (e) => {
     setData({
@@ -156,11 +176,17 @@ export default function ConsultantArea() {
             </div>
           </section>
         </form>
-        <div className="offer">
-          <h2>Mes offres</h2>
-          <NavLink to="/consultant/editOffer" className="button">
-            <button type="button">Ajouter une offre</button>
-          </NavLink>
+        <div>
+          <div className="offer">
+            <h2>Mes offres</h2>
+
+            <NavLink to="/consultant/editOffer" className="button">
+              <button type="button">Ajouter une offre</button>
+            </NavLink>
+          </div>
+          {offers.map((offer) => {
+            return <OfferCard key={offer.id} offer={offer} />;
+          })}
         </div>
       </section>
     </>
