@@ -102,6 +102,23 @@ function Experience() {
       });
   };
 
+  const handleEdit = (experience) => {
+    const { id } = experience;
+    axios
+      .put(`${import.meta.env.VITE_BACKEND_URL}/experiences/${id}`, formData, {
+        headers: { Authorization: `Bearer ${auth.token}` },
+      })
+      .then((response) => {
+        if (response.status === 204) {
+          alert("Votre expérience a bien été modifiée !");
+          fetchExperiences();
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   const [showForm, setShowForm] = useState(false);
 
   return (
@@ -196,7 +213,14 @@ function Experience() {
           <div className="one-experience" key={experience.id}>
             <h3>
               {experience.job_name}
-              <CiEdit className="edit-icon" />
+              <button
+                type="button"
+                onClick={() => {
+                  handleEdit(experience);
+                }}
+              >
+                <CiEdit className="edit-icon" />
+              </button>
               <button
                 type="button"
                 onClick={() => {
