@@ -12,6 +12,18 @@ const browse = (req, res) => {
     });
 };
 
+const browseByConsultantId = (req, res) => {
+  models.offer
+    .findAllByConsultantId(req.params.id)
+    .then(([rows]) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const read = (req, res) => {
   models.offer
     .find(req.params.id)
@@ -84,4 +96,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  browseByConsultantId,
 };
