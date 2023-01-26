@@ -176,17 +176,17 @@ export default function ConsultantArea() {
             </div>
           </section>
         </form>
-        <div className="offer">
-          <div>
+        <div>
+          <div className="offer">
             <h2>Mes offres</h2>
-            {offers.map((offer) => {
-              return <OfferCard key={offer.id} offer={offer} />;
-            })}
-          </div>
 
-          <NavLink to="/consultant/editOffer" className="button">
-            <button type="button">Ajouter une offre</button>
-          </NavLink>
+            <NavLink to="/consultant/editOffer" className="button">
+              <button type="button">Ajouter une offre</button>
+            </NavLink>
+          </div>
+          {offers.map((offer) => {
+            return <OfferCard key={offer.id} offer={offer} />;
+          })}
         </div>
       </section>
     </>
