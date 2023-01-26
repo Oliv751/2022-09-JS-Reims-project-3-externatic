@@ -9,6 +9,7 @@ import "../styles/candidateExperience.scss";
 
 function Experience() {
   const { auth } = useContext(AuthContext);
+  const [showForm, setShowForm] = useState(false);
   const [experiences, setExperiences] = useState([]);
   const [categories, setCategories] = useState([]);
 
@@ -118,8 +119,6 @@ function Experience() {
         console.error(error);
       });
   };
-
-  const [showForm, setShowForm] = useState(false);
 
   return (
     <>
