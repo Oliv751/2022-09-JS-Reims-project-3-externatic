@@ -164,7 +164,7 @@ VALUES (
         "Nous accompagnons un éditeur de logiciel nantais spécialisé dans les solutions SIRH. Forte d'une activité prospère, l'entreprise continue de recruter plusieurs personnes sur le socle et cherche justement à compléter ses équipes avec son futur développeur C / C++. Les besoins sont plutôt techniques mais aussi avec un métier fort.",
         "Développeur C / C++",
         'NANTES',
-        'CDI',
+        'cdi',
         "Le poste et l'équipe :
 
 Sous la responsabilité de Franck, responsable technique, tu auras pour objectifs d'accompagner les équipes en apportant ton aide et ton savoir technique sur des solutions très axées métiers. 
@@ -213,7 +213,8 @@ Pour la partie métier : une simple envie suffit mais si par bonheur tu as déj�
 Tu es arrivé jusqu'ici, c'est que le poste est fait pour toi, à toi de postuler !",
         "2013-04-02 12:45:34",
         1
-    ), (
+    ),
+    (
         2,
         "Mon client est un grand groupe Nantais spécialisé dans l’infogérance et l’édition de logiciels de renommés. Il existe depuis de 50 ans ! Pour fêter cet événement, ils ont pour objectif de doubler le chiffre d’affaires en doublant l'effectif.
 
@@ -223,7 +224,7 @@ Tu es arrivé jusqu'ici, c'est que le poste est fait pour toi, à toi de postule
     Avantages : prime de participation et d’intéressement, primes exceptionnelles, CE ultra dynamique, mutuelle à 70",
         "Ingénieur Infrastructures DBA",
         'NANTES',
-        'CDD',
+        'cdd',
         "Les missions
 
 Au sein de l'équipe Linux / DBA de la direction Infogérance. Cette équipe de 13 personnes (Administrateurs, Ingénieurs infrastructure et Administrateurs Bases de données) a la charge de réaliser les projets clients (externalisation de SI, hébergement, transformation de SI).
@@ -261,6 +262,106 @@ Ingénieur infrastructure confirmé et autonome sur l'environnement Linux, vous 
     Conaissez des outils d'industrialisation (Ansible) et des langages de scripting (Shell, Python). (Un plus)
     Êtes curieux et souhaitez consolider vos compétences sur les technos évoquées",
         "2013-09-02 09:08:47",
+        1
+    ),
+    (
+        3,
+        "Mon client est un grand groupe Nantais spécialisé dans l’infogérance et l’édition de logiciels de renommés. Il existe depuis de 50 ans ! Pour fêter cet événement, ils ont pour objectif de doubler le chiffre d’affaires en doublant l'effectif.
+
+    Typologie de marchés : santé, retail, transports, habitat, …
+    Environ 700 collaborateurs
+    Convention Syntec
+    Avantages : prime de participation et d’intéressement, primes exceptionnelles, CE ultra dynamique, mutuelle à 70",
+        "Développeur Web junior",
+        'REIMS',
+        'stage',
+        "Les missions
+
+Au sein de l'équipe Linux / DBA de la direction Infogérance. Cette équipe de 13 personnes (Administrateurs, Ingénieurs infrastructure et Administrateurs Bases de données) a la charge de réaliser les projets clients (externalisation de SI, hébergement, transformation de SI).
+
+Vous réaliserez les missions suivantes :
+
+    participer à la conception et à la réalisation de projets orientés autour des thématiques de bases de données
+    prise en compte des tickets escaladés par le N1 / N2
+    participer activement au maintien en conditions opérationnelles des plateformes de Bases de données
+    être force de proposition pour l'évolution de nos infrastructures de référence
+
+L'environnement technologique est à la pointe :AWS, Linux/Unix, Ansible, Shell, Python, PostgreSQL
+
+Conditions de travail
+
+    Locaux : Reims
+    Une flexibilité horaire & un télétravail ancré dans la culture d'entreprise (2j par semaine en moyenne).
+
+Ce que vous allez y gagner
+
+    Un beau package (Salaire en fonction de l'expérience + primes annuelles, intéressement et prime vacance)
+    De nombreux évènements organisés par le CE de l'entreprise. (voyages, challenges techs, soirées ...)
+    Des locaux équipés de douches pour les sportifs, et même un potager avec des fruits & légumes frais le midi pour les gourmands ! 
+    Petit plus, l'année dernière 20% des postes ont connu des évolutions en interne.
+
+Le profil que nous recherchons
+
+Ce que vous apportez
+
+Ingénieur infrastructure confirmé et autonome sur l'environnement Linux, vous :
+
+    Êtes familier avec les bases de données : PostgreSQL / MySQL/ MariaDB / Oracle.
+    Avez des notions sur les environnements Clouds Privés & Publics (AWS / Azure).
+    Maitrisez les bases en administration Unix / Linux (CentOS, RedHat, OracleLinux, Debian).
+    Conaissez des outils d'industrialisation (Ansible) et des langages de scripting (Shell, Python). (Un plus)
+    Êtes curieux et souhaitez consolider vos compétences sur les technos évoquées",
+        "2023-01-26 11:35:47",
+        1
+    ),
+    (
+        4,
+        "Mon client est un grand groupe Nantais spécialisé dans l’infogérance et l’édition de logiciels de renommés. Il existe depuis de 50 ans ! Pour fêter cet événement, ils ont pour objectif de doubler le chiffre d’affaires en doublant l'effectif.
+
+    Typologie de marchés : santé, retail, transports, habitat, …
+    Environ 700 collaborateurs
+    Convention Syntec
+    Avantages : prime de participation et d’intéressement, primes exceptionnelles, CE ultra dynamique, mutuelle à 70",
+        "Développeur Web",
+        'RENNES',
+        'alternance',
+        "Les missions
+
+Au sein de l'équipe Linux / DBA de la direction Infogérance. Cette équipe de 13 personnes (Administrateurs, Ingénieurs infrastructure et Administrateurs Bases de données) a la charge de réaliser les projets clients (externalisation de SI, hébergement, transformation de SI).
+
+Vous réaliserez les missions suivantes :
+
+    participer à la conception et à la réalisation de projets orientés autour des thématiques de bases de données
+    prise en compte des tickets escaladés par le N1 / N2
+    participer activement au maintien en conditions opérationnelles des plateformes de Bases de données
+    être force de proposition pour l'évolution de nos infrastructures de référence
+
+L'environnement technologique est à la pointe :AWS, Linux/Unix, Ansible, Shell, Python, PostgreSQL
+
+Conditions de travail
+
+    Locaux : Rennes Nord Est
+    Une flexibilité horaire & un télétravail ancré dans la culture d'entreprise (2j par semaine en moyenne).
+
+Ce que vous allez y gagner
+
+    Un beau package (Salaire en fonction de l'expérience + primes annuelles, intéressement et prime vacance)
+    De nombreux évènements organisés par le CE de l'entreprise. (voyages, challenges techs, soirées ...)
+    Des locaux équipés de douches pour les sportifs, et même un potager avec des fruits & légumes frais le midi pour les gourmands ! 
+    Petit plus, l'année dernière 20% des postes ont connu des évolutions en interne.
+
+Le profil que nous recherchons
+
+Ce que vous apportez
+
+Ingénieur infrastructure confirmé et autonome sur l'environnement Linux, vous :
+
+    Êtes familier avec les bases de données : PostgreSQL / MySQL/ MariaDB / Oracle.
+    Avez des notions sur les environnements Clouds Privés & Publics (AWS / Azure).
+    Maitrisez les bases en administration Unix / Linux (CentOS, RedHat, OracleLinux, Debian).
+    Conaissez des outils d'industrialisation (Ansible) et des langages de scripting (Shell, Python). (Un plus)
+    Êtes curieux et souhaitez consolider vos compétences sur les technos évoquées",
+        "2023-01-26 11:39:25",
         1
     );
 
