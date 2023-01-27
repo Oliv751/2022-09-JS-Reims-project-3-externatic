@@ -161,31 +161,14 @@ INSERT INTO
     )
 VALUES (
         1,
-        "Nous accompagnons un éditeur de logiciel nantais spécialisé dans les solutions SIRH. Forte d'une activité prospère, l'entreprise continue de recruter plusieurs personnes sur le socle et cherche justement à compléter ses équipes avec son futur développeur C / C++. Les besoins sont plutôt techniques mais aussi avec un métier fort.",
+        "Nous accompagnons un éditeur de logiciel nantais spécialisé dans les solutions SIRH. Forte d'une activité prospère, l'entreprise continue de recruter plusieurs personnes sur le socle et cherche justement à compléter ses équipes avec son futur développeur C / C++. Les besoins sont plutôt techniques mais aussi avec un métier fort.",
         "Développeur C / C++",
         'NANTES',
         'cdi',
         "Le poste et l'équipe :
 
-Sous la responsabilité de Franck, responsable technique, tu auras pour objectifs d'accompagner les équipes en apportant ton aide et ton savoir technique sur des solutions très axées métiers. 
+Sous la responsabilité de Franck, responsable technique, tu auras pour objectifs d'accompagner les équipes en apportant ton aide et ton savoir technique sur des solutions très axées métiers.
 Travail en petite équipe et environnement de travail attractif, tu participeras à une belle aventure !!
-
-Les missions :
-
-Au sein d’un pôle de R&D sur la partie sécurité, tu auras à participer à des projets de conception et de développement autour de technos mi applicatives mi embarquées. On t'attend pour :
-• Concevoir, développer et intégrer le logiciel sur les cibles matérielles
-• Participer aux évolutions tant techniques que fonctionnelles
-• Garantir le bon fonctionnement du produit
-• Réaliser les spec's électronique embarquée du logiciel
-• Anticiper les futures technos en POCant les futures technos de demain
-• ...
-
-Conditions de travail / En pratique :
-
-    Localisation : Saint Herblain
-    Proximité des grands axes de transport
-    cadre idéal, société où il fait bon vivre
-    Possibilité de télétravail : 2 à 3 jours
 
 Ce que vous allez y gagner / Pourquoi postuler ?
 
@@ -207,8 +190,8 @@ Le profil que nous recherchons
 Ce que tu apportes :
 
 Dans l'idéal de formation informatique, tu justifies d'une expérience significative chez un éditeur, un intégrateur de logiciel ou d'une solide expérience dans le déploiement de solutions informatiques.
-Pour la partie technique : des compétences sur C ou C++ (les 2 env existent). On peut aussi parler de possibles connaissances autour des SGBD, WebServices ou protocoles de communication sécurisés, mais ne poussons pas. 
-Pour la partie métier : une simple envie suffit mais si par bonheur tu as déjà été confronté à un env d'éditions de logiciels, cela devrait t'aider
+Pour la partie technique : des compétences sur C ou C++ (les 2 env existent). On peut aussi parler de possibles connaissances autour des SGBD, WebServices ou protocoles de communication sécurisés, mais ne poussons pas.
+Pour la partie métier : une simple envie suffit mais si par bonheur tu as déjà été confronté à un env d'éditions de logiciels, cela devrait t'aider.
 
 Tu es arrivé jusqu'ici, c'est que le poste est fait pour toi, à toi de postuler !",
         "2013-04-02 12:45:34",
@@ -222,26 +205,12 @@ Tu es arrivé jusqu'ici, c'est que le poste est fait pour toi, à toi de postule
     Environ 700 collaborateurs
     Convention Syntec
     Avantages : prime de participation et d’intéressement, primes exceptionnelles, CE ultra dynamique, mutuelle à 70",
-        "Ingénieur Infrastructures DBA",
+        "Ingénieur Infra DBA",
         'NANTES',
         'cdd',
         "Les missions
 
 Au sein de l'équipe Linux / DBA de la direction Infogérance. Cette équipe de 13 personnes (Administrateurs, Ingénieurs infrastructure et Administrateurs Bases de données) a la charge de réaliser les projets clients (externalisation de SI, hébergement, transformation de SI).
-
-Vous réaliserez les missions suivantes :
-
-    participer à la conception et à la réalisation de projets orientés autour des thématiques de bases de données
-    prise en compte des tickets escaladés par le N1 / N2
-    participer activement au maintien en conditions opérationnelles des plateformes de Bases de données
-    être force de proposition pour l'évolution de nos infrastructures de référence
-
-L'environnement technologique est à la pointe :AWS, Linux/Unix, Ansible, Shell, Python, PostgreSQL
-
-Conditions de travail
-
-    Locaux : Nantes Nord Est
-    Une flexibilité horaire & un télétravail ancré dans la culture d'entreprise (2j par semaine en moyenne).
 
 Ce que vous allez y gagner
 
@@ -279,20 +248,6 @@ Ingénieur infrastructure confirmé et autonome sur l'environnement Linux, vous 
 
 Au sein de l'équipe Linux / DBA de la direction Infogérance. Cette équipe de 13 personnes (Administrateurs, Ingénieurs infrastructure et Administrateurs Bases de données) a la charge de réaliser les projets clients (externalisation de SI, hébergement, transformation de SI).
 
-Vous réaliserez les missions suivantes :
-
-    participer à la conception et à la réalisation de projets orientés autour des thématiques de bases de données
-    prise en compte des tickets escaladés par le N1 / N2
-    participer activement au maintien en conditions opérationnelles des plateformes de Bases de données
-    être force de proposition pour l'évolution de nos infrastructures de référence
-
-L'environnement technologique est à la pointe :AWS, Linux/Unix, Ansible, Shell, Python, PostgreSQL
-
-Conditions de travail
-
-    Locaux : Reims
-    Une flexibilité horaire & un télétravail ancré dans la culture d'entreprise (2j par semaine en moyenne).
-
 Ce que vous allez y gagner
 
     Un beau package (Salaire en fonction de l'expérience + primes annuelles, intéressement et prime vacance)
@@ -328,20 +283,6 @@ Ingénieur infrastructure confirmé et autonome sur l'environnement Linux, vous 
         "Les missions
 
 Au sein de l'équipe Linux / DBA de la direction Infogérance. Cette équipe de 13 personnes (Administrateurs, Ingénieurs infrastructure et Administrateurs Bases de données) a la charge de réaliser les projets clients (externalisation de SI, hébergement, transformation de SI).
-
-Vous réaliserez les missions suivantes :
-
-    participer à la conception et à la réalisation de projets orientés autour des thématiques de bases de données
-    prise en compte des tickets escaladés par le N1 / N2
-    participer activement au maintien en conditions opérationnelles des plateformes de Bases de données
-    être force de proposition pour l'évolution de nos infrastructures de référence
-
-L'environnement technologique est à la pointe :AWS, Linux/Unix, Ansible, Shell, Python, PostgreSQL
-
-Conditions de travail
-
-    Locaux : Rennes Nord Est
-    Une flexibilité horaire & un télétravail ancré dans la culture d'entreprise (2j par semaine en moyenne).
 
 Ce que vous allez y gagner
 
