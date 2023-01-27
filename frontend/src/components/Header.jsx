@@ -10,7 +10,7 @@ function Header() {
   const [menuIsVisible, setMenuIsVisible] = useState(false);
 
   return (
-    <header>
+    <header className="mainHeader">
       <nav>
         <Link to="/">
           <img
