@@ -54,14 +54,14 @@ nav {
   justify-content: space-between;
 }
 
-header {
+.mainHeader {
   padding-top: 20px;
   padding-bottom: 15px;
   margin-bottom: 25px;
   position: relative;
 }
 
-header::before {
+.mainHeader::before {
   content: "";
   position: absolute;
   bottom: -3px;
