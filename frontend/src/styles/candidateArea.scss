@@ -52,7 +52,7 @@ div {
 }
 
 div:not(:first-child) {
-  button {
+  .experience {
     background-color: white;
     display: flex;
   }

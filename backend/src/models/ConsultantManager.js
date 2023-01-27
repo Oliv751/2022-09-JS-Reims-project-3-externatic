@@ -17,9 +17,21 @@ class ConsultantManager extends AbstractManager {
     );
   }
 
+  update(consultant) {
+    return this.connection.query(
+      `update ${this.table} set firstname = ? , lastname = ? , consultant_description = ? where id = ? `,
+      [
+        consultant.firstName,
+        consultant.lastName,
+        consultant.consultant_description,
+        consultant.consultantId,
+      ]
+    );
+  }
+
   find(id) {
     return this.connection.query(
-      `select * from user inner join ${this.table} on user.id = ${this.table}.user_id where user.id = ?`,
+      `select user.id, user.phone, user.email, consultant.id as consultant_id, consultant.firstName, consultant.lastName, consultant.consultant_description from user join consultant on user.id = consultant.user_id where user.id = ?`,
       [id]
     );
   }

@@ -13,8 +13,9 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
+  const userId = parseInt(req.params.userId, 10);
   models.consultant
-    .find(req.params.id)
+    .find(userId)
     .then(([rows]) => {
       if (rows[0] == null) {
         res.sendStatus(404);
@@ -24,7 +25,6 @@ const read = (req, res) => {
 
         res.send({
           ...reponse,
-          consultantDescription: reponse.consultant_description,
         });
       }
     })
@@ -36,7 +36,6 @@ const read = (req, res) => {
 
 const edit = (req, res) => {
   const consultant = req.body;
-
   consultant.id = parseInt(req.params.id, 10);
 
   models.consultant

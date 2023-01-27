@@ -3,7 +3,7 @@ import React, { useContext, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import "../styles/connexion_page.scss";
-import { AuthContext } from "./AuthContext";
+import { AuthContext } from "../contexts/AuthContext";
 
 export default function ConnexionPage() {
   const { setAuth } = useContext(AuthContext);
