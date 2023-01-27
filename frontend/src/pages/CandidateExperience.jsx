@@ -196,11 +196,7 @@ function Experience() {
                 name="endDate"
               />
             </label>
-            <button
-              className="submit-button"
-              type="submit"
-              // onClick={() => setShowForm(false)}
-            >
+            <button className="submit-button" type="submit">
               Ajouter
             </button>
           </form>
