@@ -155,7 +155,8 @@
   }
 
   .edit-icon {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    margin-left: 1rem;
     cursor: pointer;
     color: black;
   }
@@ -165,7 +166,7 @@
   }
 
   .delete-icon {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     cursor: pointer;
     color: black;
   }
@@ -173,5 +174,11 @@
   .delete-icon:hover {
     color: var(--light_color);
   }
+
+  button {
+    border: none;
+  }
+
+
 
 }
