@@ -15,7 +15,11 @@ function Home() {
   return (
     <div className="App">
       <Header searchBar />
-      <OfferList offerList={offers} />
+      <OfferList
+        offerList={offers.sort(
+          (a, b) => new Date(b.publication_date) - new Date(a.publication_date)
+        )}
+      />
     </div>
   );
 }
