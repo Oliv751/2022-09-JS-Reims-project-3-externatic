@@ -57,7 +57,7 @@ CREATE TABLE
     ) engine = InnoDB DEFAULT charset = utf8;
 
 INSERT INTO category (id, name)
-VALUES (1, 'C/C++'), (2, 'Infrastructure / Cloud');
+VALUES (1, 'C/C++'), (2, 'Infrastructure / Cloud'), (3, '.Net / C#'), (4, 'Autres technologies'), (5, 'Data / Big Data / Datascience'), (6, 'DevOps'), (7, 'Emplois Business & Marketing'), (8, 'Externatic (interne)'), (9, 'Industrie'), (10, 'Informatique industrielle / Scientifique / R&D'), (11, 'Java'), (12, 'JS'), (13, 'Management / Gestion de projet'), (14, 'Mobile'), (15, 'PHP'), (16, 'PO / PPO / AMOA / Fonctionnel'), (17, 'Python / GO / Ruby'), (18, 'QA / Test'), (19, 'UX UI / Intégration Web'), (20, 'WebMarketing');
 
 CREATE TABLE
     experience (
