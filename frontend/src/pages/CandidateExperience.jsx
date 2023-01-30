@@ -228,8 +228,14 @@ function Experience() {
               </h3>
               <p className="exp-company">{experience.company_name}</p>
               <p className="exp-desc">{experience.experience_description}</p>
-              <p className="exp-date">Date de début : {experience.startDate}</p>
-              <p className="exp-date">Date de fin : {experience.endDate}</p>
+              <p className="exp-date">
+                <div className="exp-date-text">Date de début : </div>
+                {experience.startDate.slice(0, 10)}
+              </p>
+              <p className="exp-date">
+                <div className="exp-date-text">Date de fin :</div>
+                {experience.endDate.slice(0, 10)}
+              </p>
             </div>
           ))
           .sort((a, b) => {

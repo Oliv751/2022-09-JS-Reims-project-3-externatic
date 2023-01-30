@@ -119,8 +119,14 @@
   }
 
   .exp-date {
+    display: flex;
+    gap: 0.2rem;
     font-size: 1rem;
     margin: 0.4rem 0;
+  }
+
+  .exp-date-text {
+    font-weight: bold;
   }
 
   button {
