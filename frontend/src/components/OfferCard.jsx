@@ -19,9 +19,9 @@ export default function OfferCard({ offer }) {
       </p>
       <footer>
         <MdLocationOn className="icon_description" />
-        <p>{offer.location}</p>
+        <p className="City">{offer.location}</p>
         <FaFileSignature className="icon_description" />
-        <p>{offer.contract}</p>
+        <p className="offerContract">{offer.contract}</p>
       </footer>
     </section>
   );

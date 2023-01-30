@@ -89,6 +89,7 @@ button {
 }
 
 .Job-Type {
+  text-transform: lowercase;
   margin: 0;
   grid-area: 4 / 4 / 5 / 5;
   text-align: end;
@@ -98,6 +99,7 @@ button {
 }
 
 .Job-Location {
+  text-transform: uppercase;
   margin: 0;
   grid-area: 5 / 4 / 6 / 5;
   text-align: end;

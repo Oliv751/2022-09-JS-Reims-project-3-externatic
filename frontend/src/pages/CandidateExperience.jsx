@@ -204,33 +204,45 @@ function Experience() {
       </section>
       <section className="experience-list">
         <h2 className="exp-title">Mes expériences professionnelles</h2>
-        {experiences.map((experience) => (
-          <div className="one-experience" key={experience.id}>
-            <h3>
-              {experience.job_name}
-              <button
-                type="button"
-                onClick={() => {
-                  handleEdit(experience);
-                }}
-              >
-                <CiEdit className="edit-icon" />
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  handleDelete(experience);
-                }}
-              >
-                <MdOutlineDeleteForever className="delete-icon" />
-              </button>
-            </h3>
-            <p className="exp-company">{experience.company_name}</p>
-            <p className="exp-desc">{experience.experience_description}</p>
-            <p className="exp-date">Date de début : {experience.startDate}</p>
-            <p className="exp-date">Date de fin : {experience.endDate}</p>
-          </div>
-        ))}
+        {experiences
+          .map((experience) => (
+            <div className="one-experience" key={experience.id}>
+              <h3>
+                {experience.job_name}
+                <button
+                  type="button"
+                  onClick={() => {
+                    handleEdit(experience);
+                  }}
+                >
+                  <CiEdit className="edit-icon" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    handleDelete(experience);
+                  }}
+                >
+                  <MdOutlineDeleteForever className="delete-icon" />
+                </button>
+              </h3>
+              <p className="exp-company">{experience.company_name}</p>
+              <p className="exp-desc">{experience.experience_description}</p>
+              <p className="exp-date">
+                <div className="exp-date-text">Date de début : </div>
+                {experience.startDate.slice(0, 10)}
+              </p>
+              <p className="exp-date">
+                <div className="exp-date-text">Date de fin :</div>
+                {experience.endDate.slice(0, 10)}
+              </p>
+            </div>
+          ))
+          .sort((a, b) => {
+            const dateA = new Date(a.props.children[4].props.children[1]);
+            const dateB = new Date(b.props.children[4].props.children[1]);
+            return dateB - dateA;
+          })}
       </section>
     </>
   );
