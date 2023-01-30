@@ -1,60 +1,74 @@
-pageEditOffer {
-  .editOffer {
+
+.editOffer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3em;
+  min-height: 100%;
+
+  label {
+    color: var(--dark_color);
+  }
+
+  div {
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border: 1px solid var(--light_color);
+    }
+  }
+
+  textarea {
+    min-width: 80%;
+    height: 5rem;
+    margin: 10px 0;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    resize: none;
+  }
+
+  .offerName,
+  .location {
+    min-width: 80%;
+    margin: 10px 0;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  .describe {
     display: flex;
     flex-direction: column;
-    margin-top: 3em;
-    min-height: 100%;
 
     label {
-      color: var(--dark_color);
+      margin-top: 10px;
+      text-align: center;
     }
+  }
 
-    div {
-      input:focus,
-      textarea:focus,
-      select:focus {
-        outline: none;
-        border: 1px solid var(--light_color);
-      }
-    }
-
-    input,
-    textarea {
-      margin: 10px 0;
-      border: 1px solid gray;
-      border-radius: 5px;
+  .contract,
+  .premises {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px 0;
+    label {
       padding: 5px;
     }
+  }
 
-    .describe {
-      display: flex;
-      flex-direction: column;
+  .contract {
+    gap: 0.7rem;
+  }
 
-      label {
-        margin-top: 10px;
-        text-align: center;
-      }
-    }
-
-    .contract,
-    .premises {
-      display: flex;
-      justify-content: center;
-      margin: 5px 0;
-      gap: 1em;
-      label {
-        padding: 5px;
-      }
-    }
-
-    .offerregister {
-      margin: 1rem auto;
-      width: 50vw;
-      border: 1px solid var(--light_color);
-      border-radius: var(--radius_button);
-      color: var(--dark_color);
-      padding: 0.5rem;
-      margin-top: 3em;
-    }
+  .offerregister {
+    margin: 1rem auto;
+    width: 50vw;
+    border: 1px solid var(--light_color);
+    border-radius: var(--radius_button);
+    color: var(--dark_color);
+    padding: 0.5rem;
+    margin-top: 3em;
   }
 }
