@@ -27,12 +27,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/connexion" element={<ConnexionPage />} />
         <Route path="/offers/:id" element={<OfferDetails />} />
+        <Route path="/createaccount/:type" element={<CreateAccount />} />
         <Route
           element={
             auth.isAuthenticated ? <Outlet /> : <Navigate to="/connexion" />
           }
         >
-          <Route path="/createaccount/:type" element={<CreateAccount />} />
           <Route path="/profil/:type" element={<Profil />} />
           <Route path="/consultant/editOffer" element={<EditOffer />} />
           <Route
