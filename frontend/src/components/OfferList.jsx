@@ -47,7 +47,7 @@ export default function OfferList({ offerList }) {
   }, [listFilter]);
 
   return (
-    <section>
+    <section className="listOffer">
       <button
         className="buttonFilter"
         type="button"
