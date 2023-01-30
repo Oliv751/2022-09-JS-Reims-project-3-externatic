@@ -42,7 +42,58 @@ li {
 .published {
   color: rgb(174, 173, 173);
 }
+.listOffer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 
+  .filter {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    --align-items: flex-end;
+
+    div {
+      display: inline-block;
+    }
+
+    label {
+      display: block;
+      color: var(--dark_color);
+      text-align: center;
+    }
+
+    input,
+    select {
+      border: 1px solid gray;
+      border-radius: 10px;
+      padding: 5px 10px;
+      margin-right: 5px;
+    }
+    input:focus {
+      outline: none;
+      border: 1px solid var(--light_color);
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .crossButton {
+    height: 29px;
+  }
+  button img {
+    width: 15px;
+  }
+
+  .buttonFilter {
+    width: 30px;
+    margin-right: 20px;
+  }
+}
 .City {
   text-transform: uppercase;
 }

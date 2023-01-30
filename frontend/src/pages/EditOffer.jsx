@@ -58,6 +58,7 @@ export default function EditOffer() {
           <label htmlFor="tite">Titre de l'offre</label>
           <input
             type="text"
+            className="offerName"
             name="offerName"
             value={offer.offerName}
             onChange={handleChange}
@@ -91,6 +92,7 @@ export default function EditOffer() {
           <label htmlFor="premises">Lieux</label>
           <input
             type="text"
+            className="location"
             name="location"
             value={offer.location}
             onChange={handleChange}
