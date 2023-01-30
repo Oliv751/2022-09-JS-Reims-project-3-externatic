@@ -12,13 +12,13 @@ li {
     }
 
     h2 {
-      font-size: 1em;
+      font-size: 1.2rem;
       color: var(--light_color);
     }
 
     .description {
       margin-bottom: 1rem;
-      font-size: smaller;
+      font-size: medium;
     }
 
     footer {
@@ -86,4 +86,12 @@ section button img {
 
 .buttonFilter {
   margin-left: 80vw;
+}
+
+.City {
+  text-transform: uppercase;
+}
+
+.offerContract {
+  text-transform: lowercase;
 }
