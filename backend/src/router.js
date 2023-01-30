@@ -57,6 +57,7 @@ router.post(
 
 router.use(verifyToken); // authentication wall : verifyToken is activated for each route after this line
 
+router.get("/consultants/:id/offers", offerControllers.browseByConsultantId);
 router.put("/offers/:id", offerControllers.edit);
 router.post("/offers", offerControllers.add);
 router.delete("/offers/:id", offerControllers.destroy);
