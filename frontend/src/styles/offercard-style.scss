@@ -104,8 +104,7 @@ li {
   text-transform: lowercase;
 }
 
-@media screen and (min-width: 1100px){
-  
+@media screen and (min-width: 1100px) {
   .listOffer {
     display: flex;
     flex-direction: column;
@@ -114,5 +113,9 @@ li {
 
   .buttonFilter {
     align-self: flex-end;
+  }
+
+  .listOffer .filter {
+    width: 30vw;
   }
 }
