@@ -253,7 +253,7 @@ function Experience() {
         )}
       </section>
       <section className="experience-list">
-        <h2 className="exp-title">Mes expériences professionnelles</h2>
+        <h2 className="exp-title-list">Mes expériences professionnelles</h2>
         {experiences
           .sort((a, b) => {
             const dateA = new Date(a.startDate);
