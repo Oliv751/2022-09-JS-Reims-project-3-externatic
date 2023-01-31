@@ -44,10 +44,27 @@ function CandidateArea() {
   }, [auth.isAuthenticated]);
 
   const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
+    if (event.target.name === "contract") {
+      if (event.target.checked) {
+        setFormData({
+          ...formData,
+          contract: `${formData.contract},${event.target.value}`,
+        });
+      } else {
+        setFormData({
+          ...formData,
+          contract: formData.contract
+            .split(",")
+            .filter((typeOfContract) => typeOfContract !== event.target.value)
+            .join(","),
+        });
+      }
+    } else {
+      setFormData({
+        ...formData,
+        [event.target.name]: event.target.value,
+      });
+    }
   };
 
   const handleSubmit = (event) => {
@@ -152,16 +169,6 @@ function CandidateArea() {
                 onChange={handleChange}
               />
             </div>
-            <div>
-              <label htmlFor="contract">Type de contrat</label>
-              <input
-                id="contract"
-                type="text"
-                name="contract"
-                value={formData.contract}
-                onChange={handleChange}
-              />
-            </div>
 
             <section className="methodOfContact">
               <h1>Modes de contact</h1>
@@ -195,10 +202,10 @@ function CandidateArea() {
                 <label htmlFor="cdd">CDD</label>
                 <input
                   id="cdd"
-                  type="radio"
+                  type="checkbox"
                   name="contract"
                   value="cdd"
-                  checked={formData.contract === "cdd"}
+                  checked={formData.contract.includes("cdd")}
                   onChange={handleChange}
                 />
               </div>
@@ -206,10 +213,10 @@ function CandidateArea() {
                 <label htmlFor="cdi">CDI</label>
                 <input
                   id="cdi"
-                  type="radio"
+                  type="checkbox"
                   name="contract"
                   value="cdi"
-                  checked={formData.contract === "cdi"}
+                  checked={formData.contract.includes("cdi")}
                   onChange={handleChange}
                 />
               </div>
@@ -217,10 +224,10 @@ function CandidateArea() {
                 <label htmlFor="stage">Stage</label>
                 <input
                   id="stage"
-                  type="radio"
+                  type="checkbox"
                   name="contract"
                   value="stage"
-                  checked={formData.contract === "stage"}
+                  checked={formData.contract.includes("stage")}
                   onChange={handleChange}
                 />
               </div>
@@ -228,10 +235,10 @@ function CandidateArea() {
                 <label htmlFor="alternance">Alternance</label>
                 <input
                   id="alternance"
-                  type="radio"
+                  type="checkbox"
                   name="contract"
                   value="alternance"
-                  checked={formData.contract === "alternance"}
+                  checked={formData.contract.includes("alternance")}
                   onChange={handleChange}
                 />
               </div>

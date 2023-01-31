@@ -72,6 +72,7 @@
       border: 1px solid var(--light_color);
     }
 
+    select,
     input,
     textarea {
       margin: 5px 0;
@@ -80,14 +81,25 @@
       padding: 5px;
     }
 
-    button {
+    .candidateFormButtons {
       display: flex;
-      margin: auto;
-      margin-top: 0.5rem;
-      border: 1px solid var(--light_color);
-      border-radius: var(--radius_button);
-      color: var(--dark_color);
-      padding: 0.5rem;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 1rem;
+      gap: 1rem;
+
+      .cancel-button {
+        border: 1px solid var(--light_color);
+        border-radius: var(--radius_button);
+        color: var(--dark_color);
+        padding: 0.5rem 1rem;
+      }
+      .submit-button {
+        border: 1px solid var(--dark_color);
+        background-color: var(--light_color);
+        color: white;
+        padding: 0.5rem 1rem;
+      }
     }
   }
 }
@@ -97,32 +109,39 @@
   margin-top: 2rem;
   
   .one-experience {
-  margin-top: 1rem;
+    margin: 1rem 0.5rem;
+    padding: 0.5rem;
+    font-size: medium;
+
+    & > * {
+      margin-bottom: 1rem;
+    }
   }
 
   h3 {
     font-size: 1.2rem;
     margin: 0.2rem 0;
     color: var(--light_color);
+    display: flex;
+    align-items: center;
   }
 
   .exp-company {
     font-size: 1rem;
-    margin: 0.2rem 0;
     font-weight: 600;
   }
 
   .exp-desc {
     font-size: 1.1rem;
-    margin: 0.4rem 0;
     font-weight: 500;
   }
 
   .exp-date {
     display: flex;
-    gap: 0.2rem;
+    justify-content: start;
+    gap: 1rem;
     font-size: 1rem;
-    margin: 0.4rem 0;
+    color: rgb(174, 173, 173);
   }
 
   .exp-date-text {
@@ -154,4 +173,18 @@
     color: var(--light_color);
   }
 
+}
+
+@media screen and (min-width: 1100px){
+  .exp-title{
+    padding: 0 13.6rem;
+  }
+
+  .experience-list{
+    padding: 0 13.6rem;
+  }
+
+  .exp-desc {
+    max-width: 80vw;
+  }
 }

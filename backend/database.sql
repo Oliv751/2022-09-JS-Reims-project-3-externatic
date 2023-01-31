@@ -15,8 +15,7 @@ VALUES (
         'externatic.consultant@gmail.com',
         '$argon2id$v=19$m=65536,t=5,p=1$GtxtHcddU56yS/qwiNJPLA$lXWIVeBIDCZ8Ng18sQGGwCvghiAvlkGoREzcunVzE/Q',
         'consultant'
-    ),
-    (
+    ), (
         2,
         '0607446215',
         'externatic.candidat@gmail.com',
@@ -57,7 +56,22 @@ CREATE TABLE
     ) engine = InnoDB DEFAULT charset = utf8;
 
 INSERT INTO category (id, name)
-VALUES (1, 'C/C++'), (2, 'Infrastructure / Cloud'), (3, '.Net / C#'), (4, 'Autres technologies'), (5, 'Data / Big Data / Datascience'), (6, 'DevOps'), (7, 'Emplois Business & Marketing'), (8, 'Externatic (interne)'), (9, 'Industrie'), (10, 'Informatique industrielle / Scientifique / R&D'), (11, 'Java'), (12, 'JS'), (13, 'Management / Gestion de projet'), (14, 'Mobile'), (15, 'PHP'), (16, 'PO / PPO / AMOA / Fonctionnel'), (17, 'Python / GO / Ruby'), (18, 'QA / Test'), (19, 'UX UI / Intégration Web'), (20, 'WebMarketing');
+VALUES (1, 'C/C++'), (2, 'Infrastructure / Cloud'), (3, '.Net / C#'), (4, 'Autres technologies'), (
+        5,
+        'Data / Big Data / Datascience'
+    ), (6, 'DevOps'), (
+        7,
+        'Emplois Business & Marketing'
+    ), (8, 'Externatic (interne)'), (9, 'Industrie'), (
+        10,
+        'Informatique industrielle / Scientifique / R&D'
+    ), (11, 'Java'), (12, 'JS'), (
+        13,
+        'Management / Gestion de projet'
+    ), (14, 'Mobile'), (15, 'PHP'), (
+        16,
+        'PO / PPO / AMOA / Fonctionnel'
+    ), (17, 'Python / GO / Ruby'), (18, 'QA / Test'), (19, 'UX UI / Intégration Web'), (20, 'WebMarketing');
 
 CREATE TABLE
     experience (
@@ -130,7 +144,7 @@ VALUES (
         'Steve',
         'Johnson',
         '6 rue de Saint Brice 51100 REIMS',
-        'CDI',
+        'cdi',
         2,
         1
     );
@@ -196,8 +210,7 @@ Pour la partie métier : une simple envie suffit mais si par bonheur tu as déj�
 Tu es arrivé jusqu'ici, c'est que le poste est fait pour toi, à toi de postuler !",
         "2013-04-02 12:45:34",
         1
-    ),
-    (
+    ), (
         2,
         "Mon client est un grand groupe Nantais spécialisé dans l’infogérance et l’édition de logiciels de renommés. Il existe depuis de 50 ans ! Pour fêter cet événement, ils ont pour objectif de doubler le chiffre d’affaires en doublant l'effectif.
 
@@ -232,8 +245,7 @@ Ingénieur infrastructure confirmé et autonome sur l'environnement Linux, vous 
     Êtes curieux et souhaitez consolider vos compétences sur les technos évoquées",
         "2013-09-02 09:08:47",
         1
-    ),
-    (
+    ), (
         3,
         "Mon client est un grand groupe Nantais spécialisé dans l’infogérance et l’édition de logiciels de renommés. Il existe depuis de 50 ans ! Pour fêter cet événement, ils ont pour objectif de doubler le chiffre d’affaires en doublant l'effectif.
 
@@ -268,8 +280,7 @@ Ingénieur infrastructure confirmé et autonome sur l'environnement Linux, vous 
     Êtes curieux et souhaitez consolider vos compétences sur les technos évoquées",
         "2023-01-26 11:35:47",
         1
-    ),
-    (
+    ), (
         4,
         "Mon client est un grand groupe Nantais spécialisé dans l’infogérance et l’édition de logiciels de renommés. Il existe depuis de 50 ans ! Pour fêter cet événement, ils ont pour objectif de doubler le chiffre d’affaires en doublant l'effectif.
 
@@ -305,4 +316,3 @@ Ingénieur infrastructure confirmé et autonome sur l'environnement Linux, vous 
         "2023-01-26 11:39:25",
         1
     );
-
