@@ -186,8 +186,8 @@ export default function ConsultantArea() {
           <ul>
             {offers.map((offer) => {
               return (
-                <li>
-                  <OfferCard key={offer.id} offer={offer} />
+                <li key={offer.id}>
+                  <OfferCard offer={offer} />
                 </li>
               );
             })}
