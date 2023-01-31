@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { HiOutlinePlusCircle, HiOutlineMinusCircle } from "react-icons/hi";
-import { CiEdit } from "react-icons/ci";
+import { RiEdit2Line } from "react-icons/ri";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { AuthContext } from "../contexts/AuthContext";
 import Header from "../components/Header";
@@ -265,7 +265,7 @@ function Experience() {
               <h3>
                 {experience.job_name}
                 <button type="button" onClick={() => startEdit(experience)}>
-                  <CiEdit className="edit-icon" />
+                  <RiEdit2Line className="edit-icon" />
                 </button>
                 <button
                   type="button"
