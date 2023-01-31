@@ -30,7 +30,6 @@ export default function ConsultantArea() {
         }
       )
       .then((response) => {
-        console.warn(response.data);
         setOffers(response.data);
       });
   }, []);
