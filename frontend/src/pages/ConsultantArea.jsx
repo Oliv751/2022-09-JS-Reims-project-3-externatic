@@ -20,7 +20,7 @@ export default function ConsultantArea() {
   useEffect(() => {
     axios
       .get(
-        `${import.meta.env.VITE_BACKEND_URL}/consultant/${
+        `${import.meta.env.VITE_BACKEND_URL}/consultants/${
           auth.consultantId
         }/offers`,
         {
@@ -184,9 +184,15 @@ export default function ConsultantArea() {
               <button type="button">Ajouter une offre</button>
             </NavLink>
           </div>
-          {offers.map((offer) => {
-            return <OfferCard key={offer.id} offer={offer} />;
-          })}
+          <ul>
+            {offers.map((offer) => {
+              return (
+                <li>
+                  <OfferCard key={offer.id} offer={offer} />
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </section>
     </>
