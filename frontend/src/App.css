@@ -5,4 +5,7 @@
   --color_gray: gray;
   --radius_button: 10px;
   font-family: "Jost", sans-serif;
+
+  --toastify-color-progress-light: #ca2061;
+  --toastify-text-color-light: #ca2061;
 }
