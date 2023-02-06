@@ -19,19 +19,44 @@ export default function OfferList({ offerList }) {
     const newArray = offerList
       .filter((offer) =>
         listFilter.ville
-          ? offer.location.toLowerCase().match(`^${listFilter.ville}.*?`, "gmi")
+          ? offer.location
+              .toLowerCase()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+              .match(
+                `^${listFilter.ville
+                  .toLowerCase()
+                  .normalize("NFD")
+                  .replace(/[\u0300-\u036f]/g, "")}.*?`,
+                "gmi"
+              )
           : true
       )
       .filter((offer) =>
         listFilter.contract
-          ? offer.contract.toLowerCase() === listFilter.contract.toLowerCase()
+          ? offer.contract
+              .toLowerCase()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "") ===
+            listFilter.contract
+              .toLowerCase()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
           : true
       )
       .filter((offer) =>
         listFilter.title
           ? offer.offer_name
               .toLowerCase()
-              .match(`^${listFilter.title}.*?`, "gmi")
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+              .match(
+                `^${listFilter.title
+                  .toLowerCase()
+                  .normalize("NFD")
+                  .replace(/[\u0300-\u036f]/g, "")}.*?`,
+                "gmi"
+              )
           : true
       );
 
