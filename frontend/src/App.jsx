@@ -16,6 +16,7 @@ import OfferDetails from "./pages/OfferDetails";
 import ConnexionPage from "./pages/ConnexionPage";
 import CreateAccount from "./pages/CreateAccount";
 import EditOffer from "./pages/EditOffer";
+import ConsultCandProfile from "./pages/Consult_candProfile";
 
 import "./App.css";
 
@@ -52,6 +53,10 @@ function App() {
             <Route
               path="profil/candidate/experiences"
               element={<CandidateExperience />}
+            />
+            <Route
+              path="/ConsultCandProfile"
+              element={<ConsultCandProfile />}
             />
           </Route>
         </Routes>
