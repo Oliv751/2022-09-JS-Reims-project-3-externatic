@@ -3,6 +3,7 @@ import axios from "axios";
 import { HiOutlinePlusCircle, HiOutlineMinusCircle } from "react-icons/hi";
 import { RiEdit2Line } from "react-icons/ri";
 import { MdOutlineDeleteForever } from "react-icons/md";
+import { notifyAdd, notifyDelete, notifyEdit } from "../services/notifyToasts";
 import { AuthContext } from "../contexts/AuthContext";
 import Header from "../components/Header";
 import "../styles/candidateExperience.scss";
@@ -69,7 +70,6 @@ function Experience() {
       })
       .then((response) => {
         if (response.status === 201) {
-          alert("Votre expérience a bien été ajoutée !");
           setFormData({
             job_name: "",
             company_name: "",
@@ -79,6 +79,7 @@ function Experience() {
             candidate_id: auth.candidateId,
             category_id: null,
           });
+          notifyAdd();
           setAction("Ajouter");
           fetchExperiences();
         }
@@ -96,7 +97,7 @@ function Experience() {
       })
       .then((response) => {
         if (response.status === 204) {
-          alert("Votre expérience a bien été supprimée !");
+          notifyDelete();
           fetchExperiences();
         }
       })
@@ -144,7 +145,7 @@ function Experience() {
       })
       .then((response) => {
         if (response.status === 204) {
-          alert("Votre expérience a bien été modifiée !");
+          notifyEdit();
           stopEdit();
           fetchExperiences();
         }
