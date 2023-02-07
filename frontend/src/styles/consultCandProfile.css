@@ -1,4 +1,66 @@
-.candidate-experience {
-  
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-     
+
+.btn-primary {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  border-radius: 10px;
+  padding: 5px;
+  outline: none;
+  border: 1px solid gray;
+}
+
+.description {
+  padding-bottom: 1rem;
+}
+
+.CPForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.candidate-personal-info {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: solid 1px var(--light_color);
+  border-top: solid 1px var(--light_color);
+}
+
+.perso-title {
+  margin-bottom: 1rem;
+  color: var(--light_color);
+}
+
+.candidate-experience {
+  margin-top: 1rem;
+  display: inline;
+}
+
+.experience-title {
+  margin-bottom: 1rem;
+  color: var(--light_color);
+}
+
+label {
+  color: var(--dark_color);
+}
+
+span {
+  font-weight: bold;
+}
+
+p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+  text-align: justify;
+}
