@@ -176,6 +176,11 @@ export default function ConsultantArea() {
           </section>
         </form>
         <div>
+          <div className="consultCandidateProfil">
+            <NavLink to="/ConsultCandProfile" className="button">
+              <button type="button">Consulter un profil</button>
+            </NavLink>
+          </div>
           <div className="offer">
             <h2>Mes offres</h2>
 

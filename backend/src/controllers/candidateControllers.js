@@ -13,9 +13,25 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
+  models.candidate
+    .find(req.params.id)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows[0]);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const readByUserId = (req, res) => {
   const userId = parseInt(req.params.userId, 10);
   models.candidate
-    .find(userId)
+    .findByUserId(userId)
     .then(([rows]) => {
       if (rows[0] == null) {
         res.sendStatus(404);
@@ -83,6 +99,7 @@ const destroy = (req, res) => {
 module.exports = {
   browse,
   read,
+  readByUserId,
   edit,
   add,
   destroy,

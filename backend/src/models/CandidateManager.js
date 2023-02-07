@@ -32,7 +32,7 @@ class CandidateManager extends AbstractManager {
     );
   }
 
-  find(id) {
+  findByUserId(id) {
     return this.connection.query(
       `select user.id, user.phone, user.email, candidate.id as candidate_id, candidate.firstName, candidate.lastName, candidate.address, candidate.contract from user join candidate on user.id = candidate.user_id where user.id = ?`,
       [id]
