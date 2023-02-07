@@ -31,7 +31,7 @@ const read = (req, res) => {
 const readByUserId = (req, res) => {
   const userId = parseInt(req.params.userId, 10);
   models.candidate
-    .find(userId)
+    .findByUserId(userId)
     .then(([rows]) => {
       if (rows[0] == null) {
         res.sendStatus(404);

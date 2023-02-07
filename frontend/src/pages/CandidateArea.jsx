@@ -21,7 +21,7 @@ function CandidateArea() {
   useEffect(() => {
     if (auth.isAuthenticated) {
       axios
-        .get(`${import.meta.env.VITE_BACKEND_URL}/candidates/${auth.id}`, {
+        .get(`${import.meta.env.VITE_BACKEND_URL}/candidates/user/${auth.id}`, {
           headers: { Authorization: `Bearer ${auth.token}` },
         })
         .then((response) => {

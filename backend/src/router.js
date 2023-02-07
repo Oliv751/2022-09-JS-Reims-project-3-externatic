@@ -79,7 +79,7 @@ router.delete("/consultants/:id", consultantControllers.destroy);
 
 router.get("/candidates", candidateControllers.browse);
 router.get("/candidates/:id", candidateControllers.read);
-router.get("/candidates/:userId", candidateControllers.readByUserId);
+router.get("/candidates/user/:userId", candidateControllers.readByUserId);
 router.put("/candidates/:id", candidateControllers.edit);
 router.delete("/candidates/:id", candidateControllers.destroy);
 
