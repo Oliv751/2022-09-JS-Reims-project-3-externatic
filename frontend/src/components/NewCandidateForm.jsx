@@ -24,6 +24,7 @@ export default function NewCandidateForm() {
           phone: phoneRef.current.value,
           address: addressRef.current.value,
           email: emailRef.current.value,
+          contract: "cdi",
           password,
           role: "candidate",
         })

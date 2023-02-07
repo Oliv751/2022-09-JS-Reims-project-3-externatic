@@ -46,7 +46,7 @@
 }
 
 .experience-title {
-  margin-bottom: 1rem;
+  margin-top: 1rem;
   color: var(--light_color);
 }
 
@@ -63,4 +63,10 @@ p {
   justify-content: space-between;
   margin-bottom: 0.4rem;
   text-align: justify;
+}
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }

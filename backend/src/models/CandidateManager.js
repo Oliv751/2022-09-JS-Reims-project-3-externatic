@@ -14,8 +14,14 @@ class CandidateManager extends AbstractManager {
    */
   insert(candidate) {
     return this.connection.query(
-      `insert into ${this.table} ( firstname , lastname , user_id, address) value (? , ? , ?, ?)`,
-      [candidate.firstname, candidate.lastname, candidate.id, candidate.address]
+      `insert into ${this.table} ( firstname , lastname , contract, user_id, address) value (?, ?, ?, ?, ?)`,
+      [
+        candidate.firstname,
+        candidate.lastname,
+        candidate.contract,
+        candidate.id,
+        candidate.address,
+      ]
     );
   }
 
