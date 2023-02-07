@@ -6,7 +6,6 @@ const offerControllers = require("./controllers/offerControllers");
 const consultantControllers = require("./controllers/consultantControllers");
 const candidateControllers = require("./controllers/candidateControllers");
 const userControllers = require("./controllers/userControllers");
-const documentControllers = require("./controllers/documentControllers");
 const categoryControllers = require("./controllers/categoryControllers");
 const experienceControllers = require("./controllers/experienceControllers");
 const {
@@ -38,12 +37,6 @@ router.post(
 );
 
 router.post("/users", userControllers.add);
-
-router.get("/documents", documentControllers.browse);
-router.get("/documents/:id", documentControllers.read);
-router.put("/documents/:id", documentControllers.edit);
-router.post("/documents", documentControllers.add);
-router.delete("/documents/:id", documentControllers.destroy);
 
 // /!\ login should be a public route
 
