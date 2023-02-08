@@ -10,9 +10,9 @@ export default function OfferList({ offerList }) {
   const [visible, setVisible] = useState(false);
   const [offerFilter, setOfferFilter] = useState([]);
   const [listFilter, setListFilter] = useState({
-    ville: null,
-    contract: null,
-    title: null,
+    ville: "",
+    contract: "",
+    title: "",
   });
 
   const filtre = () => {

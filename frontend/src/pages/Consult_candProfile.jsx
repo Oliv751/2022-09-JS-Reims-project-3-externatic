@@ -92,7 +92,7 @@ function ConsultCandProfile() {
       {auth && (
         <div className="container">
           <Header />
-          <form onSubmit={onSubmit}>
+          <form onSubmit={onSubmit} className="CPForm">
             <div className="form-group">
               <label htmlFor="firstName">Prénom</label>
               <input
@@ -124,23 +124,54 @@ function ConsultCandProfile() {
           {candidateData && (
             <div className="candidate-info">
               <div className="candidate-personal-info">
-                <h3>Informations personnelles</h3>
-                <p>Prénom: {candidateData.firstname}</p>
-                <p>Nom: {candidateData.lastname}</p>
-                <p>Email: {candidateData.email}</p>
-                <p>Téléphone: {candidateData.phone}</p>
+                <h3 className="perso-title">Informations personnelles</h3>
+                <p>
+                  <span>Prénom:</span>
+                  {candidateData.firstname}
+                </p>
+                <p>
+                  <span>Nom:</span>
+                  {candidateData.lastname}
+                </p>
+                <p>
+                  <span>Email:</span>
+                  {candidateData.email}
+                </p>
+                <p>
+                  <span>Téléphone:</span>
+                  {candidateData.phone}
+                </p>
               </div>
               <div className="candidate-experience">
-                <h3>Expériences</h3>
+                <h3 className="experience-title">Expériences</h3>
                 {candidateData.experiences.map((experience) => (
                   <div key={experience.id} className="experience">
-                    <p>Poste: {experience.job_name}</p>
-                    <p>Entreprise: {experience.company_name}</p>
                     <p>
-                      Période: {experience.startDate} -{" "}
-                      {experience.endDate || "Présent"}
+                      <span>Poste:</span>
+                      {experience.job_name}
                     </p>
-                    <p>Description: {experience.experience_description}</p>
+                    <p>
+                      <span>Entreprise:</span>
+                      {experience.company_name}
+                    </p>
+                    <br />
+                    <p className="exp-date">
+                      <time dateTime={experience.startDate}>
+                        {experience.startDate?.slice(0, 10)}
+                      </time>{" "}
+                      &gt;{" "}
+                      <time dateTime={experience.endDate}>
+                        {experience.endDate?.slice(0, 10)}
+                      </time>
+                    </p>
+                    <br />
+                    <p className="description">
+                      <span>Description:</span>
+                      <br />
+                      <br />
+                      {experience.experience_description}
+                    </p>
+                    <hr />
                   </div>
                 ))}
               </div>
