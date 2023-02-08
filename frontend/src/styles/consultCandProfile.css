@@ -58,7 +58,7 @@ span {
   font-weight: bold;
 }
 
-p {
+.detailsCand {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.4rem;
