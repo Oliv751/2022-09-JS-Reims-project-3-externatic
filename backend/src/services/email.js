@@ -51,6 +51,10 @@ const sendEmail = (req, res) => {
   <td>Email :</td>
   <td>${candidateInformation.email}</td>
   </tr>
+    <tr>
+  <td>Téléphone :</td>
+  <td>${candidateInformation.phone}</td>
+  </tr>
       <tr>
   <td>Adresse :</td>
   <td>${candidateInformation.address}</td>
