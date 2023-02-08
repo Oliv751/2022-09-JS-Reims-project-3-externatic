@@ -125,19 +125,19 @@ function ConsultCandProfile() {
             <div className="candidate-info">
               <div className="candidate-personal-info">
                 <h3 className="perso-title">Informations personnelles</h3>
-                <p>
+                <p className="detailsCand">
                   <span>Prénom:</span>
                   {candidateData.firstname}
                 </p>
-                <p>
+                <p className="detailsCand">
                   <span>Nom:</span>
                   {candidateData.lastname}
                 </p>
-                <p>
+                <p className="detailsCand">
                   <span>Email:</span>
                   {candidateData.email}
                 </p>
-                <p>
+                <p className="detailsCand">
                   <span>Téléphone:</span>
                   {candidateData.phone}
                 </p>

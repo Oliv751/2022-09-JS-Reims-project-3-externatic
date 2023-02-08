@@ -10,8 +10,10 @@ $colors: (
   /*positioner la marge à 0*/
   padding: 0;
   /*positionner le bord à 0*/
-  background-color: $background-color;
-  /*couleur de fond*/
+}
+
+button {
+  background-color: $background-color;  
 }
 
 hr.rounded1 {
